@@ -13,14 +13,7 @@ const Contact = () => {
             .sendForm('service_gjhs94d', 'template_i8queid', form.current, {
                 publicKey: 'ID02cnIwxSCL9HOqx',
             })
-            .then(
-                () => {
-                    console.log('SUCCESS!');
-                },
-                (error) => {
-                    console.log('FAILED...', error.text);
-                },
-            );
+            e.target.reset()
     };
 
     return (

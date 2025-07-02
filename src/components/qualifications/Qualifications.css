@@ -31,7 +31,7 @@
 
 .qualification__sections {
   display: grid;
-  grid-template-columns: 0.5fr;
+  grid-template-columns: 0.55fr;
   justify-content: center;
 }
 

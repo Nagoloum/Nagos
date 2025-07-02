@@ -8,20 +8,20 @@ export const Data = [
     image: Image1,
     title: "Arthur Fotso",
     description:
-      "A really good job, all aspects of the project were followed step by step and with good results.",
+      "Ce portfolio réflète un vrai sens du design et une solide maîtrise technique. Les projets sont biens présentés, modernes, et surtout très professionnels. Bravo !",
   },
   {
     id: 2,
     image: Image2,
     title: "Rostile Tchouala",
     description:
-      "A really good job, all aspects of the project were followed step by step and with good results.",
+      "J'ai été impréssioné par la qualité du travail. Chaque détail est soigné, et l'interface est à la fois élégante et fonctionnelle. On voit clairement la passion derrière chaque projet.",
   },
   {
     id: 3,
     image: Image3,
     title: "Tatiana Manyda",
     description:
-      "A really good job, all aspects of the project were followed step by step and with good results.",
+      "Je suis tombé sur ce site par hasard et j'ai tout de suite accroché. C'est clair, rapide, intuitif.... Franchement, c'est du très bon boulot. Continue comme ça !",
   },
 ];

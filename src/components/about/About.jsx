@@ -16,7 +16,7 @@ const About = () => {
                     <Info />
 
                     <p className="about__description">
-                        Développeur frontend et Backend, je crée des pages web avec interface utilisateur UI/UX, j'ai des années d'expérience et de nombreux clients sont satisfaits des projets réalisés.
+                        Développeur Frontend et Backend, je crée des pages web avec interface utilisateur UI/UX. Je donne également des formations en trading. j'ai des années d'expérience et de nombreux clients sont satisfaits des projets réalisés.
                     </p>
 
                     <a download="" href={CV} className="button button--flex">

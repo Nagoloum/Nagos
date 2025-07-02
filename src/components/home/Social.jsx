@@ -1,4 +1,5 @@
 import React from 'react'
+import ThemeToggle from './ThemeToggle'
 
 const Social = () => {
   return (
@@ -18,6 +19,8 @@ const Social = () => {
     <a href="https://github.com/Nagoloum" className="home__social-icon" target='_blank'>
         <i className="uil uil-github-alt"></i>
     </a>
+    
+    <ThemeToggle />
    </div>
   )
 }

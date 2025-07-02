@@ -12,7 +12,7 @@ const Workitems = ({ item }) => {
                 <img src={item.image} alt="" className='work__img' />
                 <h3 className="work__title">{item.title}</h3>
                 {item.category === 'Web' ? (
-                    <a href={item.link} className="work__button">
+                    <a href={item.link} className="work__button" target='blank_'>
                         Demo <i className="uil uil-arrow-right work__button-icon"></i>
                     </a>
                 ) : (

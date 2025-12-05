@@ -12,7 +12,7 @@ const Social = () => {
         <i className="uil uil-facebook-f"></i>
     </a>
     
-    <a href="https://wa.me/237698408048?text=Salut%20Nagoloum%20je%20suis%20intéréssé(e)%20par%20un%20des%20services%20de%20ton%20Portfolio." className="home__social-icon" target='_blank'>
+    <a href="https://wa.me/33769477997?text=Salut%20Nagoloum%20je%20suis%20intéréssé(e)%20par%20un%20des%20services%20de%20ton%20Portfolio." className="home__social-icon" target='_blank'>
         <i className="uil uil-whatsapp"></i>
     </a>
     

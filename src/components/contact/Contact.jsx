@@ -41,17 +41,17 @@ const Contact = () => {
                         <div className="contact__card">
                             <i className="bxr  bx-envelope contact__card-icon"></i>
                             <h3 className="contact__card-title">Email</h3>
-                            <span className="contact__card-data">landhack049@gmail.com</span>
+                            <span className="contact__card-data">danielnagoloum@gmail.com</span>
 
-                            <a href="mailto:landhack049@gmail.com" target='blank_' className="contact__button">Ecrivez-moi <i className="uil uil-arrow-right contact__button-icon"></i></a>
+                            <a href="mailto:danielnagoloum@gmail.com" target='blank_' className="contact__button">Ecrivez-moi <i className="uil uil-arrow-right contact__button-icon"></i></a>
                         </div>
 
                         <div className="contact__card">
                             <i className="uil uil-whatsapp contact__card-icon"></i>
                             <h3 className="contact__card-title">Whatsapp</h3>
-                            <span className="contact__card-data">+237-698-40-80-48</span>
+                            <span className="contact__card-data">+33 7 69 47 79 97</span>
 
-                            <a href="https://wa.me/237698408048?text=Salut%20Nagoloum%20je%20suis%20intéréssé(e)%20par%20un%20des%20services%20de%20ton%20Portfolio." target='blank_' className="contact__button">Ecrivez-moi <i className="uil uil-arrow-right contact__button-icon"></i></a>
+                            <a href="https://wa.me/33769477997?text=Salut%20Nagoloum%20je%20suis%20intéréssé(e)%20par%20un%20des%20services%20de%20ton%20Portfolio." target='blank_' className="contact__button">Ecrivez-moi <i className="uil uil-arrow-right contact__button-icon"></i></a>
                         </div>
 
                         <div className="contact__card">

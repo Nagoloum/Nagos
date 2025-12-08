@@ -49,9 +49,9 @@ const Contact = () => {
                         <div className="contact__card">
                             <i className="uil uil-whatsapp contact__card-icon"></i>
                             <h3 className="contact__card-title">Whatsapp</h3>
-                            <span className="contact__card-data">+33 7 69 47 79 97</span>
+                            <span className="contact__card-data">+33 6 25 83 90 07</span>
 
-                            <a href="https://wa.me/33769477997?text=Salut%20Nagoloum%20je%20suis%20intéréssé(e)%20par%20un%20des%20services%20de%20ton%20Portfolio." target='blank_' className="contact__button">Ecrivez-moi <i className="uil uil-arrow-right contact__button-icon"></i></a>
+                            <a href="https://wa.me/33625839007?text=Salut%20Nagoloum%20je%20suis%20intéréssé(e)%20par%20un%20des%20services%20de%20ton%20Portfolio." target='blank_' className="contact__button">Ecrivez-moi <i className="uil uil-arrow-right contact__button-icon"></i></a>
                         </div>
 
                         <div className="contact__card">
@@ -71,7 +71,7 @@ const Contact = () => {
                     <form ref={form} onSubmit={sendEmail} className="contact__form">
                         {/* Champs */}
                         <div className="contact__form-div">
-                            <label className="contact__form-tag">Name</label>
+                            <label className="contact__form-tag">Nom</label>
                             <input type="text" name="name" className="contact__form-input" placeholder="Entrez votre nom..."  required/>
                         </div>
 

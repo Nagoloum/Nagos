@@ -19,8 +19,10 @@ const Header = () => {
     return (
         <header className="header">
             <nav className="nav container">
-                <a href="index.html" className="nav__logo">Nagoloum.  </a>
-
+                <a href="/" className="nav__logo">
+                    <img src="/logopng.png" alt="Nagoloum Logo" className="nav__logo-img" />
+                    Nagoloum.
+                </a>
                 <div className={Toggle ? "nav__menu show-menu" : "nav__menu"}>
                     <ul className="nav__list grid">
                         <li className="nav__item">
@@ -50,6 +52,12 @@ const Header = () => {
                         <li className="nav__item">
                             <a href="#portfolio" onClick={() => setActiveNav('#portfolio')} className={activeNav === "#portfolio" ? "nav__link active-link" : "nav__link"}>
                                 <i className="uil uil-scenery nav__icon"></i> Portfolio
+                            </a>
+                        </li>
+
+                        <li className="nav__item">
+                            <a href="#testimonials" onClick={() => setActiveNav('#testimonials')} className={activeNav === "#testimonials" ? "nav__link active-link" : "nav__link"}>
+                                <i className="uil uil-chat nav__icon"></i> Témoignages
                             </a>
                         </li>
 

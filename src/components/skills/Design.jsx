@@ -3,7 +3,7 @@ import React from 'react'
 const Design = () => {
     return (
         <div className="skills__content">
-            <h3 className="skills__title">Designer / Trader</h3>
+            <h3 className="skills__title">Design / Trading</h3>
 
             <div className="skills__box">
                 <div className="skills__group">
@@ -21,7 +21,7 @@ const Design = () => {
 
                         <div>
                             <h3 className="skills__name">PhotoShop</h3>
-                            <span className="skills__level">Basique</span>
+                            <span className="skills__level">Moyen</span>
                         </div>
                     </div>
 
@@ -30,7 +30,17 @@ const Design = () => {
 
                         <div>
                             <h3 className="skills__name">Illustrator</h3>
-                            <span className="skills__level">Basique</span>
+                            <span className="skills__level">Moten</span>
+                        </div>
+
+                    </div>
+                   
+                    <div className="skills__data">
+                        < i class='bx bx-badge-check'></i>
+
+                        <div>
+                            <h3 className="skills__name">Filmora</h3>
+                            <span className="skills__level">Avancé</span>
                         </div>
 
                     </div>

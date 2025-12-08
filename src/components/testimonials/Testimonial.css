@@ -46,3 +46,54 @@
         padding: 1.25rem 1.5rem;
     }
 }
+
+
+/* Centrage du contenu uniquement pour la section testimonials */
+.testimonial.container.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* Conteneur du formulaire limité et centré */
+.testimonial .contact__content {
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Formulaire : champs pleine largeur dans la zone */
+.testimonial .contact__form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+.testimonial .contact__form-div {
+  width: 100%;
+}
+
+/* Inputs et textarea pleine largeur */
+.testimonial .contact__form-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+}
+
+/* Ajustement textarea pour une hauteur raisonnable */
+.testimonial .contact__form-area .contact__form-input {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+/* PETIT : ajustements responsive */
+@media screen and (max-width: 576px) {
+  .testimonial .testimonial__container { width: 100%; padding: 0 1rem; }
+  .testimonial .contact__content { padding: 0 0.5rem; }
+}

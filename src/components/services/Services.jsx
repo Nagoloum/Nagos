@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import "./Services.css";
+import Flyer_FR from "../../assets/FlyerFR.jpg";
+import Flyer_EN from "../../assets/FlyerEN.jpg";
 
 const Services = () => {
 
@@ -35,17 +37,17 @@ const Services = () => {
                             <ul className="services__modal-services grid">
                                 <li className="services__modal-service">
                                     <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Conception des Logos.</p>
+                                    <p className="services__modal-info">Conception des Logos, Flyers et Cartes de Visites.</p>
                                 </li>
 
                                 <li className="services__modal-service">
                                     <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Conception des Flyers.</p>
+                                    <p className="services__modal-info">Montages Videos.</p>
                                 </li>
 
                                 <li className="services__modal-service">
                                     <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Conception des Cartes de visites.</p>
+                                    <p className="services__modal-info">Gestion de Communauté.</p>
                                 </li>
 
                                 <li className="services__modal-service">
@@ -53,7 +55,30 @@ const Services = () => {
                                     <p className="services__modal-info">Conception des maquettes de Sites Web et Applications et autres...</p>
                                 </li>
                             </ul>
+                            
+                                Télécharger le Flyer :
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 10, justifyContent: 'center', marginTop: '20px' }}>
+                                <a
+                                    className={`button`}
+                                    href={Flyer_FR}
+                                    download="Flyer_Graphic_Design_FR.jpg"
+                                    style={{ justifyContent: 'center', alignItems: 'center' }}
+                                >
+                                    Flyer en français   
+
+                                </a>
+                                <a
+                                    className={`button`}
+                                    href={Flyer_EN}
+                                    download="Flyer_Graphic_Design_EN.jpg"
+                                    style={{ justifyContent: 'center', alignItems: 'center' }}
+                                >
+                                    Flyer en anglais
+
+                                </a>
+                            </div>
                         </div>
+
                     </div>
                 </div>
 

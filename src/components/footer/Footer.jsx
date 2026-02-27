@@ -25,15 +25,20 @@ const Footer = () => {
                 </ul>
 
                 <div className="footer__social">
-                    <a href="https://www.instagram.com/its_nagos/" className="footer__social-link" target='_blank'>
-                        <i className="uil uil-instagram"></i>
+                    
+                    <a href="mailto:danielnagoloum@gmail.com" target="_blank" className="footer__social-link" >
+                        <i className="uil uil-envelope"></i>
                     </a>
 
-                    <a href="https://web.facebook.com/daniel.nago.595038" className="footer__social-link" target='_blank'>
-                        <i className="uil uil-facebook-f"></i>
+                    <a href="tel:+33625839007" target="_blank" className="footer__social-link" >
+                        <i className="uil uil-phone"></i>
                     </a>
 
-                    <a href="https://wa.me/33769477997?text=Salut%20Nagoloum%20je%20suis%20intéréssé(e)%20par%20un%20des%20services%20de%20ton%20Portfolio." className="footer__social-link" target='_blank'>
+                    <a href="https://www.linkedin.com/in/daniel-nagoloum-talla-a3a574388/" target="_blank" className="footer__social-link" >
+                        <i className="uil uil-linkedin-alt"></i>
+                    </a>
+
+                    <a href="https://wa.me/33625839007?text=Salut%20Nagoloum%20je%20suis%20intéréssé(e)%20par%20un%20des%20services%20de%20ton%20Portfolio." className="footer__social-link" target='_blank'>
                         <i className="uil uil-whatsapp"></i>
                     </a>
 

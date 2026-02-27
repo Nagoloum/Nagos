@@ -4,14 +4,6 @@ import Krossty from '../../assets/krossty.jpg';
 import Qrcode from '../../assets/qrcode.jpg';
 import CMC from '../../assets/cmc.jpg';
 
-import Trading1 from '../../assets/Trading1.jpg';
-import Trading2 from '../../assets/Trading2.png';
-import Trading3 from '../../assets/Trading3.jpg';
-import Trading4 from '../../assets/Trading4.png';
-
-import Bee from '../../assets/bee.jpg';
-import Bee1 from '../../assets/bee1.jpg';
-
 import Flyer1 from '../../assets/Flyer1.jpg';
 import Flyer2 from '../../assets/Flyer2.jpg';
 import Flyer3 from '../../assets/Flyer3.jpg';
@@ -63,96 +55,60 @@ export const projectsData = [
   },
   {
     id: 6,
-    image: Trading1,
-    title: "Bénéfices Trading",
-    category: "Trading",
-  },
-  {
-    id: 7,
-    image: Trading2,
-    title: "Bénéfices Trading",
-    category: "Trading",
-  },
-  {
-    id: 8,
-    image: Trading3,
-    title: "Bénéfices Trading",
-    category: "Trading",
-  },
-  {
-    id: 9,
-    image: Trading4,
-    title: "Bénéfices Trading",
-    category: "Trading",
-  },
-  {
-    id: 10,
-    image: Bee,
-    title: "Bee Logo",
-    category: "Logos",
-  },
-  {
-    id: 11,
-    image: Bee1,
-    title: "Bee Logo",
-    category: "Logos",
-  },
-  {
-    id: 12,
     image: Flyer1,
     title: "Flyer Code Promo",
     category: "Flyers",
   },
   {
-    id: 13,
+    id: 7,
     image: Flyer2,
     title: "Flyer Bonbons",
     category: "Flyers",
   },
   {
-    id: 14,
+    id: 8,
     image: Flyer3,
     title: "Flyer console",
     category: "Flyers",
   },
   {
-    id: 15,
+    id: 9,
     image: Flyer4,
     title: "Flyer Téléphone",
     category: "Flyers",
   },
   {
-    id: 16,
+    id: 10,
     image: Flyer5,
     title: "Flyer Services",
     category: "Flyers",
   },
   {
-    id: 17,
+    id: 11,
     image: Flyer6,
     title: "Flyer Prix Téléphone",
     category: "Flyers",
   },
   {
-    id: 18,
+    id: 12,
     image: design1,
     title: "Bee Web design",
     category: "Web design",
   },
   {
-    id: 19,
+    id: 13,
     image: design2,
     title: "Bee Web design",
     category: "Web design",
   },
   {
-    id: 20,
+    id: 14,
     image: design3,
     title: "Bee Web design",
     category: "Web design",
   },
   {
-    id: 21,
+    id: 15,
     image: design4,
     title: "Bee Web design",
     category: "Web design",
@@ -166,12 +122,6 @@ export const projectsNav = [
   },
   {
     name: 'Web',
-  },
-  {
-    name: 'Trading',
-  },
-  {
-    name: 'Logos',
   },
   {
     name: 'Flyers',

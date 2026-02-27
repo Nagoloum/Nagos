@@ -55,12 +55,12 @@ const Contact = () => {
                         </div>
 
                         <div className="contact__card">
-                            <i className="uil uil-facebook-f contact__card-icon"></i>
+                            <i className="uil uil-linkedin-alt contact__card-icon"></i>
 
-                            <h3 className="contact__card-title">Facebook</h3>
-                            <span className="contact__card-data">Daniel Nago</span>
+                            <h3 className="contact__card-title">LinkedIn</h3>
+                            <span className="contact__card-data">Daniel Nagoloum</span>
 
-                            <a href="https://web.facebook.com/daniel.nago.595038" target='blank_' className="contact__button">Ecrivez-moi <i className="uil uil-arrow-right contact__button-icon"></i></a>
+                            <a href="https://www.linkedin.com/in/daniel-nagoloum-talla-a3a574388/" target='blank_' className="contact__button">Ecrivez-moi <i className="uil uil-arrow-right contact__button-icon"></i></a>
                         </div>
                     </div>
                 </div>

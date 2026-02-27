@@ -3,7 +3,7 @@ import React from 'react'
 const Design = () => {
     return (
         <div className="skills__content">
-            <h3 className="skills__title">Design / Trading</h3>
+            <h3 className="skills__title">Design_</h3>
 
             <div className="skills__box">
                 <div className="skills__group">
@@ -53,7 +53,7 @@ const Design = () => {
                         < i class='bx bx-badge-check'></i>
 
                         <div>
-                            <h3 className="skills__name">Forex Trading</h3>
+                            <h3 className="skills__name">Capcut</h3>
                             <span className="skills__level">Moyen</span>
                         </div>
                     </div>
@@ -62,7 +62,7 @@ const Design = () => {
                         < i class='bx bx-badge-check'></i>
 
                         <div>
-                            <h3 className="skills__name">Indices Synthétiques</h3>
+                            <h3 className="skills__name">Figma</h3>
                             <span className="skills__level">Moyen</span>
                         </div>
                     </div>

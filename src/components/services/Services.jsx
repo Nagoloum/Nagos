@@ -55,8 +55,8 @@ const Services = () => {
                                     <p className="services__modal-info">Conception des maquettes de Sites Web et Applications et autres...</p>
                                 </li>
                             </ul>
-                            
-                                Télécharger le Flyer :
+
+                            Télécharger le Flyer :
                             <div style={{ display: 'flex', alignItems: 'center', gap: 10, justifyContent: 'center', marginTop: '20px' }}>
                                 <a
                                     className={`button`}
@@ -64,7 +64,7 @@ const Services = () => {
                                     download="Flyer_Graphic_Design_FR.jpg"
                                     style={{ justifyContent: 'center', alignItems: 'center' }}
                                 >
-                                    Flyer en français   
+                                    Flyer en français
 
                                 </a>
                                 <a
@@ -128,43 +128,47 @@ const Services = () => {
 
                 <div className="services__content">
                     <div>
-                        <i className="uil uil-chart-line services__icon"></i>
+                        {/* Changement de l'icône pour quelque chose de plus technique (brackets) */}
+                        <i className="uil uil-brackets-curly services__icon"></i>
                         <h3 className="services__title">
-                            Formation <br /> Trading
+                            Développement <br /> Front et Back-end
                         </h3>
                     </div>
 
-                    <span className="services__button" onClick={() => toggleTab(3)}>Voir plus <i className="uil uil-arrow-right services__button-icon"></i></span>
+                    <span className="services__button" onClick={() => toggleTab(3)}>
+                        Voir plus <i className="uil uil-arrow-right services__button-icon"></i>
+                    </span>
+
                     <div className={toggleState === 3 ? "services__modal active-modal" : "services__modal"}>
                         <div className="services__modal-content">
                             <i className="uil uil-times services__modal-close" onClick={() => toggleTab(0)}></i>
 
-                            <h3 className="services__modal-title"><i className="uil uil-chart-line services__icon"></i>Formation Trading</h3>
+                            <h3 className="services__modal-title"><i className="uil uil-brackets-curly services__icon"></i>Développeur Full Stack</h3>
+
                             <p className="services__modal-description">
-                                Service avec plus de 1 ans d'expérience. Je fourni un travail de qualité aux clients et aux entreprises.
+                                Développeur avec plus de 4 ans d'expérience. Je conçois des applications web complètes, performantes et adaptées aux besoins des entreprises.
                             </p>
 
                             <ul className="services__modal-services grid">
                                 <li className="services__modal-service">
                                     <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Prise en main des logiciels et outils de Trading.</p>
+                                    <p className="services__modal-info">Création d'interfaces utilisateur (UI) modernes et réactives.</p>
                                 </li>
 
                                 <li className="services__modal-service">
                                     <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Enseignement de la méthode PRICE ACTION.</p>
+                                    <p className="services__modal-info">Développement d'APIs robustes et sécurisées (Node.js, Python, etc.).</p>
                                 </li>
 
                                 <li className="services__modal-service">
                                     <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Coaching et suivi à vie.</p>
+                                    <p className="services__modal-info">Conception et gestion de bases de données (SQL et NoSQL).</p>
                                 </li>
 
                                 <li className="services__modal-service">
                                     <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Intégration au groupe de signaux et au groupe de Traders.</p>
+                                    <p className="services__modal-info">Optimisation des performances et déploiement continu.</p>
                                 </li>
-
                             </ul>
                         </div>
                     </div>

@@ -27,12 +27,13 @@ const Qualifications = () => {
 
                 <div className="qualification__sections">
                     <div className={toggleState === 1 ? "qualification__content qualification__content-active" : "qualification__content"}>
+
                         <div className="qualification__data">
                             <div>
-                                <h3 className="qualification__title">BTS (BACC + 2)</h3>
-                                <span className="qualification__subtitle">GTES</span>
+                                <h3 className="qualification__title">BACHELOR</h3>
+                                <span className="qualification__subtitle">INGETIS</span>
                                 <div className="qualification__calendar">
-                                    <i className="uil uil-calendar-alt"></i> 2024 - 2025
+                                    <i className="uil uil-calendar-alt"></i> 2025 - 2026
                                 </div>
                             </div>
 
@@ -44,15 +45,23 @@ const Qualifications = () => {
                         </div>
 
                         <div className="qualification__data">
-
-                            <div>
-
-                            </div>
+                            <div></div>
 
                             <div>
                                 <span className="qualification__rounder"></span>
                                 <span className="qualification__line"></span>
                             </div>
+
+                            <div>
+                                <h3 className="qualification__title">BTS (BACC + 2)</h3>
+                                <span className="qualification__subtitle">GTES</span>
+                                <div className="qualification__calendar">
+                                    <i className="uil uil-calendar-alt"></i> 2024 - 2025
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="qualification__data">
 
                             <div>
                                 <h3 className="qualification__title"> BACCALAUREAT D</h3>
@@ -62,9 +71,23 @@ const Qualifications = () => {
                                 </div>
                             </div>
 
+                            <div>
+                                <span className="qualification__rounder"></span>
+                                <span className="qualification__line"></span>
+
+                            </div>
+
                         </div>
 
                         <div className="qualification__data">
+
+                            <div></div>
+
+                            <div>
+                                <span className="qualification__rounder"></span>
+                                <span className="qualification__line"></span>
+
+                            </div>
                             <div>
                                 <h3 className="qualification__title">PROBATOIRE D</h3>
                                 <span className="qualification__subtitle">LYCEE BILINGUE DE BAFOUSSAM</span>
@@ -73,11 +96,6 @@ const Qualifications = () => {
                                 </div>
                             </div>
 
-                            <div>
-                                <span className="qualification__rounder"></span>
-                                <span className="qualification__line"></span>
-
-                            </div>
                         </div>
 
 
@@ -85,50 +103,13 @@ const Qualifications = () => {
 
                     <div className={toggleState === 2 ? "qualification__content qualification__content-active" : "qualification__content"}>
 
-                        <div className="qualification__data">
-                            <div>
-                                <h3 className="qualification__title">Formation Trading</h3>
-                                <span className="qualification__subtitle">En ligne</span>
-                                <div className="qualification__calendar">
-                                    <i className="uil uil-calendar-alt"></i> 2023 - 2025
-                                </div>
-                            </div>
-
-                            <div>
-                                <span className="qualification__rounder"></span>
-                                <span className="qualification__line"></span>
-
-                            </div>
-                        </div>
-
-                        <div className="qualification__data">
-
-                            <div>
-
-                            </div>
-
-                            <div>
-                                <span className="qualification__rounder"></span>
-                                <span className="qualification__line"></span>
-                            </div>
-
-                            
-                            <div>
-                                <h3 className="qualification__title">Conception Flyers</h3>
-                                <span className="qualification__subtitle">BRITECH</span>
-                                <div className="qualification__calendar">
-                                    <i className="uil uil-calendar-alt"></i> 2022 - 2024
-                                </div>
-                            </div>
-
-                        </div>
 
                         <div className="qualification__data">
                             <div>
                                 <h3 className="qualification__title">Développement Web FrontEnd et BackEnd</h3>
-                                <span className="qualification__subtitle">SIGERIS SARL</span>
+
                                 <div className="qualification__calendar">
-                                    <i className="uil uil-calendar-alt"></i> 2022 - 2023
+                                    <i className="uil uil-calendar-alt"></i> 2021 - De nos jours
                                 </div>
                             </div>
 
@@ -137,6 +118,27 @@ const Qualifications = () => {
                                 <span className="qualification__line"></span>
 
                             </div>
+                        </div>
+                        <div className="qualification__data">
+
+                            <div>
+
+                            </div>
+
+                            <div>
+                                <span className="qualification__rounder"></span>
+                                <span className="qualification__line"></span>
+                            </div>
+
+
+                            <div>
+                                <h3 className="qualification__title">Conception de Visuels et Design Graphique</h3>
+                                <span className="qualification__subtitle">BRITECH</span>
+                                <div className="qualification__calendar">
+                                    <i className="uil uil-calendar-alt"></i> 2022 - 2025
+                                </div>
+                            </div>
+
                         </div>
 
                     </div>

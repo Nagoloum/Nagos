@@ -1,19 +1,20 @@
 import React from 'react';
 
 const skills = [
-  { name: 'Canva',        pct: 92 },
-  { name: 'Filmora',      pct: 88 },
+  { name: 'GitHub / Git', pct: 85 },
+  { name: 'Supabase',     pct: 72 },
+  { name: 'Firebase',     pct: 68 },
+  { name: 'Drizzle ORM',  pct: 65 },
   { name: 'Figma',        pct: 72 },
-  { name: 'Photoshop',    pct: 68 },
-  { name: 'Illustrator',  pct: 65 },
-  { name: 'CapCut',       pct: 75 },
+  { name: 'Claude / GPT', pct: 90 },
+  { name: 'Unity (C#)',   pct: 60 },
 ];
 
 const Design = () => (
   <div className="skills__content reveal-scale d3">
     <h3 className="skills__title">
-      <i className="uil uil-palette skills__title-icon" />
-      Design
+      <i className="uil uil-wrench skills__title-icon" />
+      Outils & IA
     </h3>
     {skills.map(({ name, pct }) => (
       <div key={name} className="skills__item">

@@ -1,50 +1,45 @@
 import React, { useState } from 'react';
 import './Services.css';
-import Flyer_FR from '../../assets/FlyerFR.jpg';
-import Flyer_EN from '../../assets/FlyerEN.jpg';
 
 const servicesData = [
   {
     id: 1,
-    icon: 'uil-web-grid',
-    title: 'Graphic Designer',
-    desc: 'Logos, flyers, cartes de visite, montages vidéo et maquettes de sites.',
-    modalDesc: 'Plus de 3 ans d\'expérience. Je fournis un travail de qualité pour les clients et entreprises.',
+    icon: 'uil-monitor',
+    title: 'Développement Web Full Stack',
+    desc: 'Applications web complètes, de l\'interface utilisateur à l\'API, déploiement inclus.',
+    modalDesc: 'Plus de 4 ans d\'expérience sur des projets variés : e-commerce, SaaS, dashboards, plateformes.',
     items: [
-      'Conception des logos, flyers et cartes de visites.',
-      'Montages vidéos professionnels.',
-      'Gestion de communauté & réseaux sociaux.',
-      'Maquettes de sites web et applications.',
+      'Interfaces modernes et réactives avec React, Next.js, TypeScript.',
+      'APIs robustes et sécurisées avec Node.js, ExpressJS, NestJS.',
+      'Bases de données SQL et NoSQL : PostgreSQL, MongoDB, Supabase.',
+      'Déploiement CI/CD, Vercel, optimisation des performances.',
     ],
-    flyers: true,
   },
   {
     id: 2,
-    icon: 'uil-arrow',
-    title: 'UI/UX Designer',
-    desc: 'Interfaces modernes, expérience utilisateur optimisée et prototypes interactifs.',
-    modalDesc: 'Plus de 3 ans d\'expérience en design d\'interfaces et conception UX.',
+    icon: 'uil-layers-alt',
+    title: 'UI/UX Design & Intégration',
+    desc: 'Interfaces modernes pixel-perfect, expérience utilisateur optimisée, prototypes interactifs.',
+    modalDesc: 'Conception centrée utilisateur avec un fort sens du détail visuel et de l\'ergonomie.',
     items: [
-      'Développement des interfaces utilisateurs.',
-      'Création des pages web responsives.',
-      'Interactions UX et micro-animations.',
-      'Applications web, mobiles et desktop.',
+      'Maquettes Figma et prototypes interactifs.',
+      'Intégration responsive HTML5 / CSS3 / TailwindCSS.',
+      'Micro-animations et transitions fluides.',
+      'Audit UX et amélioration d\'interfaces existantes.',
     ],
-    flyers: false,
   },
   {
     id: 3,
-    icon: 'uil-brackets-curly',
-    title: 'Développeur Full Stack',
-    desc: 'Applications web complètes : API robustes, bases de données, déploiement.',
-    modalDesc: 'Développeur avec plus de 4 ans d\'expérience sur des projets variés et complexes.',
+    icon: 'uil-mobile-android-alt',
+    title: 'Applications & Automatisation',
+    desc: 'Applications métier, robots de trading, dashboards data et scripts d\'automatisation.',
+    modalDesc: 'Développement de solutions sur-mesure : bots, outils internes, visualisation de données.',
     items: [
-      'Interfaces utilisateur modernes et réactives.',
-      'APIs robustes et sécurisées (Node.js, Python…).',
-      'Bases de données SQL et NoSQL.',
-      'Optimisation des performances et CI/CD.',
+      'Robots de trading algorithmique en Python.',
+      'Dashboards de suivi en temps réel (Streamlit).',
+      'Scripts d\'automatisation et pipelines de données.',
+      'Jeux vidéo 2D en C# avec Unity.',
     ],
-    flyers: false,
   },
 ];
 
@@ -57,7 +52,7 @@ const Services = () => {
       <h2 className="section__title reveal">Mes Services</h2>
 
       <div className="services__container container grid">
-        {servicesData.map(({ id, icon, title, desc, modalDesc, items, flyers }, i) => (
+        {servicesData.map(({ id, icon, title, desc, modalDesc, items }, i) => (
           <div key={id} className={`services__content reveal d${i + 1}`}>
             <i className={`uil ${icon} services__icon`} />
             <h3 className="services__title">{title}</h3>
@@ -66,7 +61,6 @@ const Services = () => {
               Voir plus <i className="uil uil-arrow-right services__button-icon" />
             </span>
 
-            {/* Modal */}
             <div className={`services__modal${open === id ? ' active-modal' : ''}`}>
               <div className="services__modal-content">
                 <button
@@ -86,16 +80,6 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
-                {flyers && (
-                  <div className="services__modal-flyers">
-                    <a href={Flyer_FR} download="Flyer_Design_FR.jpg" className="button button--flex" style={{ fontSize: 'var(--smaller-font-size)' }}>
-                      Flyer FR <i className="uil uil-import button__icon" />
-                    </a>
-                    <a href={Flyer_EN} download="Flyer_Design_EN.jpg" className="button button--flex" style={{ fontSize: 'var(--smaller-font-size)' }}>
-                      Flyer EN <i className="uil uil-import button__icon" />
-                    </a>
-                  </div>
-                )}
               </div>
             </div>
           </div>

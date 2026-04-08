@@ -1,14 +1,13 @@
 import React from 'react';
 
 const skills = [
-  { name: 'ReactJS',      pct: 90 },
-  { name: 'TailwindCSS',  pct: 88 },
-  { name: 'NextJS',       pct: 72 },
-  { name: 'TypeScript',   pct: 68 },
-  { name: 'AngularJS',    pct: 60 },
-  { name: 'Bootstrap',    pct: 85 },
-  { name: 'GitHub',       pct: 75 },
-  { name: 'Ajax',         pct: 65 },
+  { name: 'ReactJS',     pct: 90 },
+  { name: 'NextJS',      pct: 75 },
+  { name: 'TypeScript',  pct: 70 },
+  { name: 'TailwindCSS', pct: 88 },
+  { name: 'JavaScript',  pct: 92 },
+  { name: 'HTML5/CSS3',  pct: 95 },
+  { name: 'Bootstrap',   pct: 82 },
 ];
 
 const Frontend = () => (

@@ -4,129 +4,86 @@ import Krossty from '../../assets/krossty.jpg';
 import Qrcode from '../../assets/qrcode.jpg';
 import CMC from '../../assets/cmc.jpg';
 
-import Flyer1 from '../../assets/Flyer1.jpg';
-import Flyer2 from '../../assets/Flyer2.jpg';
-import Flyer3 from '../../assets/Flyer3.jpg';
-import Flyer4 from '../../assets/Flyer4.jpg';
-import Flyer5 from '../../assets/Flyer5.jpg';
-import Flyer6 from '../../assets/Flyer6.jpg';
-
-import design1 from '../../assets/1.jpg';
-import design2 from '../../assets/2.jpg';
-import design3 from '../../assets/3.jpg';
-import design4 from '../../assets/4.jpg';
-
+// Placeholder images for CV projects (use any existing asset as fallback)
+// Remplace par les vraies images quand disponibles
+import BeePlaceholder from '../../assets/wiyorent.jpg';
+import RememberPlaceholder from '../../assets/krossty.jpg';
+import BotPlaceholder from '../../assets/qrcode.jpg';
 
 export const projectsData = [
   {
     id: 1,
     image: Wiyorent,
-    title: "Wiyorent",
-    category: "Web",
-    link: "https://wiyorent.vercel.app/",
+    title: 'Wiyorent',
+    category: 'Web',
+    link: 'https://wiyorent.vercel.app/',
+    desc: 'Plateforme de location en ligne',
+    tech: ['React', 'Node.js', 'MongoDB'],
   },
   {
     id: 2,
     image: Hair,
     title: "Irène's Hair Braids",
-    category: "Web",
-    link: "https://irene-hair-braids.vercel.app/",
+    category: 'Web',
+    link: 'https://irene-hair-braids.vercel.app/',
+    desc: 'Site vitrine pour salon de coiffure',
+    tech: ['React', 'TailwindCSS'],
   },
   {
     id: 3,
     image: Krossty,
-    title: "Krossty",
-    category: "Web",
-    link: "https://krossty.vercel.app/",
+    title: 'Krossty',
+    category: 'Web',
+    link: 'https://krossty.vercel.app/',
+    desc: 'Application web moderne',
+    tech: ['React', 'NextJS'],
   },
   {
     id: 4,
     image: Qrcode,
-    title: "Générateur de Qr-code",
-    category: "Web",
-    link: "https://qr-code-generator-six-nu.vercel.app/",
+    title: 'Générateur de QR-code',
+    category: 'Web',
+    link: 'https://qr-code-generator-six-nu.vercel.app/',
+    desc: 'Outil de génération de QR codes',
+    tech: ['React', 'JavaScript'],
   },
   {
     id: 5,
     image: CMC,
-    title: "Creamy Mils Candies",
-    category: "Web",
-    link: "https://creamy-milk-candies.vercel.app/",
+    title: 'Creamy Milk Candies',
+    category: 'Web',
+    link: 'https://creamy-milk-candies.vercel.app/',
+    desc: 'Site e-commerce de confiseries',
+    tech: ['React', 'TailwindCSS'],
   },
   {
     id: 6,
-    image: Flyer1,
-    title: "Flyer Code Promo",
-    category: "Flyers",
+    image: BeePlaceholder,
+    title: 'BEE — E-Commerce',
+    category: 'App',
+    desc: 'Architecture Full-Stack moderne avec API robuste et gestion de base de données MongoDB via Drizzle ORM',
+    tech: ['ReactJS', 'NextJS', 'MongoDB', 'Drizzle', 'TypeScript', 'TailwindCSS'],
   },
   {
     id: 7,
-    image: Flyer2,
-    title: "Flyer Bonbons",
-    category: "Flyers",
+    image: RememberPlaceholder,
+    title: 'RememberMe',
+    category: 'App',
+    desc: 'Application de rappel et planification des tâches avec authentification JWT et opérations CRUD',
+    tech: ['ReactJS', 'ExpressJS', 'MongoDB', 'JWT', 'TailwindCSS'],
   },
   {
     id: 8,
-    image: Flyer3,
-    title: "Flyer console",
-    category: "Flyers",
-  },
-  {
-    id: 9,
-    image: Flyer4,
-    title: "Flyer Téléphone",
-    category: "Flyers",
-  },
-  {
-    id: 10,
-    image: Flyer5,
-    title: "Flyer Services",
-    category: "Flyers",
-  },
-  {
-    id: 11,
-    image: Flyer6,
-    title: "Flyer Prix Téléphone",
-    category: "Flyers",
-  },
-  {
-    id: 12,
-    image: design1,
-    title: "Bee Web design",
-    category: "Web design",
-  },
-  {
-    id: 13,
-    image: design2,
-    title: "Bee Web design",
-    category: "Web design",
-  },
-  {
-    id: 14,
-    image: design3,
-    title: "Bee Web design",
-    category: "Web design",
-  },
-  {
-    id: 15,
-    image: design4,
-    title: "Bee Web design",
-    category: "Web design",
+    image: BotPlaceholder,
+    title: 'XaufxBot / SynthBot',
+    category: 'App',
+    desc: 'Robots de trading algorithmique (marché de l\'or & indices) avec dashboard de visualisation',
+    tech: ['Python', 'Streamlit', 'Algorithmes'],
   },
 ];
 
-
 export const projectsNav = [
-  {
-    name: 'Tous',
-  },
-  {
-    name: 'Web',
-  },
-  {
-    name: 'Flyers',
-  },
-  {
-    name: 'Web design',
-  },
-]
+  { name: 'Tous' },
+  { name: 'Web' },
+  { name: 'App' },
+];

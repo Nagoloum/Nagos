@@ -1,14 +1,15 @@
 /* ─── SKILLS ─────────────────────────────────────────────── */
 .skills__container {
   grid-template-columns: repeat(3, 1fr);
-  column-gap: 1.5rem;
+  column-gap: 2rem;
+  row-gap: 2rem;
   justify-content: center;
 }
 
 .skills__content {
   background: var(--container-color);
   border: 1px solid var(--card-border);
-  padding: 2rem 1.75rem;
+  padding: 2.25rem 2rem;
   border-radius: var(--radius-lg);
   transition: transform var(--t-spring), box-shadow var(--t-med), border-color var(--t-fast);
 }
@@ -16,7 +17,7 @@
 .skills__content:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
-  border-color: var(--accent);
+  border-color: rgba(var(--accent-rgb), 0.3);
 }
 
 .skills__title {
@@ -24,29 +25,25 @@
   font-size: var(--h3-font-size);
   font-weight: var(--font-bold);
   color: var(--title-color);
-  margin-bottom: 1.75rem;
+  margin-bottom: 2rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
 .skills__title-icon {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   color: var(--accent);
 }
 
-/* ── Individual skill row ── */
-.skills__item {
-  margin-bottom: 1.25rem;
-}
-
+.skills__item { margin-bottom: 1.375rem; }
 .skills__item:last-child { margin-bottom: 0; }
 
 .skills__info {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.45rem;
 }
 
 .skills__name {
@@ -62,7 +59,6 @@
   font-family: var(--heading-font);
 }
 
-/* Progress bar */
 .skills__bar-bg {
   height: 5px;
   background: var(--card-border);
@@ -74,19 +70,12 @@
   height: 100%;
   background: var(--title-color);
   border-radius: 3px;
-  width: 0;                           /* starts at 0 */
+  width: 0;
   transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* When parent .revealed, animate bars */
-.skills__content.revealed .skills__bar {
-  width: var(--skill-pct);
-}
-
-/* Accent color on hover */
-.skills__content:hover .skills__bar {
-  background: var(--accent);
-}
+.skills__content.revealed .skills__bar { width: var(--skill-pct); }
+.skills__content:hover .skills__bar    { background: var(--accent); }
 
 /* ─── BREAKPOINTS ────────────────────────────────────────── */
 @media screen and (max-width: 992px) {
@@ -97,8 +86,6 @@
 }
 
 @media screen and (max-width: 576px) {
-  .skills__container {
-    grid-template-columns: 1fr;
-  }
-  .skills__content { padding: 1.5rem; }
+  .skills__container { grid-template-columns: 1fr; }
+  .skills__content   { padding: 1.75rem 1.5rem; }
 }

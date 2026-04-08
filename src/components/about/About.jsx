@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import './About.css';
 import AboutImg from '../../assets/moi.jpg';
-import CV_tech       from '../../assets/Mon_CV_Dev.pdf';
-import CV_Infographie from '../../assets/CV_Infographiste.pdf';
-import Info from './Info';
+import CV_tech from '../../assets/Mon_CV_Dev.pdf';
 
 const About = () => {
   const [isSplit, setIsSplit] = useState(false);
@@ -29,38 +27,27 @@ const About = () => {
           <Info />
 
           <p className="about__description">
-            Développeur Frontend & Backend, je crée des expériences web modernes
-            avec une attention particulière au design UI/UX. Je dispense également
-            des formations en trading. Avec plus de 5 ans d'expérience et 15 projets
-            livrés, je mets ma passion au service de vos ambitions.
+            Développeur <strong>Full-Stack JS / Data / IA</strong>, je transforme vos idées en solutions web modernes et performantes. 
+            Disponible en alternance dès <strong>septembre 2026</strong>, je maîtrise l'ensemble de la stack technique — 
+            de React & Next.js côté frontend à Node.js, Python et les bases de données NoSQL/SQL côté backend. 
+            Passionné par l'IA et le trading algorithmique, j'utilise quotidiennement les outils IA pour optimiser mon code et ma productivité.
           </p>
+
+          <div className="about__availability">
+            <i className="uil uil-calendar-alt" />
+            <span>Disponible en alternance · Dès septembre 2026 · 1 an et plus</span>
+          </div>
 
           {/* CV download */}
           <div className="about__cv-wrapper">
-            <button
-              onClick={() => setIsSplit(true)}
-              className={`button button--flex about__cv-main${isSplit ? ' hidden' : ''}`}
+            <a
+              href={CV_tech}
+              download="CV_Daniel_Nagoloum_Dev.pdf"
+              className="button button--flex"
             >
               Télécharger mon CV
               <i className="uil uil-import button__icon" />
-            </button>
-
-            <div className={`about__cv-split${isSplit ? ' visible' : ''}`}>
-              <a
-                href={CV_tech}
-                download="CV_Daniel_Nagoloum_Dev.pdf"
-                className="button button--flex about__cv-btn"
-              >
-                CV Développeur <i className="uil uil-file-alt button__icon" />
-              </a>
-              <a
-                href={CV_Infographie}
-                download="CV_Daniel_Nagoloum_Design.pdf"
-                className="button button--flex about__cv-btn"
-              >
-                CV Design <i className="uil uil-image button__icon" />
-              </a>
-            </div>
+            </a>
           </div>
         </div>
 
@@ -68,5 +55,23 @@ const About = () => {
     </section>
   );
 };
+
+const boxes = [
+  { icon: 'bx bx-code-alt',       title: 'Projets',     sub: '+15 livrés'  },
+  { icon: 'bx bx-medal',          title: 'Expérience',  sub: '+5 ans'       },
+  { icon: 'bx bx-headphone',      title: 'Support',     sub: '24H / 7J'    },
+];
+
+const Info = () => (
+  <div className="about__info grid">
+    {boxes.map(({ icon, title, sub }, i) => (
+      <div key={i} className={`about__box reveal d${i + 2}`}>
+        <i className={`${icon} about__icon`} />
+        <h3 className="about__title">{title}</h3>
+        <span className="about__subtitle">{sub}</span>
+      </div>
+    ))}
+  </div>
+);
 
 export default About;

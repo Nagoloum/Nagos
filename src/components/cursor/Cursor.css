@@ -13,31 +13,27 @@
   width: 8px; height: 8px;
   background: var(--accent);
   margin-left: -4px; margin-top: -4px;
-  transition: width 0.2s, height 0.2s, background 0.2s;
+  transition: width 0.2s, height 0.2s;
 }
 
 .cursor__ring {
-  width: 36px; height: 36px;
+  width: 38px; height: 38px;
   border: 1.5px solid var(--accent);
-  margin-left: -18px; margin-top: -18px;
-  transition: width 0.3s, height 0.3s, border-color 0.3s;
+  margin-left: -19px; margin-top: -19px;
+  transition: width 0.3s, height 0.3s;
 }
 
-/* Hover state */
 .cursor__dot.cursor--hover {
   width: 14px; height: 14px;
   margin-left: -7px; margin-top: -7px;
-  background: var(--accent);
 }
 
 .cursor__ring.cursor--hover {
-  width: 54px; height: 54px;
-  margin-left: -27px; margin-top: -27px;
-  border-color: var(--accent);
-  opacity: 0.6;
+  width: 58px; height: 58px;
+  margin-left: -29px; margin-top: -29px;
+  opacity: 0.5;
 }
 
-/* Hide on touch devices */
 @media (pointer: coarse) {
   .cursor__dot, .cursor__ring { display: none; }
 }

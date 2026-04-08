@@ -2,23 +2,24 @@ import React, { useState } from 'react';
 import './Qualifications.css';
 
 const education = [
-  { title: 'Bachelor',          sub: 'INGETIS',                      dates: '2025 – 2026', side: 'left'  },
-  { title: 'BTS (Bac+2)',       sub: 'GTES',                          dates: '2024 – 2025', side: 'right' },
-  { title: 'Baccalauréat D',    sub: 'Lycée Bilingue de Bafoussam',   dates: '2021 – 2022', side: 'left'  },
-  { title: 'Probatoire D',      sub: 'Lycée Bilingue de Bafoussam',   dates: '2020 – 2021', side: 'right' },
+  { title: 'Bachelor Dev / Data',  sub: 'INGETIS',                     dates: '2025 – 2026', side: 'left'  },
+  { title: 'BTS (Bac+2)',          sub: 'GTES',                         dates: '2024 – 2025', side: 'right' },
+  { title: 'Baccalauréat D',       sub: 'Lycée Bilingue de Bafoussam',  dates: '2021 – 2022', side: 'left'  },
+  { title: 'Probatoire D',         sub: 'Lycée Bilingue de Bafoussam',  dates: '2020 – 2021', side: 'right' },
 ];
 
 const experience = [
-  { title: 'Développement Web Front & Back',    sub: null,      dates: '2021 – Auj.',  side: 'left'  },
-  { title: 'Design Graphique & Motion',         sub: 'BRITECH', dates: '2022 – 2025',  side: 'right' },
+  { title: 'Développeur Full Stack JS',      sub: 'Projets perso & freelance',  dates: '2021 – Auj.', side: 'left'  },
+  { title: 'Design Graphique & Motion',      sub: 'BRITECH',                    dates: '2022 – 2025', side: 'right' },
+  { title: 'Trading algorithmique',          sub: 'Python / Streamlit',         dates: '2023 – Auj.', side: 'left'  },
+  { title: 'Game Dev',                       sub: 'Unity / C#',                 dates: '2023 – 2024', side: 'right' },
 ];
 
 const TimelineItem = ({ item }) => {
   const isLeft = item.side === 'left';
   return (
     <div className="qualification__data">
-      {/* Left cell */}
-      <div className={`qualification__text-${isLeft ? 'left' : ''}`}>
+      <div className={`qualification__text-${isLeft ? 'left' : 'empty'}`}>
         {isLeft && (
           <>
             <h3 className="qualification__title">{item.title}</h3>
@@ -30,14 +31,12 @@ const TimelineItem = ({ item }) => {
         )}
       </div>
 
-      {/* Centre axis */}
       <div>
         <span className="qualification__rounder" />
-        <span className="qualification__line"   />
+        <span className="qualification__line" />
       </div>
 
-      {/* Right cell */}
-      <div className={`qualification__text-${!isLeft ? 'right' : ''}`}>
+      <div className={`qualification__text-${!isLeft ? 'right' : 'empty'}`}>
         {!isLeft && (
           <>
             <h3 className="qualification__title">{item.title}</h3>
@@ -61,8 +60,6 @@ const Qualifications = () => {
       <h2 className="section__title reveal">Mes Qualifications</h2>
 
       <div className="qualification__container container">
-
-        {/* Tabs */}
         <div className="qualification__tabs reveal d1">
           <button
             className={`qualification__button${tab === 1 ? ' qualification__active' : ''}`}
@@ -78,7 +75,6 @@ const Qualifications = () => {
           </button>
         </div>
 
-        {/* Timeline */}
         <div className="qualification__sections">
           <div className={`qualification__content${tab === 1 ? ' qualification__content-active' : ''}`}>
             {education.map((item, i) => <TimelineItem key={i} item={item} />)}
@@ -87,7 +83,6 @@ const Qualifications = () => {
             {experience.map((item, i) => <TimelineItem key={i} item={item} />)}
           </div>
         </div>
-
       </div>
     </section>
   );

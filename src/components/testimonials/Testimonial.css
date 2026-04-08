@@ -1,10 +1,10 @@
 /* ─── TESTIMONIALS ───────────────────────────────────────── */
-.testimonial__container { width: 860px; }
+.testimonial__container { width: 880px; }
 
 .testimonial__card {
   background: var(--container-color);
   border: 1px solid var(--card-border);
-  padding: 2rem;
+  padding: 2.25rem;
   border-radius: var(--radius-lg);
   margin-bottom: var(--mb-3);
   position: relative;
@@ -15,10 +15,9 @@
 .testimonial__card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
-  border-color: var(--accent);
+  border-color: rgba(var(--accent-rgb), 0.3);
 }
 
-/* Quote decoration */
 .testimonial__card::before {
   content: '"';
   position: absolute;
@@ -27,7 +26,7 @@
   font-size: 5rem;
   color: var(--accent);
   line-height: 1;
-  opacity: 0.25;
+  opacity: 0.2;
   pointer-events: none;
 }
 
@@ -36,24 +35,29 @@
   font-size: var(--normal-font-size);
   font-weight: var(--font-bold);
   color: var(--title-color);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .testimonial__description {
   font-size: var(--small-font-size);
-  line-height: 1.75;
+  line-height: 1.8;
+  color: var(--text-color);
 }
 
-/* Swiper pagination */
-.swiper-pagination-bullet { background: var(--text-color) !important; }
-.swiper-pagination-bullet-active { background: var(--accent) !important; }
+/* Swiper */
+.swiper-pagination-bullet { background: var(--text-color) !important; opacity: 0.4; }
+.swiper-pagination-bullet-active { background: var(--accent) !important; opacity: 1 !important; }
 
-/* ── Add testimonial form ── */
+/* Form */
 .testimonial__add {
-  max-width: 580px;
+  max-width: 600px;
   margin-inline: auto;
-  margin-top: 3rem;
+  margin-top: 3.5rem;
   text-align: center;
+  background: var(--container-color);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
 }
 
 .testimonial__add-title {
@@ -71,24 +75,20 @@
   display: block;
 }
 
-.testimonial__form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
+.testimonial__form { display: flex; flex-direction: column; gap: 1.25rem; }
 
 .testimonial__form-div {
   position: relative;
-  height: 3.5rem;
+  height: 3.75rem;
 }
 
-.testimonial__form-div--area { height: 9rem; }
+.testimonial__form-div--area { height: 9.5rem; }
 
 .testimonial__form-input {
   position: absolute;
   inset: 0;
   width: 100%; height: 100%;
-  background: var(--container-color);
+  background: var(--body-color);
   border: 1.5px solid var(--card-border);
   border-radius: var(--radius-md);
   padding: 1.25rem 1rem 0.5rem;
@@ -101,17 +101,19 @@
   z-index: 1;
 }
 
+.testimonial__form-input::placeholder { color: var(--text-color); opacity: 0.5; }
+
 .testimonial__form-input:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.15);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.12);
 }
 
 .testimonial__form-tag {
   position: absolute;
   top: -0.6rem; left: 1rem;
   font-size: var(--smaller-font-size);
-  background: var(--body-color);
-  padding: 0 0.3rem;
+  background: var(--container-color);
+  padding: 0 0.35rem;
   z-index: 10;
   color: var(--text-color);
 }
@@ -119,7 +121,7 @@
 .testimonial__note {
   font-size: var(--smaller-font-size);
   color: var(--text-color);
-  opacity: 0.7;
+  opacity: 0.6;
   margin-top: 1rem;
   font-style: italic;
 }
@@ -127,7 +129,8 @@
 /* ─── BREAKPOINTS ────────────────────────────────────────── */
 @media screen and (max-width: 992px) {
   .testimonial__container { width: initial; }
-  .testimonial__card { padding: 1.5rem; }
+  .testimonial__card { padding: 1.75rem; }
+  .testimonial__add { padding: 2rem; }
 }
 
 @media screen and (max-width: 576px) {

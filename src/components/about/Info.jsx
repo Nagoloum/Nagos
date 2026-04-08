@@ -1,27 +1,21 @@
-import React from 'react'
+import React from 'react';
 
-const Info = () => {
-    return (
-        <div className="about__info grid">
-            <div className="about__box">
-                < i class='bx bx-medal-star-alt about__icon'  ></i>
-                <h3 className="about__title">Expérience</h3>
-                <span className="about__subtitle">+ 5 Années de Travail</span>
-            </div>
+const boxes = [
+  { icon: 'bx bx-medal', title: 'Expérience', sub: '+5 ans' },
+  { icon: 'bx bx-briefcase-alt', title: 'Projets', sub: '+15 livrés' },
+  { icon: 'bx bx-headphone', title: 'Support', sub: '24H / 7J' },
+];
 
-            <div className="about__box">
-                <i className="bx bx-briefcase-alt about__icon"></i>
-                <h3 className="about__title">Terminés</h3>
-                <span className="about__subtitle">+ 15 projets</span>
-            </div>
+const Info = () => (
+  <div className="about__info grid">
+    {boxes.map(({ icon, title, sub }, i) => (
+      <div key={i} className={`about__box reveal d${i + 2}`}>
+        <i className={`${icon} about__icon`} />
+        <h3 className="about__title">{title}</h3>
+        <span className="about__subtitle">{sub}</span>
+      </div>
+    ))}
+  </div>
+);
 
-            <div className="about__box">
-                < i class='bx bx-headphone-mic about__icon'  ></i>
-                <h3 className="about__title">Assistance</h3>
-                <span className="about__subtitle">En ligne 24H/7</span>
-            </div>
-        </div>
-    )
-}
-
-export default Info
+export default Info;

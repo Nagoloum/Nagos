@@ -1,56 +1,60 @@
-import React from 'react'
-import "./Footer.css";
+import React from 'react';
+import './Footer.css';
+
+const socials = [
+  { href: 'mailto:danielnagoloum@gmail.com', icon: 'uil-envelope',     label: 'Email'    },
+  { href: 'tel:+33625839007',                icon: 'uil-phone',        label: 'Téléphone' },
+  { href: 'https://www.linkedin.com/in/daniel-nagoloum-talla-a3a574388/', icon: 'uil-linkedin-alt', label: 'LinkedIn' },
+  { href: 'https://wa.me/33625839007',       icon: 'uil-whatsapp',     label: 'WhatsApp' },
+  { href: 'https://github.com/Nagoloum',     icon: 'uil-github-alt',   label: 'GitHub'   },
+];
 
 const Footer = () => {
+  const year = new Date().getFullYear();
 
-    const currentYear = new Date().getFullYear();
+  return (
+    <footer className="footer">
+      <div className="footer__container container">
 
-    return (
-        <footer className="footer">
-            <div className="footer__container container">
-                <h1 className="footer__title">Nagoloum.</h1>
+        <a href="/" className="footer__logo">
+          Nagoloum<span className="footer__logo-dot" />
+        </a>
 
-                <ul className="footer__list">
-                    <li>
-                        <a href="#about" className="footer__link">A propos</a>
-                    </li>
+        <ul className="footer__list">
+          {[
+            { href: '#about',        label: 'À propos'    },
+            { href: '#portfolio',    label: 'Portfolio'   },
+            { href: '#testimonials', label: 'Témoignages' },
+            { href: '#contact',      label: 'Contact'     },
+          ].map(({ href, label }) => (
+            <li key={href}>
+              <a href={href} className="footer__link">{label}</a>
+            </li>
+          ))}
+        </ul>
 
-                    <li>
-                        <a href="#portfolio" className="footer__link">Projets</a>
-                    </li>
+        <div className="footer__social">
+          {socials.map(({ href, icon, label }) => (
+            <a
+              key={href}
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+              className="footer__social-link"
+              aria-label={label}
+            >
+              <i className={`uil ${icon}`} />
+            </a>
+          ))}
+        </div>
 
-                    <li>
-                        <a href="#testimonials" className="footer__link">Témoignages</a>
-                    </li>
-                </ul>
+        <span className="footer__copy">
+          © <span>{year}</span> Nagoloum · Tous droits réservés
+        </span>
 
-                <div className="footer__social">
-                    
-                    <a href="mailto:danielnagoloum@gmail.com" target="_blank" className="footer__social-link" >
-                        <i className="uil uil-envelope"></i>
-                    </a>
+      </div>
+    </footer>
+  );
+};
 
-                    <a href="tel:+33625839007" target="_blank" className="footer__social-link" >
-                        <i className="uil uil-phone"></i>
-                    </a>
-
-                    <a href="https://www.linkedin.com/in/daniel-nagoloum-talla-a3a574388/" target="_blank" className="footer__social-link" >
-                        <i className="uil uil-linkedin-alt"></i>
-                    </a>
-
-                    <a href="https://wa.me/33625839007?text=Salut%20Nagoloum%20je%20suis%20intéréssé(e)%20par%20un%20des%20services%20de%20ton%20Portfolio." className="footer__social-link" target='_blank'>
-                        <i className="uil uil-whatsapp"></i>
-                    </a>
-
-                    <a href="https://github.com/Nagoloum" className="footer__social-link" target='_blank'>
-                        <i className="uil uil-github-alt"></i>
-                    </a>
-                </div>
-
-                <span className='footer__copy'>&#169; {currentYear} Nagoloum. Tout droits réservés</span>
-            </div>
-        </footer>
-    )
-}
-
-export default Footer
+export default Footer;

@@ -1,99 +1,135 @@
-.testimonial__container {
-  width: 820px;
-}
+/* ─── TESTIMONIALS ───────────────────────────────────────── */
+.testimonial__container { width: 860px; }
 
 .testimonial__card {
-  background-color: var(--container-color);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 1.5rem 2rem;
-  border-radius: 1.5rem;
+  background: var(--container-color);
+  border: 1px solid var(--card-border);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
   margin-bottom: var(--mb-3);
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--t-spring), box-shadow var(--t-med), border-color var(--t-fast);
 }
 
-.testimonial__img {
-  width: 60px;
-  border-radius: 3rem;
-  margin-bottom: var(--mb-1);
+.testimonial__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent);
+}
+
+/* Quote decoration */
+.testimonial__card::before {
+  content: '"';
+  position: absolute;
+  top: -0.5rem; left: 1.25rem;
+  font-family: var(--heading-font);
+  font-size: 5rem;
+  color: var(--accent);
+  line-height: 1;
+  opacity: 0.25;
+  pointer-events: none;
 }
 
 .testimonial__name {
+  font-family: var(--heading-font);
   font-size: var(--normal-font-size);
-  font-weight: var(--font-medium);
-  margin-bottom: var(--mb-0-25);
+  font-weight: var(--font-bold);
+  color: var(--title-color);
+  margin-bottom: 0.5rem;
 }
 
 .testimonial__description {
   font-size: var(--small-font-size);
+  line-height: 1.75;
 }
 
-/*Swiper class*/
-.swiper-pagination-bullet {
-  background-color: var(--text-color) !important;
+/* Swiper pagination */
+.swiper-pagination-bullet { background: var(--text-color) !important; }
+.swiper-pagination-bullet-active { background: var(--accent) !important; }
+
+/* ── Add testimonial form ── */
+.testimonial__add {
+  max-width: 580px;
+  margin-inline: auto;
+  margin-top: 3rem;
+  text-align: center;
 }
 
-.swiper-pagination-bullet-active {
-  background-color: var(--title-color) !important;
+.testimonial__add-title {
+  font-family: var(--heading-font);
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-bold);
+  color: var(--title-color);
+  margin-bottom: 0.25rem;
 }
 
-/*=============== BREAKPOINTS ===============*/
-/* For large devices */
+.testimonial__add-sub {
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  display: block;
+}
+
+.testimonial__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.testimonial__form-div {
+  position: relative;
+  height: 3.5rem;
+}
+
+.testimonial__form-div--area { height: 9rem; }
+
+.testimonial__form-input {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  background: var(--container-color);
+  border: 1.5px solid var(--card-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1rem 0.5rem;
+  color: var(--title-color);
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  outline: none;
+  resize: none;
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+  z-index: 1;
+}
+
+.testimonial__form-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.15);
+}
+
+.testimonial__form-tag {
+  position: absolute;
+  top: -0.6rem; left: 1rem;
+  font-size: var(--smaller-font-size);
+  background: var(--body-color);
+  padding: 0 0.3rem;
+  z-index: 10;
+  color: var(--text-color);
+}
+
+.testimonial__note {
+  font-size: var(--smaller-font-size);
+  color: var(--text-color);
+  opacity: 0.7;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+/* ─── BREAKPOINTS ────────────────────────────────────────── */
 @media screen and (max-width: 992px) {
-    .testimonial__container{
-        width: initial;
-    }
-
-    .testimonial__card{
-        padding: 1.25rem 1.5rem;
-    }
+  .testimonial__container { width: initial; }
+  .testimonial__card { padding: 1.5rem; }
 }
 
-
-/* Centrage du contenu uniquement pour la section testimonials */
-.testimonial.container.section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
-/* Conteneur du formulaire limité et centré */
-.testimonial .contact__content {
-  width: 100%;
-  max-width: 720px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Formulaire : champs pleine largeur dans la zone */
-.testimonial .contact__form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0;
-}
-
-.testimonial .contact__form-div {
-  width: 100%;
-}
-
-/* Inputs et textarea pleine largeur */
-.testimonial .contact__form-input {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
-}
-
-/* Ajustement textarea pour une hauteur raisonnable */
-.testimonial .contact__form-area .contact__form-input {
-  min-height: 8rem;
-  resize: vertical;
-}
-
-/* PETIT : ajustements responsive */
 @media screen and (max-width: 576px) {
-  .testimonial .testimonial__container { width: 100%; padding: 0 1rem; }
-  .testimonial .contact__content { padding: 0 0.5rem; }
+  .testimonial__container { width: 100%; padding: 0 0.5rem; }
 }

@@ -1,50 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
+import './ThemeToggle.css';
 
 const ThemeToggle = () => {
-  const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem("theme") === "dark";
-  });
+  const [dark, setDark] = useState(() => localStorage.getItem('theme') === 'dark');
 
   useEffect(() => {
-    document.body.classList.toggle("dark-theme", darkMode);
-    localStorage.setItem("theme", darkMode ? "dark" : "light");
-  }, [darkMode]);
+    document.body.classList.toggle('dark-theme', dark);
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+  }, [dark]);
 
   const handleClick = (e) => {
     const x = e.clientX;
     const y = e.clientY;
-
-    document.body.style.setProperty("--wave-x", `${x}px`);
-    document.body.style.setProperty("--wave-y", `${y}px`);
-
-    document.body.classList.add("animating");
-
-    // Attend la fin de l'animation
+    document.body.style.setProperty('--wave-x', `${x}px`);
+    document.body.style.setProperty('--wave-y', `${y}px`);
+    document.body.classList.add('animating');
     setTimeout(() => {
-      setDarkMode(!darkMode);
-      setTimeout(() => {
-        document.body.classList.remove("animating");
-      }, 500);
+      setDark(d => !d);
+      setTimeout(() => document.body.classList.remove('animating'), 600);
     }, 50);
   };
 
   return (
-    <button
-      onClick={handleClick}
-      style={{
-        padding: "0.5rem 0.8rem",
-        fontSize: "1.2rem",
-        borderRadius: "50%",
-        backgroundColor: "transparent",
-        border: "2px solid var(--text-color)",
-        color: "var(--text-color)",
-        cursor: "pointer",
-        transition: "all 0.3s ease",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <i className={`uil ${darkMode ? "uil-sun" : "uil-moon"}`}></i>
+    <button onClick={handleClick} className="theme-toggle" aria-label="Toggle theme">
+      <span className="theme-toggle__track">
+        <span className="theme-toggle__thumb">
+          <i className={`uil ${dark ? 'uil-sun' : 'uil-moon'}`} />
+        </span>
+      </span>
     </button>
   );
 };

@@ -1,78 +1,32 @@
-import React from 'react'
+import React from 'react';
 
-const Design = () => {
-    return (
-        <div className="skills__content">
-            <h3 className="skills__title">Design_</h3>
+const skills = [
+  { name: 'Canva',        pct: 92 },
+  { name: 'Filmora',      pct: 88 },
+  { name: 'Figma',        pct: 72 },
+  { name: 'Photoshop',    pct: 68 },
+  { name: 'Illustrator',  pct: 65 },
+  { name: 'CapCut',       pct: 75 },
+];
 
-            <div className="skills__box">
-                <div className="skills__group">
-                    <div className="skills__data">
-                        < i class='bx bx-badge-check'></i>
-
-                        <div>
-                            <h3 className="skills__name">Canva</h3>
-                            <span className="skills__level">Avancé</span>
-                        </div>
-                    </div>
-
-                    <div className="skills__data">
-                        < i class='bx bx-badge-check'></i>
-
-                        <div>
-                            <h3 className="skills__name">PhotoShop</h3>
-                            <span className="skills__level">Moyen</span>
-                        </div>
-                    </div>
-
-                    <div className="skills__data">
-                        < i class='bx bx-badge-check'></i>
-
-                        <div>
-                            <h3 className="skills__name">Illustrator</h3>
-                            <span className="skills__level">Moten</span>
-                        </div>
-
-                    </div>
-                   
-                    <div className="skills__data">
-                        < i class='bx bx-badge-check'></i>
-
-                        <div>
-                            <h3 className="skills__name">Filmora</h3>
-                            <span className="skills__level">Avancé</span>
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-                <div className="skills__group">
-                    <div className="skills__data">
-                        < i class='bx bx-badge-check'></i>
-
-                        <div>
-                            <h3 className="skills__name">Capcut</h3>
-                            <span className="skills__level">Moyen</span>
-                        </div>
-                    </div>
-
-                    <div className="skills__data">
-                        < i class='bx bx-badge-check'></i>
-
-                        <div>
-                            <h3 className="skills__name">Figma</h3>
-                            <span className="skills__level">Moyen</span>
-                        </div>
-                    </div>
-
-                </div>
-
-
-            </div>
+const Design = () => (
+  <div className="skills__content reveal-scale d3">
+    <h3 className="skills__title">
+      <i className="uil uil-palette skills__title-icon" />
+      Design
+    </h3>
+    {skills.map(({ name, pct }) => (
+      <div key={name} className="skills__item">
+        <div className="skills__info">
+          <span className="skills__name">{name}</span>
+          <span className="skills__percentage">{pct}%</span>
         </div>
-    )
-}
+        <div className="skills__bar-bg">
+          <div className="skills__bar" style={{ '--skill-pct': `${pct}%` }} />
+        </div>
+      </div>
+    ))}
+  </div>
+);
 
-export default Design
+export default Design;

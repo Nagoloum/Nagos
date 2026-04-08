@@ -1,52 +1,43 @@
-.scrollup{
-    position: fixed;
-    right: 2.5rem;
-    bottom: -20%;
-    background-color: var(--title-color);
-    opacity: 0.8;
-    padding: 0.3rem 0.5rem;
-    border-radius: 0.4rem;
-    z-index: var(--z-tooltip);
-    transition: .4s ;
+/* ─── SCROLL UP ──────────────────────────────────────────── */
+.scrollup {
+  position: fixed;
+  right: 2rem;
+  bottom: -6rem;
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent);
+  color: #000;
+  border-radius: var(--radius-sm);
+  font-size: 1.3rem;
+  z-index: var(--z-tooltip);
+  transition: bottom var(--t-spring), transform var(--t-spring), box-shadow var(--t-med);
+  box-shadow: 0 4px 16px rgba(var(--accent-rgb), 0.35);
 }
 
-.scrollup__icon{
-    font-size: 1.5rem;
-    color: var(--container-color);
+.scrollup:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(var(--accent-rgb), 0.5);
 }
 
-.scrollup:hover{
-    background-color: var(--title-color-dark);
+/* Pulsing ring on hover */
+.scrollup::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: calc(var(--radius-sm) + 4px);
+  border: 2px solid var(--accent);
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity var(--t-fast), transform var(--t-fast);
 }
+.scrollup:hover::after { opacity: 0.5; transform: scale(1); }
 
-/*show scroll*/
-.show-scroll{
-    bottom: 3rem;
-}
+.show-scroll { bottom: 5rem; }
 
-/*=============== BREAKPOINTS ===============*/
-/* For large devices */
 @media screen and (max-width: 992px) {
-    .scrollup{
-        right: 1.5rem;
-        padding: 0.25rem 0.4rem;
-    }
-
-    .scrollup__icon{
-        font-size: 1.25rem;
-    }
+  .scrollup { right: 1.25rem; width: 40px; height: 40px; font-size: 1.15rem; }
 }
 
-/* For medium devices */
 @media screen and (max-width: 768px) {
-    .show-scroll{
-        bottom: 4rem;
-    }
-}
-
-/* For small devices */
-@media screen and (max-width: 350px) {
-    .scrollup{
-        right: 1rem;
-    }
+  .show-scroll { bottom: 5.5rem; }
 }

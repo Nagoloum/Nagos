@@ -1,91 +1,34 @@
-import React from 'react'
+import React from 'react';
 
-const Frontend = () => {
-    return (
-        <div className="skills__content">
-            <h3 className="skills__title">Frontend_</h3>
+const skills = [
+  { name: 'ReactJS',      pct: 90 },
+  { name: 'TailwindCSS',  pct: 88 },
+  { name: 'NextJS',       pct: 72 },
+  { name: 'TypeScript',   pct: 68 },
+  { name: 'AngularJS',    pct: 60 },
+  { name: 'Bootstrap',    pct: 85 },
+  { name: 'GitHub',       pct: 75 },
+  { name: 'Ajax',         pct: 65 },
+];
 
-            <div className="skills__box">
-                <div className="skills__group">
-                    <div className="skills__data">
-                        < i class='bx  bx-badge-check'></i>
-
-                        <div>
-                            <h3 className="skills__name">ReactJs</h3>
-                            <span className="skills__level">Avancé</span>
-                        </div>
-                    </div>
-
-                    <div className="skills__data">
-                        < i class='bx  bx-badge-check'  ></i>
-
-                        <div>
-                            <h3 className="skills__name">AngularJs</h3>
-                            <span className="skills__level">Moyen</span>
-                        </div>
-                    </div>
-
-                    <div className="skills__data">
-                        < i class='bx  bx-badge-check'  ></i>
-
-                        <div>
-                            <h3 className="skills__name">TailwindCSS</h3>
-                            <span className="skills__level">Avancé</span>
-                        </div>
-                    </div>
-
-                    <div className="skills__data">
-                        < i class='bx  bx-badge-check'  ></i>
-
-                        <div>
-                            <h3 className="skills__name">TypeScript</h3>
-                            <span className="skills__level">Moyen</span>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div className="skills__group">
-                    <div className="skills__data">
-                        < i class='bx  bx-badge-check'  ></i>
-
-                        <div>
-                            <h3 className="skills__name">BootStrap</h3>
-                            <span className="skills__level">Avancé</span>
-                        </div>
-                    </div>
-
-                    <div className="skills__data">
-                        < i class='bx  bx-badge-check'  ></i>
-
-                        <div>
-                            <h3 className="skills__name">GitHub</h3>
-                            <span className="skills__level">Moyen</span>
-                        </div>
-                    </div>
-
-                    <div className="skills__data">
-                        < i class='bx  bx-badge-check'  ></i>
-
-                        <div>
-                            <h3 className="skills__name">NextJS</h3>
-                            <span className="skills__level">Moyen</span>
-                        </div>
-                    </div>
-
-                    <div className="skills__data">
-                        < i class='bx  bx-badge-check'  ></i>
-
-                        <div>
-                            <h3 className="skills__name">Ajax</h3>
-                            <span className="skills__level">Moyen</span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+const Frontend = () => (
+  <div className="skills__content reveal-scale d1">
+    <h3 className="skills__title">
+      <i className="uil uil-brackets-curly skills__title-icon" />
+      Frontend
+    </h3>
+    {skills.map(({ name, pct }) => (
+      <div key={name} className="skills__item">
+        <div className="skills__info">
+          <span className="skills__name">{name}</span>
+          <span className="skills__percentage">{pct}%</span>
         </div>
-    )
-}
+        <div className="skills__bar-bg">
+          <div className="skills__bar" style={{ '--skill-pct': `${pct}%` }} />
+        </div>
+      </div>
+    ))}
+  </div>
+);
 
-export default Frontend
+export default Frontend;

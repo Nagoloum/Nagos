@@ -1,181 +1,108 @@
-import React, { useState } from 'react'
-import "./Services.css";
-import Flyer_FR from "../../assets/FlyerFR.jpg";
-import Flyer_EN from "../../assets/FlyerEN.jpg";
+import React, { useState } from 'react';
+import './Services.css';
+import Flyer_FR from '../../assets/FlyerFR.jpg';
+import Flyer_EN from '../../assets/FlyerEN.jpg';
+
+const servicesData = [
+  {
+    id: 1,
+    icon: 'uil-web-grid',
+    title: 'Graphic Designer',
+    desc: 'Logos, flyers, cartes de visite, montages vidéo et maquettes de sites.',
+    modalDesc: 'Plus de 3 ans d\'expérience. Je fournis un travail de qualité pour les clients et entreprises.',
+    items: [
+      'Conception des logos, flyers et cartes de visites.',
+      'Montages vidéos professionnels.',
+      'Gestion de communauté & réseaux sociaux.',
+      'Maquettes de sites web et applications.',
+    ],
+    flyers: true,
+  },
+  {
+    id: 2,
+    icon: 'uil-arrow',
+    title: 'UI/UX Designer',
+    desc: 'Interfaces modernes, expérience utilisateur optimisée et prototypes interactifs.',
+    modalDesc: 'Plus de 3 ans d\'expérience en design d\'interfaces et conception UX.',
+    items: [
+      'Développement des interfaces utilisateurs.',
+      'Création des pages web responsives.',
+      'Interactions UX et micro-animations.',
+      'Applications web, mobiles et desktop.',
+    ],
+    flyers: false,
+  },
+  {
+    id: 3,
+    icon: 'uil-brackets-curly',
+    title: 'Développeur Full Stack',
+    desc: 'Applications web complètes : API robustes, bases de données, déploiement.',
+    modalDesc: 'Développeur avec plus de 4 ans d\'expérience sur des projets variés et complexes.',
+    items: [
+      'Interfaces utilisateur modernes et réactives.',
+      'APIs robustes et sécurisées (Node.js, Python…).',
+      'Bases de données SQL et NoSQL.',
+      'Optimisation des performances et CI/CD.',
+    ],
+    flyers: false,
+  },
+];
 
 const Services = () => {
+  const [open, setOpen] = useState(0);
 
-    const [toggleState, setToggleState] = useState(0);
+  return (
+    <section className="services section" id="services">
+      <span className="section__subtitle">Ce que j'offre</span>
+      <h2 className="section__title reveal">Mes Services</h2>
 
-    const toggleTab = (index) => {
-        setToggleState(index);
-    }
-    return (
-        <section className="services section" id="services">
-            <h2 className="section__title">Mes Services</h2>
-            <span className="section__subtitle">Ce que j'offre</span>
+      <div className="services__container container grid">
+        {servicesData.map(({ id, icon, title, desc, modalDesc, items, flyers }, i) => (
+          <div key={id} className={`services__content reveal d${i + 1}`}>
+            <i className={`uil ${icon} services__icon`} />
+            <h3 className="services__title">{title}</h3>
+            <p className="services__desc">{desc}</p>
+            <span className="services__button" onClick={() => setOpen(id)}>
+              Voir plus <i className="uil uil-arrow-right services__button-icon" />
+            </span>
 
-            <div className="services__container container grid">
-                <div className="services__content">
-                    <div>
-                        <i className="uil uil-web-grid services__icon"></i>
-                        <h3 className="services__title">
-                            Graphic <br /> Designer
-                        </h3>
-                    </div>
-
-                    <span className="services__button" onClick={() => toggleTab(1)}>Voir plus <i className="uil uil-arrow-right services__button-icon"></i></span>
-                    <div className={toggleState === 1 ? "services__modal active-modal" : "services__modal"}>
-                        <div className="services__modal-content">
-                            <i className="uil uil-times services__modal-close" onClick={() => toggleTab(0)}></i>
-
-                            <h3 className="services__modal-title"><i className="uil uil-web-grid services__icon"></i>Graphic Designer</h3>
-                            <p className="services__modal-description">
-                                Service avec plus de 3 ans d'expérience. Je fourni un travail de qualité aux clients et aux entreprises.
-                            </p>
-
-                            <ul className="services__modal-services grid">
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Conception des Logos, Flyers et Cartes de Visites.</p>
-                                </li>
-
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Montages Videos.</p>
-                                </li>
-
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Gestion de Communauté.</p>
-                                </li>
-
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Conception des maquettes de Sites Web et Applications et autres...</p>
-                                </li>
-                            </ul>
-
-                            Télécharger le Flyer :
-                            <div style={{ display: 'flex', alignItems: 'center', gap: 10, justifyContent: 'center', marginTop: '20px' }}>
-                                <a
-                                    className={`button`}
-                                    href={Flyer_FR}
-                                    download="Flyer_Graphic_Design_FR.jpg"
-                                    style={{ justifyContent: 'center', alignItems: 'center' }}
-                                >
-                                    Flyer en français
-
-                                </a>
-                                <a
-                                    className={`button`}
-                                    href={Flyer_EN}
-                                    download="Flyer_Graphic_Design_EN.jpg"
-                                    style={{ justifyContent: 'center', alignItems: 'center' }}
-                                >
-                                    Flyer en anglais
-
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div className="services__content">
-                    <div>
-                        <i className="uil uil-arrow services__icon"></i>
-                        <h3 className="services__title">
-                            UI/UX <br /> Designer
-                        </h3>
-                    </div>
-
-                    <span className="services__button" onClick={() => toggleTab(2)}>Voir plus <i className="uil uil-arrow-right services__button-icon"></i></span>
-                    <div className={toggleState === 2 ? "services__modal active-modal" : "services__modal"}>
-                        <div className="services__modal-content">
-                            <i className="uil uil-times services__modal-close" onClick={() => toggleTab(0)}></i>
-
-                            <h3 className="services__modal-title"><i className="uil uil-arrow services__icon"></i>UI/UX Designer</h3>
-                            <p className="services__modal-description">
-                                Service avec plus de 3 ans d'expérience. Je fourni un travail de qualité aux clients et aux entreprises.
-                            </p>
-
-                            <ul className="services__modal-services grid">
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Développement des interfaces utilisateurs.</p>
-                                </li>
-
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Développement des Pages Web.</p>
-                                </li>
-
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Création des interactions d'éléments UX.</p>
-                                </li>
-
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Conception et Développement des Applications Web, Mobiles et Desktop et autres...</p>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="services__content">
-                    <div>
-                        {/* Changement de l'icône pour quelque chose de plus technique (brackets) */}
-                        <i className="uil uil-brackets-curly services__icon"></i>
-                        <h3 className="services__title">
-                            Développement <br /> Front et Back-end
-                        </h3>
-                    </div>
-
-                    <span className="services__button" onClick={() => toggleTab(3)}>
-                        Voir plus <i className="uil uil-arrow-right services__button-icon"></i>
-                    </span>
-
-                    <div className={toggleState === 3 ? "services__modal active-modal" : "services__modal"}>
-                        <div className="services__modal-content">
-                            <i className="uil uil-times services__modal-close" onClick={() => toggleTab(0)}></i>
-
-                            <h3 className="services__modal-title"><i className="uil uil-brackets-curly services__icon"></i>Développeur Full Stack</h3>
-
-                            <p className="services__modal-description">
-                                Développeur avec plus de 4 ans d'expérience. Je conçois des applications web complètes, performantes et adaptées aux besoins des entreprises.
-                            </p>
-
-                            <ul className="services__modal-services grid">
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Création d'interfaces utilisateur (UI) modernes et réactives.</p>
-                                </li>
-
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Développement d'APIs robustes et sécurisées (Node.js, Python, etc.).</p>
-                                </li>
-
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Conception et gestion de bases de données (SQL et NoSQL).</p>
-                                </li>
-
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">Optimisation des performances et déploiement continu.</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            {/* Modal */}
+            <div className={`services__modal${open === id ? ' active-modal' : ''}`}>
+              <div className="services__modal-content">
+                <button
+                  className="services__modal-close"
+                  onClick={() => setOpen(0)}
+                  aria-label="Fermer"
+                >
+                  <i className="uil uil-times" />
+                </button>
+                <h3 className="services__modal-title">{title}</h3>
+                <p className="services__modal-description">{modalDesc}</p>
+                <ul className="services__modal-services">
+                  {items.map((item, j) => (
+                    <li key={j} className="services__modal-service">
+                      <i className="uil uil-check-circle services__modal-icon" />
+                      <p className="services__modal-info">{item}</p>
+                    </li>
+                  ))}
+                </ul>
+                {flyers && (
+                  <div className="services__modal-flyers">
+                    <a href={Flyer_FR} download="Flyer_Design_FR.jpg" className="button button--flex" style={{ fontSize: 'var(--smaller-font-size)' }}>
+                      Flyer FR <i className="uil uil-import button__icon" />
+                    </a>
+                    <a href={Flyer_EN} download="Flyer_Design_EN.jpg" className="button button--flex" style={{ fontSize: 'var(--smaller-font-size)' }}>
+                      Flyer EN <i className="uil uil-import button__icon" />
+                    </a>
+                  </div>
+                )}
+              </div>
             </div>
-        </section>
-    )
-}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
 
-export default Services
+export default Services;

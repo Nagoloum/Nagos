@@ -1,22 +1,24 @@
-import React from 'react'
-import "./Scrollup.css";
+import React, { useEffect, useState } from 'react';
+import './Scrollup.css';
 
 const Scrollup = () => {
+  const [visible, setVisible] = useState(false);
 
-    window.addEventListener("scroll", function () {
-        const scrollUp = document.querySelector(".scrollup");
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY >= 560);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
-        //quand la hauteur du scroll est superieur a 560 ajouter la classe "show-scroll" qui affiche le bouton si non retirer
-        if (this.scrollY >= 560) scrollUp.classList.add("show-scroll");
-        else scrollUp.classList.remove("show-scroll");
-    });
-    return (
-        <div>
-            <a href="#home" className="scrollup">
-                <i className="uil uil-arrow-up scrollup__icon"></i>
-            </a>
-        </div>
-    )
-}
+  return (
+    <a
+      href="#home"
+      className={`scrollup${visible ? ' show-scroll' : ''}`}
+      aria-label="Remonter en haut"
+    >
+      <i className="uil uil-arrow-up" />
+    </a>
+  );
+};
 
-export default Scrollup
+export default Scrollup;

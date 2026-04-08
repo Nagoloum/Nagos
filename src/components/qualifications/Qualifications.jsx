@@ -1,152 +1,96 @@
-import React, { useState } from 'react'
-import "./Qualifications.css";
+import React, { useState } from 'react';
+import './Qualifications.css';
+
+const education = [
+  { title: 'Bachelor',          sub: 'INGETIS',                      dates: '2025 – 2026', side: 'left'  },
+  { title: 'BTS (Bac+2)',       sub: 'GTES',                          dates: '2024 – 2025', side: 'right' },
+  { title: 'Baccalauréat D',    sub: 'Lycée Bilingue de Bafoussam',   dates: '2021 – 2022', side: 'left'  },
+  { title: 'Probatoire D',      sub: 'Lycée Bilingue de Bafoussam',   dates: '2020 – 2021', side: 'right' },
+];
+
+const experience = [
+  { title: 'Développement Web Front & Back',    sub: null,      dates: '2021 – Auj.',  side: 'left'  },
+  { title: 'Design Graphique & Motion',         sub: 'BRITECH', dates: '2022 – 2025',  side: 'right' },
+];
+
+const TimelineItem = ({ item }) => {
+  const isLeft = item.side === 'left';
+  return (
+    <div className="qualification__data">
+      {/* Left cell */}
+      <div className={`qualification__text-${isLeft ? 'left' : ''}`}>
+        {isLeft && (
+          <>
+            <h3 className="qualification__title">{item.title}</h3>
+            {item.sub && <span className="qualification__subtitle">{item.sub}</span>}
+            <div className="qualification__calendar">
+              <i className="uil uil-calendar-alt" /> {item.dates}
+            </div>
+          </>
+        )}
+      </div>
+
+      {/* Centre axis */}
+      <div>
+        <span className="qualification__rounder" />
+        <span className="qualification__line"   />
+      </div>
+
+      {/* Right cell */}
+      <div className={`qualification__text-${!isLeft ? 'right' : ''}`}>
+        {!isLeft && (
+          <>
+            <h3 className="qualification__title">{item.title}</h3>
+            {item.sub && <span className="qualification__subtitle">{item.sub}</span>}
+            <div className="qualification__calendar">
+              <i className="uil uil-calendar-alt" /> {item.dates}
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+};
 
 const Qualifications = () => {
+  const [tab, setTab] = useState(1);
 
-    const [toggleState, setToggleState] = useState(1);
+  return (
+    <section className="qualification section">
+      <span className="section__subtitle">Mon parcours</span>
+      <h2 className="section__title reveal">Mes Qualifications</h2>
 
-    const toggleTab = (index) => {
-        setToggleState(index);
-    }
+      <div className="qualification__container container">
 
-    return (
-        <section className="qualification section">
-            <h2 className="section__title">Mes Qualifications</h2>
-            <span className="section__subtitle">Mon parcours personnel</span>
+        {/* Tabs */}
+        <div className="qualification__tabs reveal d1">
+          <button
+            className={`qualification__button${tab === 1 ? ' qualification__active' : ''}`}
+            onClick={() => setTab(1)}
+          >
+            <i className="uil uil-graduation-cap qualification__icon" /> Éducation
+          </button>
+          <button
+            className={`qualification__button${tab === 2 ? ' qualification__active' : ''}`}
+            onClick={() => setTab(2)}
+          >
+            <i className="uil uil-briefcase-alt qualification__icon" /> Expérience
+          </button>
+        </div>
 
-            <div className="qualification__container container">
-                <div className="qualification__tabs">
-                    <div className={toggleState === 1 ? "qualification__button qualification__active button--flex" : "qualification__button button--flex"} onClick={() => toggleTab(1)}>
-                        <i className="uil uil-graduation-cap qualification__icon"></i> Education
-                    </div>
+        {/* Timeline */}
+        <div className="qualification__sections">
+          <div className={`qualification__content${tab === 1 ? ' qualification__content-active' : ''}`}>
+            {education.map((item, i) => <TimelineItem key={i} item={item} />)}
+          </div>
+          <div className={`qualification__content${tab === 2 ? ' qualification__content-active' : ''}`}>
+            {experience.map((item, i) => <TimelineItem key={i} item={item} />)}
+          </div>
+        </div>
 
-                    <div className={toggleState === 2 ? "qualification__button qualification__active button--flex" : "qualification__button button--flex"} onClick={() => toggleTab(2)}>
-                        <i className="uil uil-briefcase-alt qualification__icon"></i> Experience
-                    </div>
-                </div>
+      </div>
+    </section>
+  );
+};
 
-                <div className="qualification__sections">
-                    <div className={toggleState === 1 ? "qualification__content qualification__content-active" : "qualification__content"}>
-
-                        <div className="qualification__data">
-                            <div>
-                                <h3 className="qualification__title">BACHELOR</h3>
-                                <span className="qualification__subtitle">INGETIS</span>
-                                <div className="qualification__calendar">
-                                    <i className="uil uil-calendar-alt"></i> 2025 - 2026
-                                </div>
-                            </div>
-
-                            <div>
-                                <span className="qualification__rounder"></span>
-                                <span className="qualification__line"></span>
-
-                            </div>
-                        </div>
-
-                        <div className="qualification__data">
-                            <div></div>
-
-                            <div>
-                                <span className="qualification__rounder"></span>
-                                <span className="qualification__line"></span>
-                            </div>
-
-                            <div>
-                                <h3 className="qualification__title">BTS (BACC + 2)</h3>
-                                <span className="qualification__subtitle">GTES</span>
-                                <div className="qualification__calendar">
-                                    <i className="uil uil-calendar-alt"></i> 2024 - 2025
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="qualification__data">
-
-                            <div>
-                                <h3 className="qualification__title"> BACCALAUREAT D</h3>
-                                <span className="qualification__subtitle">LYCEE BILINGUE DE BAFOUSSAM</span>
-                                <div className="qualification__calendar">
-                                    <i className="uil uil-calendar-alt"></i> 2021 - 2022
-                                </div>
-                            </div>
-
-                            <div>
-                                <span className="qualification__rounder"></span>
-                                <span className="qualification__line"></span>
-
-                            </div>
-
-                        </div>
-
-                        <div className="qualification__data">
-
-                            <div></div>
-
-                            <div>
-                                <span className="qualification__rounder"></span>
-                                <span className="qualification__line"></span>
-
-                            </div>
-                            <div>
-                                <h3 className="qualification__title">PROBATOIRE D</h3>
-                                <span className="qualification__subtitle">LYCEE BILINGUE DE BAFOUSSAM</span>
-                                <div className="qualification__calendar">
-                                    <i className="uil uil-calendar-alt"></i> 2020 - 2021
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                    </div>
-
-                    <div className={toggleState === 2 ? "qualification__content qualification__content-active" : "qualification__content"}>
-
-
-                        <div className="qualification__data">
-                            <div>
-                                <h3 className="qualification__title">Développement Web FrontEnd et BackEnd</h3>
-
-                                <div className="qualification__calendar">
-                                    <i className="uil uil-calendar-alt"></i> 2021 - De nos jours
-                                </div>
-                            </div>
-
-                            <div>
-                                <span className="qualification__rounder"></span>
-                                <span className="qualification__line"></span>
-
-                            </div>
-                        </div>
-                        <div className="qualification__data">
-
-                            <div>
-
-                            </div>
-
-                            <div>
-                                <span className="qualification__rounder"></span>
-                                <span className="qualification__line"></span>
-                            </div>
-
-
-                            <div>
-                                <h3 className="qualification__title">Conception de Visuels et Design Graphique</h3>
-                                <span className="qualification__subtitle">BRITECH</span>
-                                <div className="qualification__calendar">
-                                    <i className="uil uil-calendar-alt"></i> 2022 - 2025
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-        </section>
-    )
-}
-
-export default Qualifications
+export default Qualifications;

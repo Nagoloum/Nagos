@@ -182,7 +182,7 @@
   }
   .nav__link.active-link {
     background: var(--accent);
-    color: #fff;
+    color: var(--accent);
     font-weight: var(--font-semi-bold);
   }
 

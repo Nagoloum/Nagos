@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import './Services.css';
 
 const servicesData = [
@@ -10,10 +11,10 @@ const servicesData = [
     desc: 'Applications web complètes, de l\'interface utilisateur à l\'API, déploiement inclus.',
     modalDesc: 'Plus de 4 ans d\'expérience sur des projets variés : e-commerce, SaaS, dashboards. Je prends en charge l\'intégralité du cycle de développement.',
     items: [
-      { icon: 'uil-react', text: 'Interfaces modernes et réactives avec React, Next.js, TypeScript.' },
-      { icon: 'uil-server', text: 'APIs robustes et sécurisées avec Node.js, ExpressJS, NestJS.' },
+      { icon: 'uil-react',    text: 'Interfaces modernes et réactives avec React, Next.js, TypeScript.' },
+      { icon: 'uil-server',   text: 'APIs robustes et sécurisées avec Node.js, ExpressJS, NestJS.' },
       { icon: 'uil-database', text: 'Bases de données SQL et NoSQL : PostgreSQL, MongoDB, Supabase.' },
-      { icon: 'uil-rocket', text: 'Déploiement CI/CD, Vercel, optimisation des performances.' },
+      { icon: 'uil-rocket',   text: 'Déploiement CI/CD, Vercel, optimisation des performances.' },
     ],
   },
   {
@@ -25,9 +26,9 @@ const servicesData = [
     modalDesc: 'Conception centrée utilisateur avec un fort sens du détail visuel. Je crée des maquettes et les intègre avec précision.',
     items: [
       { icon: 'uil-vector-square', text: 'Maquettes Figma et prototypes interactifs haute fidélité.' },
-      { icon: 'uil-paint-tool', text: 'Intégration responsive HTML5 / CSS3 / TailwindCSS pixel-perfect.' },
-      { icon: 'uil-star', text: 'Micro-animations et transitions fluides (Framer Motion).' },
-      { icon: 'uil-search-alt', text: 'Audit UX et amélioration d\'interfaces existantes.' },
+      { icon: 'uil-paint-tool',    text: 'Intégration responsive HTML5 / CSS3 / TailwindCSS pixel-perfect.' },
+      { icon: 'uil-star',          text: 'Micro-animations et transitions fluides (Framer Motion).' },
+      { icon: 'uil-search-alt',    text: 'Audit UX et amélioration d\'interfaces existantes.' },
     ],
   },
   {
@@ -38,9 +39,9 @@ const servicesData = [
     desc: 'Robots de trading, dashboards data, scripts d\'automatisation et analyses algorithmiques.',
     modalDesc: 'Je développe des solutions sur-mesure pour automatiser vos processus et visualiser vos données de manière intelligente.',
     items: [
-      { icon: 'uil-analytics', text: 'Robots de trading algorithmique en Python (XAU/USD, indices).' },
-      { icon: 'uil-graph-bar', text: 'Dashboards de suivi en temps réel avec Streamlit.' },
-      { icon: 'uil-cog', text: 'Scripts d\'automatisation et pipelines de données.' },
+      { icon: 'uil-analytics',      text: 'Robots de trading algorithmique en Python (XAU/USD, indices).' },
+      { icon: 'uil-graph-bar',      text: 'Dashboards de suivi en temps réel avec Streamlit.' },
+      { icon: 'uil-cog',            text: 'Scripts d\'automatisation et pipelines de données.' },
       { icon: 'uil-game-structure', text: 'Développement de jeux vidéo 2D en C# avec Unity.' },
     ],
   },
@@ -48,16 +49,20 @@ const servicesData = [
 
 /* ── Modal component ── */
 const ServiceModal = ({ service, onClose }) => {
-  if (!service) return null;
-
-  // Close on Escape key
   useEffect(() => {
+    if (!service) return;
     const onKey = (e) => { if (e.key === 'Escape') onClose(); };
     document.addEventListener('keydown', onKey);
-    return () => document.removeEventListener('keydown', onKey);
-  }, [onClose]);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [service, onClose]);
 
-  return (
+  if (!service) return null;
+
+  return createPortal(
     <div
       className="svc-modal-overlay"
       onClick={onClose}
@@ -102,7 +107,8 @@ const ServiceModal = ({ service, onClose }) => {
           </a>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 

@@ -25,7 +25,7 @@ const Footer = () => (
           </a>
         ))}
       </div>
-      <span className="footer__copy">© <span>{new Date().getFullYear()}</span> Daniel Nagoloum · Tous droits réservés</span>
+      <span className="footer__copy">© <span>{new Date().getFullYear()}</span> Daniel Nagoloum Talla · Tous droits réservés</span>
     </div>
   </footer>
 );

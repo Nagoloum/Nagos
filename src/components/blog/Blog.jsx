@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import './Blog.css';
 
 const posts = [
@@ -120,12 +121,17 @@ const BlogModal = ({ post, onClose }) => {
     if (!post) return;
     const onKey = (e) => { if (e.key === 'Escape') onClose(); };
     document.addEventListener('keydown', onKey);
-    return () => document.removeEventListener('keydown', onKey);
+    // Prevent body scroll when modal is open
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
   }, [post, onClose]);
 
   if (!post) return null;
 
-  return (
+  return createPortal(
     <div className="blog__modal-overlay" onClick={onClose}>
       <div className="blog__modal" onClick={(e) => e.stopPropagation()}>
         <button
@@ -165,7 +171,8 @@ const BlogModal = ({ post, onClose }) => {
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 

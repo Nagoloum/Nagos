@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
 /* ── Project detail modal ── */
 const ProjectModal = ({ item, onClose }) => {
-  if (!item) return null;
-
   useEffect(() => {
+    if (!item) return;
     const onKey = (e) => { if (e.key === 'Escape') onClose(); };
     document.addEventListener('keydown', onKey);
-    return () => document.removeEventListener('keydown', onKey);
-  }, [onClose]);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [item, onClose]);
 
-  return (
+  if (!item) return null;
+
+  return createPortal(
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content modal-detail" onClick={(e) => e.stopPropagation()}>
         <button className="modal-close" onClick={onClose} aria-label="Fermer">
@@ -37,7 +43,6 @@ const ProjectModal = ({ item, onClose }) => {
             </div>
           )}
 
-          {/* Visit button in modal */}
           <div className="modal-info__actions">
             {item.link ? (
               <a
@@ -56,7 +61,8 @@ const ProjectModal = ({ item, onClose }) => {
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 
@@ -93,7 +99,6 @@ const Workitems = ({ item }) => {
               <h3 className="work__title">{item.title}</h3>
               <span className="work__category-tag">{item.category}</span>
             </div>
-            {/* Quick link icon if available */}
             {item.link && (
               <a
                 href={item.link}

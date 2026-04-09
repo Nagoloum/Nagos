@@ -11,17 +11,58 @@ const contactCards = [
 const Contact = () => {
   const form = useRef();
   const [status, setStatus] = useState({ message: '', type: '' });
+
   const sendEmail = (e) => {
     e.preventDefault();
-    emailjs.sendForm('service_gjhs94d','template_i8queid',form.current,{ publicKey:'ID02cnIwxSCL9HOqx' })
-      .then(() => { setStatus({ message: 'Message envoyé ✅', type: 'success' }); e.target.reset(); })
-      .catch(() => setStatus({ message: "Échec de l'envoi ❌. Réessayez.", type: 'error' }));
-    setTimeout(() => setStatus({ message:'', type:'' }), 4000);
+
+    // === Génération de la date d'envoi ===
+    const maintenant = new Date();
+    const dateEnvoi = maintenant.toLocaleDateString('fr-FR', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    }) + ' à ' + maintenant.toLocaleTimeString('fr-FR', {
+      hour: '2-digit',
+      minute: '2-digit',
+    });
+
+    // Récupération des valeurs du formulaire
+    const formData = new FormData(e.target);
+
+    const templateParams = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      message: formData.get('message'),     
+      date: dateEnvoi,                     
+    };
+
+    emailjs
+      .send(
+        'service_gjhs94d',      // Service ID
+        'template_i8queid',     // Template ID (celui du contact)
+        templateParams,
+        'ID02cnIwxSCL9HOqx'     // Public Key
+      )
+      .then((response) => {
+        console.log('Message envoyé avec succès !', response.status, response.text);
+        setStatus({ message: 'Message envoyé ✅', type: 'success' });
+        e.target.reset();
+      })
+      .catch((error) => {
+        console.error('Erreur lors de l\'envoi :', error);
+        setStatus({ message: "Échec de l'envoi ❌. Réessayez.", type: 'error' });
+      });
+
+    setTimeout(() => {
+      setStatus({ message: '', type: '' });
+    }, 4000);
   };
+
   return (
     <section className="contact section" id="contact">
       <span className="section__subtitle">Travaillons ensemble</span>
       <h2 className="section__title reveal">Entrer en contact</h2>
+
       <div className="contact__container container grid">
         <div className="reveal-left d2">
           <h3 className="contact__title">Parlons de votre projet</h3>
@@ -42,29 +83,52 @@ const Contact = () => {
             ))}
           </div>
         </div>
+
         <div className="reveal-right d2">
           <h3 className="contact__title">Envoyez-moi un message</h3>
           <form ref={form} onSubmit={sendEmail} className="contact__form">
             <div className="contact__form-div">
               <label className="contact__form-tag">Nom</label>
-              <input type="text" name="name" className="contact__form-input" placeholder="Votre nom complet…" required />
+              <input
+                type="text"
+                name="name"
+                className="contact__form-input"
+                placeholder="Votre nom complet…"
+                required
+              />
             </div>
+
             <div className="contact__form-div">
               <label className="contact__form-tag">Email</label>
-              <input type="email" name="email" className="contact__form-input" placeholder="votre@email.com" required />
+              <input
+                type="email"
+                name="email"
+                className="contact__form-input"
+                placeholder="votre@email.com"
+                required
+              />
             </div>
+
             <div className="contact__form-div contact__form-area">
               <label className="contact__form-tag">Message</label>
-              <textarea name="project" className="contact__form-input" placeholder="Décrivez votre projet…" required />
+              <textarea
+                name="message"
+                className="contact__form-input"
+                placeholder="Décrivez votre projet…"
+                required
+              />
             </div>
+
             <button type="submit" className="button button--flex">
               Envoyer le message <i className="uil uil-message button__icon" />
             </button>
           </form>
         </div>
       </div>
+
       {status.message && <div className={`toast ${status.type}`}>{status.message}</div>}
     </section>
   );
 };
+
 export default Contact;

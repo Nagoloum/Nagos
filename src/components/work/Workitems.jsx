@@ -1,4 +1,64 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
+/* ── Project detail modal ── */
+const ProjectModal = ({ item, onClose }) => {
+  if (!item) return null;
+
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') onClose(); };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [onClose]);
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-content modal-detail" onClick={(e) => e.stopPropagation()}>
+        <button className="modal-close" onClick={onClose} aria-label="Fermer">
+          <i className="uil uil-times" />
+        </button>
+
+        <img src={item.image} alt={item.title} className="modal-image" />
+
+        <div className="modal-info">
+          <div className="modal-info__top">
+            <div>
+              <span className="work__category-tag">{item.category}</span>
+              <h3 className="modal-info__title">{item.title}</h3>
+            </div>
+          </div>
+
+          <p className="modal-info__desc">{item.desc}</p>
+
+          {item.tech && (
+            <div className="work__tech">
+              {item.tech.map(t => (
+                <span key={t} className="work__tech-tag">{t}</span>
+              ))}
+            </div>
+          )}
+
+          {/* Visit button in modal */}
+          <div className="modal-info__actions">
+            {item.link ? (
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noreferrer"
+                className="button button--accent button--flex"
+              >
+                <i className="uil uil-external-link-alt" /> Voir le site
+              </a>
+            ) : (
+              <a href="#contact" onClick={onClose} className="button button--ghost button--flex">
+                <i className="uil uil-message" /> Me contacter
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Workitems = ({ item }) => {
   const [open, setOpen] = useState(false);
@@ -6,33 +66,53 @@ const Workitems = ({ item }) => {
   return (
     <>
       <div className="work__card reveal-scale">
+        {/* Image + overlay */}
         <div className="work__img-wrap">
-          <img src={item.image} alt={item.title} className="work__img" />
+          <img src={item.image} alt={item.title} className="work__img" loading="lazy" />
           <div className="work__overlay">
-            {item.category === 'Web' ? (
+            <button className="work__overlay-btn" onClick={() => setOpen(true)}>
+              <i className="uil uil-expand-arrows-alt" /> Détails
+            </button>
+            {item.link && (
               <a
                 href={item.link}
                 target="_blank"
                 rel="noreferrer"
-                className="work__overlay-btn"
+                className="work__overlay-btn work__overlay-btn--secondary"
               >
-                <i className="uil uil-external-link-alt" /> Voir le site
+                <i className="uil uil-external-link-alt" /> Voir
               </a>
-            ) : (
-              <button className="work__overlay-btn" onClick={() => setOpen(true)}>
-                <i className="uil uil-info-circle" /> Voir les détails
-              </button>
             )}
           </div>
         </div>
 
+        {/* Card body */}
         <div className="work__body">
-          <h3 className="work__title">{item.title}</h3>
-          <span className="work__category-tag">{item.category}</span>
+          <div className="work__body-top">
+            <div>
+              <h3 className="work__title">{item.title}</h3>
+              <span className="work__category-tag">{item.category}</span>
+            </div>
+            {/* Quick link icon if available */}
+            {item.link && (
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noreferrer"
+                className="work__link-btn"
+                title="Voir le site"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <i className="uil uil-external-link-alt" />
+              </a>
+            )}
+          </div>
+
           {item.desc && <p className="work__desc">{item.desc}</p>}
+
           {item.tech && (
             <div className="work__tech">
-              {item.tech.slice(0, 3).map((t) => (
+              {item.tech.slice(0, 3).map(t => (
                 <span key={t} className="work__tech-tag">{t}</span>
               ))}
               {item.tech.length > 3 && (
@@ -40,31 +120,14 @@ const Workitems = ({ item }) => {
               )}
             </div>
           )}
+
+          <button className="work__details-btn" onClick={() => setOpen(true)}>
+            Voir les détails <i className="uil uil-arrow-right" />
+          </button>
         </div>
       </div>
 
-      {/* Details modal for App items */}
-      {open && (
-        <div className="modal-overlay" onClick={() => setOpen(false)}>
-          <div className="modal-content modal-detail" onClick={e => e.stopPropagation()}>
-            <button className="modal-close" onClick={() => setOpen(false)}>
-              <i className="uil uil-times" />
-            </button>
-            <img src={item.image} alt={item.title} className="modal-image" />
-            <div className="modal-info">
-              <h3 className="modal-info__title">{item.title}</h3>
-              <p className="modal-info__desc">{item.desc}</p>
-              {item.tech && (
-                <div className="work__tech modal-tech">
-                  {item.tech.map(t => (
-                    <span key={t} className="work__tech-tag">{t}</span>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
+      <ProjectModal item={open ? item : null} onClose={() => setOpen(false)} />
     </>
   );
 };

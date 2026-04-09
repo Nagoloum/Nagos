@@ -3,15 +3,12 @@ import './ThemeToggle.css';
 
 const ThemeToggle = () => {
   const [dark, setDark] = useState(() => localStorage.getItem('theme') === 'dark');
-
   useEffect(() => {
     document.body.classList.toggle('dark-theme', dark);
     localStorage.setItem('theme', dark ? 'dark' : 'light');
   }, [dark]);
-
   const handleClick = (e) => {
-    const x = e.clientX;
-    const y = e.clientY;
+    const x = e.clientX, y = e.clientY;
     document.body.style.setProperty('--wave-x', `${x}px`);
     document.body.style.setProperty('--wave-y', `${y}px`);
     document.body.classList.add('animating');
@@ -20,7 +17,6 @@ const ThemeToggle = () => {
       setTimeout(() => document.body.classList.remove('animating'), 600);
     }, 50);
   };
-
   return (
     <button onClick={handleClick} className="theme-toggle" aria-label="Toggle theme">
       <span className="theme-toggle__track">
@@ -31,5 +27,4 @@ const ThemeToggle = () => {
     </button>
   );
 };
-
 export default ThemeToggle;

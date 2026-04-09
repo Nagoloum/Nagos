@@ -9,5 +9,4 @@ const Work = () => (
     <Works />
   </section>
 );
-
 export default Work;

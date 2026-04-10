@@ -3,9 +3,9 @@ import Hair             from '../../assets/braids.jpg';
 import Krossty          from '../../assets/krossty.jpg';
 import Qrcode           from '../../assets/qrcode.jpg';
 import CMC              from '../../assets/cmc.jpg';
-import BeePlaceholder   from '../../assets/wiyorent.jpg';   // remplace par ta vraie image
-import RemPlaceholder   from '../../assets/krossty.jpg';    // idem
-import BotPlaceholder   from '../../assets/qrcode.jpg';     // idem
+import BeePlaceholder   from '../../assets/wiyorent.jpg';
+import RemPlaceholder   from '../../assets/krossty.jpg';
+import BotPlaceholder   from '../../assets/qrcode.jpg';
 
 export const projectsData = [
   {

@@ -42,12 +42,19 @@
   box-shadow: var(--shadow-accent);
 }
 
-/* ─── PROFILE IMAGE ──────────────────────────────────────── */
-.home__img {
-  background: url(../../assets/moi.jpg) center/cover no-repeat;
-  width: 320px; height: 320px;
+/* ─── IMAGE WRAP + BADGE ─────────────────────────────────── */
+.home__img-wrap {
+  position: relative;
   order: 1;
   justify-self: center;
+  width: 320px;
+  height: 320px;
+}
+
+.home__img {
+  width: 100%;
+  height: 100%;
+  background: url(../../assets/moi.jpg) center/cover no-repeat;
   border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
   animation: morphShape 8s ease-in-out infinite 1s;
   box-shadow:
@@ -55,17 +62,50 @@
     0 0 0 20px rgba(var(--accent-rgb), 0.04),
     var(--shadow-lg);
 }
+
 @keyframes morphShape {
-  0%   { border-radius:60% 40% 30% 70%/60% 30% 70% 40%; }
-  50%  { border-radius:30% 60% 70% 40%/50% 60% 30% 60%; }
-  100% { border-radius:60% 40% 30% 70%/60% 30% 70% 40%; }
+  0%   { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50%  { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+}
+
+/* ── Badge (moved here from About) ── */
+.home__img-badge {
+  position: absolute;
+  bottom: -1rem;
+  right: -1.25rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  padding: 0.875rem 1.375rem;
+  box-shadow: var(--shadow-accent);
+  text-align: center;
+  animation: floatBadge 3s ease-in-out infinite;
+  z-index: 2;
+}
+.home__img-badge strong {
+  display: block;
+  font-family: var(--heading-font);
+  font-size: 1.6rem;
+  font-weight: var(--font-extra-bold);
+  line-height: 1;
+}
+.home__img-badge span {
+  font-size: var(--tiny-font-size);
+  font-weight: var(--font-semi-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+@keyframes floatBadge {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
 }
 
 /* ─── DATA BLOCK ─────────────────────────────────────────── */
 .home__data { animation: fadeSlideUp .9s ease both; }
 @keyframes fadeSlideUp {
-  from { opacity:0; transform:translateY(24px); }
-  to   { opacity:1; transform:translateY(0); }
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .home__greeting {
@@ -120,9 +160,12 @@
   transform-origin: 70% 80%;
 }
 @keyframes wave {
-  0%,100%{transform:rotate(0deg)} 15%{transform:rotate(14deg)}
-  30%{transform:rotate(-8deg)} 45%{transform:rotate(12deg)}
-  60%{transform:rotate(-4deg)} 75%{transform:rotate(8deg)}
+  0%, 100% { transform: rotate(0deg); }
+  15%       { transform: rotate(14deg); }
+  30%       { transform: rotate(-8deg); }
+  45%       { transform: rotate(12deg); }
+  60%       { transform: rotate(-4deg); }
+  75%       { transform: rotate(8deg); }
 }
 
 .home__subtitle {
@@ -193,11 +236,14 @@
 .home__scroll-button:hover { color: var(--title-color); }
 .wheel { animation: scrollWheel 2s ease infinite; }
 @keyframes scrollWheel {
-  0%{transform:translateY(0)} 30%{transform:translateY(3.75rem)} 100%{transform:translateY(0)}
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(3.75rem); }
+  100% { transform: translateY(0); }
 }
 .home__scroll-arrow { font-size: 1.1rem; animation: bounceArrow 1.5s ease infinite; }
 @keyframes bounceArrow {
-  0%,100%{transform:translateY(0)} 50%{transform:translateY(4px)}
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(4px); }
 }
 
 /* ─── TABLET ─────────────────────────────────────────────── */
@@ -207,21 +253,18 @@
     column-gap: 1.5rem;
     padding-top: 7rem;
   }
-  .home__title { font-size: calc(var(--big-font-size) * 0.85); }
-  .home__hand  { width: 28px; height: 28px; }
-  .home__img   { width: 260px; height: 260px; }
-  .home__scroll { margin-left: 6rem; }
+  .home__title      { font-size: calc(var(--big-font-size) * 0.85); }
+  .home__hand       { width: 28px; height: 28px; }
+  .home__img-wrap   { width: 260px; height: 260px; }
+  .home__img-badge  { padding: 0.7rem 1rem; }
+  .home__img-badge strong { font-size: 1.3rem; }
+  .home__scroll     { margin-left: 6rem; }
 }
 
 /* ─── MOBILE ─────────────────────────────────────────────── */
 @media screen and (max-width: 768px) {
-
   .home { min-height: auto; align-items: flex-start; padding-top: 0; }
 
-  /* ── Layout:
-       Row 1: [social icons | profile image]
-       Row 2: [text content — full width]
-  ── */
   .home__content {
     grid-template-columns: auto 1fr;
     grid-template-rows: auto auto;
@@ -231,7 +274,7 @@
     align-items: start;
   }
 
-  /* Social icons — left column, row 1 */
+  /* Social – left col, row 1 */
   .home__social {
     grid-column: 1;
     grid-row: 1;
@@ -240,41 +283,41 @@
     align-items: center;
     padding-top: 0.5rem;
   }
-  .home__social-icon {
-    width: 36px; height: 36px;
-    font-size: 1rem;
-  }
+  .home__social-icon { width: 36px; height: 36px; font-size: 1rem; }
 
-  /* Profile image — right of social icons, row 1 */
-  .home__img {
+  /* Image wrap – right of social, row 1 */
+  .home__img-wrap {
     grid-column: 2;
     grid-row: 1;
     order: initial;
     justify-self: center;
-    width: 270px; height: 270px;    
-    /* Remove extra ring on small screens */
+    width: 270px;
+    height: 270px;
+  }
+  .home__img {
     box-shadow: 0 0 0 6px rgba(var(--accent-rgb), 0.08), var(--shadow-md);
   }
 
-  /* Text content — full width, row 2 */
+  /* Badge responsive */
+  .home__img-badge {
+    bottom: -0.75rem;
+    right: -0.75rem;
+    padding: 0.65rem 1rem;
+  }
+  .home__img-badge strong { font-size: 1.25rem; }
+
+  /* Data – full width, row 2 */
   .home__data {
     grid-column: 1 / -1;
     grid-row: 2;
   }
 
-  /* Subtitle: reduce left padding on mobile */
-  .home__subtitle {
-    padding-left: 2.75rem;
-    font-size: var(--normal-font-size);
-  }
+  .home__subtitle { padding-left: 2.75rem; font-size: var(--normal-font-size); }
   .home__subtitle::before { width: 36px; }
-
-  /* Description: no max-width restriction */
   .home__description { max-width: 100%; }
 
-  /* ── Buttons side by side ── */
   .home__cta {
-    flex-direction: row;   /* force inline */
+    flex-direction: row;
     flex-wrap: nowrap;
     gap: 0.75rem;
   }
@@ -286,25 +329,24 @@
     white-space: nowrap;
   }
 
-  /* Tech pills: wrap fine on mobile */
-  .home__tech { gap: 0.35rem; }
+  .home__tech    { gap: 0.35rem; }
   .home__tech-pill { font-size: 0.62rem; padding: 0.2rem 0.65rem; }
-
-  /* Hide scroll indicator on mobile */
-  .home__scroll { display: none; }
+  .home__scroll  { display: none; }
 }
 
 /* ─── SMALL PHONES ───────────────────────────────────────── */
 @media screen and (max-width: 480px) {
-  .home__img { width: 230px; height: 230px; }
+  .home__img-wrap  { width: 230px; height: 230px; }
   .home__social-icon { width: 32px; height: 32px; font-size: 0.9rem; }
-  .home__title { font-size: 1.9rem; }
+  .home__title     { font-size: 1.9rem; }
   .home__cta .button { padding: 0.65rem 0.75rem; font-size: 0.72rem; }
+  .home__img-badge { right: -0.5rem; bottom: -0.5rem; padding: 0.55rem 0.85rem; }
+  .home__img-badge strong { font-size: 1.1rem; }
 }
 
 @media screen and (max-width: 350px) {
-  .home__img { width: 230px; height: 230px; }
-  .home__title { font-size: 1.9rem; }
-  .home__cta { gap: 0.5rem; }
+  .home__img-wrap { width: 210px; height: 210px; }
+  .home__title    { font-size: 1.9rem; }
+  .home__cta      { gap: 0.5rem; }
   .home__cta .button { padding: 0.6rem 0.6rem; font-size: 0.68rem; }
 }

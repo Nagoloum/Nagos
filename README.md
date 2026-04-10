@@ -240,14 +240,6 @@ emailjs.sendForm(
 
 ---
 
-## 🗑️ Fichiers supprimés (nettoyage)
-
-| Fichier | Raison |
-|---|---|
-| `src/components/about/Info.jsx` | Jamais importé — doublon de la logique déjà dans `About.jsx` |
-
----
-
 ## 📦 Dépendances principales
 
 ```json
@@ -263,11 +255,11 @@ emailjs.sendForm(
 
 ## 🔗 Liens
 
-- **Portfolio live :** _à renseigner_
+- **Portfolio live :** _https://nagoloum.vercel.app_
 - **LinkedIn :** [Daniel Nagoloum Talla](https://www.linkedin.com/in/daniel-nagoloum-talla-a3a574388/)
 - **GitHub :** [github.com/Nagoloum](https://github.com/Nagoloum)
 - **Contact :** nagoloumtalladanielparfait@gmail.com
 
 ---
 
-© 2025 Daniel Nagoloum · Tous droits réservés
+© 2026 Daniel Nagoloum · Tous droits réservés

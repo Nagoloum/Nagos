@@ -1,13 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
-/* ── Project detail modal ── */
+/* ─── COMPOSANT : Placeholder (Pour éviter la répétition) ─── */
+const ImagePlaceholder = ({ className }) => (
+  <div className={className + " work__img-placeholder"}>
+    <i className="uil uil-image-v placeholder-icon" />
+    <span className="placeholder-text">Aperçu non disponible</span>
+  </div>
+);
+
+/* ─── COMPOSANT : ProjectModal ────────────────────────────── */
 const ProjectModal = ({ item, onClose }) => {
   useEffect(() => {
     if (!item) return;
+    
     const onKey = (e) => { if (e.key === 'Escape') onClose(); };
     document.addEventListener('keydown', onKey);
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden'; // Bloque le scroll arrière
+    
     return () => {
       document.removeEventListener('keydown', onKey);
       document.body.style.overflow = '';
@@ -19,11 +29,19 @@ const ProjectModal = ({ item, onClose }) => {
   return createPortal(
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content modal-detail" onClick={(e) => e.stopPropagation()}>
+        {/* Bouton de fermeture */}
         <button className="modal-close" onClick={onClose} aria-label="Fermer">
           <i className="uil uil-times" />
         </button>
 
-        <img src={item.image} alt={item.title} className="modal-image" />
+        {/* IMAGE OU PLACEHOLDER */}
+        {item.image ? (
+          <img src={item.image} alt={item.title} className="modal-image" />
+        ) : (
+          <div className="modal-img-placeholder">
+             <i className="uil uil-image-v placeholder-icon" />
+          </div>
+        )}
 
         <div className="modal-info">
           <div className="modal-info__top">
@@ -66,19 +84,28 @@ const ProjectModal = ({ item, onClose }) => {
   );
 };
 
+/* ─── COMPOSANT PRINCIPAL : Workitems ─────────────────────── */
 const Workitems = ({ item }) => {
   const [open, setOpen] = useState(false);
 
   return (
     <>
       <div className="work__card reveal-scale">
-        {/* Image + overlay */}
+        {/* Header de la carte : Image + Overlay */}
         <div className="work__img-wrap">
-          <img src={item.image} alt={item.title} className="work__img" loading="lazy" />
+          {item.image ? (
+            <img src={item.image} alt={item.title} className="work__img" loading="lazy" />
+          ) : (
+            <div className="work__img-placeholder">
+               <i className="uil uil-android placeholder-icon" />
+            </div>
+          )}
+          
           <div className="work__overlay">
             <button className="work__overlay-btn" onClick={() => setOpen(true)}>
               <i className="uil uil-expand-arrows-alt" /> Détails
             </button>
+            
             {item.link && (
               <a
                 href={item.link}
@@ -92,13 +119,14 @@ const Workitems = ({ item }) => {
           </div>
         </div>
 
-        {/* Card body */}
+        {/* Corps de la carte */}
         <div className="work__body">
           <div className="work__body-top">
             <div>
               <h3 className="work__title">{item.title}</h3>
               <span className="work__category-tag">{item.category}</span>
             </div>
+            
             {item.link && (
               <a
                 href={item.link}
@@ -132,6 +160,7 @@ const Workitems = ({ item }) => {
         </div>
       </div>
 
+      {/* Modal rendue via Portail */}
       <ProjectModal item={open ? item : null} onClose={() => setOpen(false)} />
     </>
   );

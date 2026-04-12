@@ -53,6 +53,27 @@
   border-color: rgba(var(--accent-rgb), 0.25);
 }
 
+.work__img-placeholder, 
+.modal-img-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--container-color) 0%, rgba(var(--accent-rgb), 0.1) 100%);
+    color: var(--accent);
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.work__img-placeholder { height: 200px; }
+.modal-img-placeholder { height: 240px; }
+
+.placeholder-icon {
+    font-size: 5rem;
+    opacity: 0.4;
+}
+
+
 /* Image */
 .work__img-wrap {
   position: relative;

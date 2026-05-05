@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const techPills = ['React', 'Next.js', 'TypeScript', 'Node.js', 'Python', 'MongoDB'];
 
@@ -27,13 +28,13 @@ const Data = () => (
       {techPills.map(t => <span key={t} className="home__tech-pill">{t}</span>)}
     </div>
     <div className="home__cta">
-      <a href="#contact" className="button button--flex">
+      <Link to="/contact" className="button button--flex">
         Dites Bonjour
         <i className="uil uil-message button__icon" />
-      </a>
-      <a href="#portfolio" className="button button--ghost button--flex">
+      </Link>
+      <Link to="/portfolio" className="button button--ghost button--flex">
         Voir mon travail <i className="uil uil-arrow-right button__icon" />
-      </a>
+      </Link>
     </div>
   </div>
 );

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import { Link } from 'react-router-dom';
 
 /* ─── COMPOSANT : Placeholder (Pour éviter la répétition) ─── */
 const ImagePlaceholder = ({ className }) => (
@@ -72,9 +73,9 @@ const ProjectModal = ({ item, onClose }) => {
                 <i className="uil uil-external-link-alt" /> Voir le site
               </a>
             ) : (
-              <a href="#contact" onClick={onClose} className="button button--ghost button--flex">
+              <Link to="/contact" onClick={onClose} className="button button--ghost button--flex">
                 <i className="uil uil-message" /> Me contacter
-              </a>
+              </Link>
             )}
           </div>
         </div>

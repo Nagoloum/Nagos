@@ -1,19 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import Cursor          from './components/cursor/Cursor';
 import Header          from './components/header/Header';
-import Home            from './components/home/Home';
-import About           from './components/about/About';
-import Skills          from './components/skills/Skills';
-import Services        from './components/services/Services';
-import Qualifications  from './components/qualifications/Qualifications';
-import Testimonial     from './components/testimonials/Testimonial';
-import Contact         from './components/contact/Contact';
 import Footer          from './components/footer/Footer';
 import Scrollup        from './components/scrollup/Scrollup';
-import Work            from './components/work/Work';
-import Blog            from './components/blog/Blog';
+import HomePage        from './pages/HomePage';
+import BlogPage        from './pages/BlogPage';
+import ContactPage     from './pages/ContactPage';
+import PortfolioPage   from './pages/PortfolioPage';
 import useScrollReveal from './hooks/useScrollReveal';
+
+function ScrollToTop() {
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    if (hash) return;
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [pathname, hash]);
+  return null;
+}
 
 function App() {
   useScrollReveal();
@@ -29,17 +34,16 @@ function App() {
 
       <Cursor />
       <Header />
+      <ScrollToTop />
 
       <main className="main">
-        <Home />
-        <About />
-        <Skills />
-        <Services />
-        <Qualifications />
-        <Work />
-        <Blog />
-        <Testimonial />
-        <Contact />
+        <Routes>
+          <Route path="/"          element={<HomePage />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/blog"      element={<BlogPage />} />
+          <Route path="/contact"   element={<ContactPage />} />
+          <Route path="*"          element={<HomePage />} />
+        </Routes>
       </main>
 
       <Footer />

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import { Link } from 'react-router-dom';
 import './Blog.css';
 
 const posts = [
@@ -210,9 +211,9 @@ const Blog = () => {
 
       <div className="blog__cta reveal d3">
         <p className="blog__cta-text">Tu as une question, un projet ou tu veux échanger sur la tech ?</p>
-        <a href="#contact" className="button button--accent button--flex">
+        <Link to="/contact" className="button button--accent button--flex">
           Me contacter <i className="uil uil-message button__icon" />
-        </a>
+        </Link>
       </div>
 
       <BlogModal post={selectedPost} onClose={() => setSelectedPost(null)} />

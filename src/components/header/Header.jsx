@@ -1,38 +1,43 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Header.css';
 
 const navLinks = [
-  { href: '#home',         icon: 'uil-estate',        label: 'Accueil'     },
-  { href: '#about',        icon: 'uil-user',           label: 'À propos'    },
-  { href: '#skills',       icon: 'uil-brackets-curly', label: 'Compétences' },
-  { href: '#services',     icon: 'uil-briefcase-alt',  label: 'Services'    },
-  { href: '#portfolio',    icon: 'uil-scenery',        label: 'Portfolio'   },
-  { href: '#blog',         icon: 'uil-newspaper',      label: 'Blog'        },
-  { href: '#testimonials', icon: 'uil-chat',           label: 'Avis'        },
-  { href: '#contact',      icon: 'uil-message',        label: 'Contact'     },
+  { to: '/',         hash: '#home',         icon: 'uil-estate',         label: 'Accueil'     },
+  { to: '/',         hash: '#about',        icon: 'uil-user',           label: 'À propos'    },
+  { to: '/',         hash: '#skills',       icon: 'uil-brackets-curly', label: 'Compétences' },
+  { to: '/',         hash: '#services',     icon: 'uil-briefcase-alt',  label: 'Services'    },
+  { to: '/',         hash: '#testimonials', icon: 'uil-chat',           label: 'Avis'        },
+  { to: '/portfolio',hash: '',              icon: 'uil-scenery',        label: 'Portfolio'   },
+  { to: '/blog',     hash: '',              icon: 'uil-newspaper',      label: 'Blog'        },
+  { to: '/contact',  hash: '',              icon: 'uil-message',        label: 'Contact'     },
 ];
 
 const Header = () => {
-  const [menuOpen,  setMenuOpen]  = useState(false);
-  const [activeNav, setActiveNav] = useState('#home');
-  const [scrolled,  setScrolled]  = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [menuOpen,    setMenuOpen]    = useState(false);
+  const [activeHash,  setActiveHash]  = useState('#home');
+  const [scrolled,    setScrolled]    = useState(false);
 
-  /* Active section on scroll */
+  /* Active section on scroll (only on home) */
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY >= 80);
-      const sections = navLinks.map(l => l.href.slice(1));
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i]);
+      if (location.pathname !== '/') return;
+      const sectionIds = navLinks.filter(l => l.to === '/' && l.hash).map(l => l.hash.slice(1));
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sectionIds[i]);
         if (el && window.scrollY >= el.offsetTop - 130) {
-          setActiveNav(`#${sections[i]}`);
+          setActiveHash(`#${sectionIds[i]}`);
           break;
         }
       }
     };
+    onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [location.pathname]);
 
   /* Lock body scroll when menu open */
   useEffect(() => {
@@ -43,14 +48,27 @@ const Header = () => {
   const openMenu  = () => setMenuOpen(true);
   const closeMenu = () => setMenuOpen(false);
 
-  const handleLinkClick = (href) => {
-    setActiveNav(href);
+  const isActive = (link) => {
+    if (link.to === '/portfolio') return location.pathname === '/portfolio';
+    if (link.to === '/blog')      return location.pathname === '/blog';
+    if (link.to === '/contact')   return location.pathname === '/contact';
+    return location.pathname === '/' && activeHash === link.hash;
+  };
+
+  const handleSectionClick = (e, hash) => {
+    e.preventDefault();
     closeMenu();
+    if (location.pathname === '/') {
+      const el = document.getElementById(hash.slice(1));
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setActiveHash(hash);
+    } else {
+      navigate(`/${hash}`);
+    }
   };
 
   return (
     <>
-      {/* ── Dark overlay behind the menu sheet ─────────────── */}
       {menuOpen && (
         <div
           className="nav__overlay"
@@ -62,15 +80,12 @@ const Header = () => {
       <header className={`header${scrolled ? ' scroll-header' : ''}`}>
         <nav className="nav container">
 
-          {/* Logo */}
-          <a href="/" className="nav__logo">
+          <Link to="/" className="nav__logo" onClick={closeMenu}>
             Nagoloum <span className="nav__logo-dot" />
-          </a>
+          </Link>
 
-          {/* ── Nav menu panel ── */}
           <div className={`nav__menu${menuOpen ? ' show-menu nav__menuf' : ''}`}>
 
-            {/* Close button — only inside the sheet */}
             <button
               type="button"
               className="nav__close"
@@ -81,22 +96,43 @@ const Header = () => {
             </button>
 
             <ul className="nav__list">
-              {navLinks.map(({ href, icon, label }) => (
-                <li key={href} className="nav__item">
-                  <a
-                    href={href}
-                    onClick={() => handleLinkClick(href)}
-                    className={`nav__link${activeNav === href ? ' active-link' : ''}`}
-                  >
-                    <i className={`uil ${icon} nav__icon`} />
-                    <span className="nav__label">{label}</span>
-                  </a>
-                </li>
-              ))}
+              {navLinks.map((link) => {
+                const active = isActive(link);
+                const className = `nav__link${active ? ' active-link' : ''}`;
+                const iconEl = <i className={`uil ${link.icon} nav__icon`} />;
+                const labelEl = <span className="nav__label">{link.label}</span>;
+
+                if (link.hash) {
+                  // Section anchor on home
+                  return (
+                    <li key={link.label} className="nav__item">
+                      <a
+                        href={`${link.to === '/' ? '' : link.to}${link.hash}`}
+                        onClick={(e) => handleSectionClick(e, link.hash)}
+                        className={className}
+                      >
+                        {iconEl}{labelEl}
+                      </a>
+                    </li>
+                  );
+                }
+
+                // Dedicated route (Blog, Contact)
+                return (
+                  <li key={link.label} className="nav__item">
+                    <Link
+                      to={link.to}
+                      onClick={closeMenu}
+                      className={className}
+                    >
+                      {iconEl}{labelEl}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
-          {/* ── Hamburger — only visible on mobile ── */}
           <button
             type="button"
             className="nav__toggle"

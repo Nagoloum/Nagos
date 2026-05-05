@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import { Link } from 'react-router-dom';
 import './Services.css';
 
 const servicesData = [
@@ -102,9 +103,9 @@ const ServiceModal = ({ service, onClose }) => {
             ))}
           </ul>
 
-          <a href="#contact" onClick={onClose} className="button button--accent button--flex" style={{ marginTop: '1.5rem' }}>
+          <Link to="/contact" onClick={onClose} className="button button--accent button--flex" style={{ marginTop: '1.5rem' }}>
             Me contacter <i className="uil uil-message button__icon" />
-          </a>
+          </Link>
         </div>
       </div>
     </div>,

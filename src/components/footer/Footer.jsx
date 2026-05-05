@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const socials = [
@@ -9,13 +10,23 @@ const socials = [
   { href: 'https://github.com/Nagoloum',                 icon: 'uil-github-alt', label: 'GitHub'   },
 ];
 
+const navItems = [
+  { to: '/#about',        label: 'À propos'   },
+  { to: '/portfolio',     label: 'Portfolio'  },
+  { to: '/blog',          label: 'Blog'       },
+  { to: '/#testimonials', label: 'Témoignages'},
+  { to: '/contact',       label: 'Contact'    },
+];
+
 const Footer = () => (
   <footer className="footer">
     <div className="footer__container container">
-      <a href="/" className="footer__logo">Nagoloum<span className="footer__logo-dot" /></a>
+      <Link to="/" className="footer__logo">Nagoloum<span className="footer__logo-dot" /></Link>
       <ul className="footer__list">
-        {[['#about','À propos'],['#portfolio','Portfolio'],['#blog','Blog'],['#testimonials','Témoignages'],['#contact','Contact']].map(([href,label]) => (
-          <li key={href}><a href={href} className="footer__link">{label}</a></li>
+        {navItems.map(({ to, label }) => (
+          <li key={to}>
+            <Link to={to} className="footer__link">{label}</Link>
+          </li>
         ))}
       </ul>
       <div className="footer__social">

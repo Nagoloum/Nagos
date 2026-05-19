@@ -10,6 +10,7 @@ import quotes from '../../assets/quotes.png';
 import bee from '../../assets/bee.png';
 import portfolio from '../../assets/portfolio.png';
 import shop from '../../assets/shop.png';
+import shadowescape from '../../assets/shadowescape.png';
 /* CONSEIL : J'ai placé en haut tous les projets qui possèdent une variable image. 
   Les projets avec "image: null" suivent ensuite.
 */
@@ -119,7 +120,7 @@ export const projectsData = [
   },
   {
     id: 12,
-    image: null,
+    image: shadowescape,
     title: 'Shadow Escape',
     category: 'Game',
     link: null,

@@ -5,7 +5,7 @@ import CV_tech from '../../assets/Mon_CV_Dev.pdf';
 
 const boxes = [
   { icon: 'bx bx-code-alt',  title: 'Projets',    sub: '+10 livrés' },
-  { icon: 'bx bx-medal',     title: 'Expérience',  sub: '+5 ans'     },
+  { icon: 'bx bx-medal',     title: 'Expérience',  sub: '+4 ans'     },
   { icon: 'bx bx-headphone', title: 'Support',     sub: '24H / 7J'   },
 ];
 

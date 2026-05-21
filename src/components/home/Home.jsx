@@ -14,7 +14,7 @@ const Home = () => (
         <div className="home__img-wrap">
           <div className="home__img" role="img" aria-label="Photo de Daniel Nagoloum" />
           <div className="home__img-badge">
-            <strong>5+</strong>
+            <strong>4+</strong>
             <span>ans d'XP</span>
           </div>
         </div>

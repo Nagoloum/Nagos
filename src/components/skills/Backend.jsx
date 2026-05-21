@@ -2,12 +2,15 @@ import React from 'react';
 const skills = [
   { name: 'NodeJS',     pct: 82 },
   { name: 'ExpressJS',  pct: 80 },
-  { name: 'NestJS',     pct: 55 },
+  { name: 'NestJS',     pct: 65 },
   { name: 'Python',     pct: 72 },
+  { name: 'Spring Boot',     pct: 72 },
   { name: 'MongoDB',    pct: 80 },
-  { name: 'PostgreSQL', pct: 68 },
-  { name: 'Prisma/Drizzle', pct: 65 },
-  { name: 'API REST',   pct: 85 },
+  { name: 'PHP',     pct: 85 },
+  { name: 'Supabase',      pct: 75 },
+  { name: 'Firebase',      pct: 75 },
+  { name: 'PostgreSQL', pct: 75 },
+  { name: 'MySQL',      pct: 88 },
 ];
 const Backend = () => (
   <div className="skills__content reveal-scale d2">

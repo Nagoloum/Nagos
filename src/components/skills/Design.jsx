@@ -1,9 +1,12 @@
 import React from 'react';
 const skills = [
-  { name: 'GitHub / Git',  pct: 85 },
-  { name: 'Supabase',      pct: 72 },
-  { name: 'Firebase',      pct: 68 },
-  { name: 'Figma',         pct: 72 },
+  { name: 'GitHub / Git',       pct: 85 },
+  { name: 'VS Code',       pct: 90 },
+  { name: 'Canva',       pct: 90 },
+  { name: 'Prisma',       pct: 80 },
+  { name: 'Drizzle',       pct: 80 },
+  { name: 'Figma',         pct: 80 },
+  { name: 'Docker',         pct: 55 },
   { name: 'Claude / GPT',  pct: 90 },
   { name: 'Unity (C#)',    pct: 60 },
   { name: 'Jira / Notion', pct: 78 },

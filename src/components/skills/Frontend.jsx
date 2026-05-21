@@ -1,8 +1,10 @@
 import React from 'react';
 const skills = [
   { name: 'ReactJS',     pct: 90 },
+  { name: 'AngularJS',     pct: 70 },
+  { name: 'VueJS',     pct: 70 },
   { name: 'NextJS',      pct: 75 },
-  { name: 'TypeScript',  pct: 70 },
+  { name: 'TypeScript',  pct: 80 },
   { name: 'TailwindCSS', pct: 88 },
   { name: 'JavaScript',  pct: 92 },
   { name: 'HTML5/CSS3',  pct: 95 },

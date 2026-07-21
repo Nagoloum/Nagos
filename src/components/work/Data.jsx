@@ -127,17 +127,6 @@ export const projectsData = [
     tech: ['Python', 'MetaTrader5', 'pandas', 'MongoDB', 'Streamlit', 'Telegram API'],
   },
   {
-    id: 10,
-    image: null,
-    title: 'Trackship',
-    category: 'Full-Stack',
-    status: 'Déployé',
-    link: 'https://trackship-eta.vercel.app',
-    github: 'https://github.com/Nagoloum/Trackship',
-    desc: "Application de suivi de colis multilingue : page de suivi publique sans compte, back-office d'administration des commandes et génération de reçus PDF/PNG avec QR code ; FR/EN, thème clair/sombre.",
-    tech: ['Next.js', 'TypeScript', 'Supabase', 'next-intl', 'Tailwind CSS'],
-  },
-  {
     id: 11,
     image: null,
     title: 'NagosUI',

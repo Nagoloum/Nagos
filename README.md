@@ -9,7 +9,7 @@ Disponible en alternance dès **septembre 2026**.
 
 | Couche | Technologie |
 |---|---|
-| Framework | React 18 + Vite |
+| Framework | React 19 + Vite 7 (+ react-router-dom, GSAP, Three.js/R3F) |
 | Styles | CSS Variables (design tokens) + modules CSS par composant |
 | Icons | Unicons Line (self-hosted) |
 | Carousel | Swiper.js |
@@ -90,8 +90,8 @@ src/
 
 ```bash
 # 1. Cloner le repo
-git clone https://github.com/Nagoloum/portfolio.git
-cd portfolio
+git clone https://github.com/Nagoloum/Nagos.git
+cd Nagos
 
 # 2. Installer les dépendances
 npm install
@@ -244,9 +244,13 @@ emailjs.sendForm(
 
 ```json
 {
-  "react": "^18",
-  "react-dom": "^18",
+  "react": "^19",
+  "react-dom": "^19",
+  "react-router-dom": "^7",
   "@emailjs/browser": "^4",
+  "gsap": "^3",
+  "three": "^0.183",
+  "@react-three/fiber": "^9",
   "swiper": "^11"
 }
 ```

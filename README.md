@@ -253,6 +253,22 @@ emailjs.sendForm(
 
 ---
 
+## 📄 CV (génération)
+
+Le CV téléchargeable du site est `src/assets/Mon_CV_Dev.pdf` (nom public à **ne pas renommer** :
+il est importé par `About.jsx` et `home/Data.jsx`). Sa source modifiable est le script
+[`cv/generate_cv.py`](cv/generate_cv.py) (ReportLab, police Calibri, PDF multi-pages compatible ATS,
+métadonnée Auteur incluse) :
+
+```bash
+pip install reportlab
+python cv/generate_cv.py   # régénère src/assets/Mon_CV_Dev.pdf
+```
+
+Tout le contenu (profil, expériences, projets, compétences, formation) est éditable en tête du script.
+
+---
+
 ## 🔗 Liens
 
 - **Portfolio live :** _https://nagoloum.vercel.app_

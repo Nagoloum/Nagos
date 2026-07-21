@@ -256,7 +256,7 @@ emailjs.sendForm(
 ## 🔗 Liens
 
 - **Portfolio live :** _https://nagoloum.vercel.app_
-- **LinkedIn :** [Daniel Nagoloum Talla](https://www.linkedin.com/in/daniel-nagoloum-talla-a3a574388/)
+- **LinkedIn :** [Daniel Nagoloum Talla](https://www.linkedin.com/in/nagoloum)
 - **GitHub :** [github.com/Nagoloum](https://github.com/Nagoloum)
 - **Contact :** nagoloumtalladanielparfait@gmail.com
 

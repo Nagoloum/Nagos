@@ -5,7 +5,7 @@ import './Contact.css';
 const contactCards = [
   { icon: 'uil-envelope',    title: 'Email',    data: 'nagoloumtalladanielparfait@gmail.com', href: 'mailto:nagoloumtalladanielparfait@gmail.com', label: 'Écrire un email' },
   { icon: 'uil-whatsapp',    title: 'WhatsApp', data: '+33 6 25 83 90 07',                    href: 'https://wa.me/33625839007?text=Salut%20Nagoloum', label: 'Écrire sur WhatsApp' },
-  { icon: 'uil-linkedin-alt',title: 'LinkedIn', data: 'Daniel Nagoloum Talla',               href: 'https://www.linkedin.com/in/daniel-nagoloum-talla-a3a574388/', label: 'Voir le profil' },
+  { icon: 'uil-linkedin-alt',title: 'LinkedIn', data: 'Daniel Nagoloum Talla',               href: 'https://www.linkedin.com/in/nagoloum', label: 'Voir le profil' },
 ];
 
 const Contact = () => {
@@ -75,7 +75,7 @@ const Contact = () => {
                 <div className="contact__card-body">
                   <h3 className="contact__card-title">{title}</h3>
                   <span className="contact__card-data">{data}</span>
-                  <a href={href} target="_blank" rel="noreferrer" className="contact__button">
+                  <a href={href} target="_blank" rel="noreferrer" className="contact__button" aria-label={label}>
                     Contacter <i className="uil uil-arrow-right contact__button-icon" />
                   </a>
                 </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import ThemeToggle from './ThemeToggle';
 
 const socialLinks = [
-  { href: 'https://www.linkedin.com/in/daniel-nagoloum-talla-a3a574388/', icon: 'uil-linkedin-alt', label: 'LinkedIn' },
+  { href: 'https://www.linkedin.com/in/nagoloum', icon: 'uil-linkedin-alt', label: 'LinkedIn' },
   { href: 'https://wa.me/33625839007?text=Salut%20Nagoloum', icon: 'uil-whatsapp', label: 'WhatsApp' },
   { href: 'mailto:nagoloumtalladanielparfait@gmail.com', icon: 'uil-envelope', label: 'Email' },
   { href: 'https://github.com/Nagoloum', icon: 'uil-github-alt', label: 'GitHub' },

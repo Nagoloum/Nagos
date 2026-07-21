@@ -5,7 +5,7 @@ import './Footer.css';
 const socials = [
   { href: 'mailto:nagoloumtalladanielparfait@gmail.com', icon: 'uil-envelope',   label: 'Email'    },
   { href: 'tel:+33625839007',                            icon: 'uil-phone',      label: 'Tél'      },
-  { href: 'https://www.linkedin.com/in/daniel-nagoloum-talla-a3a574388/', icon: 'uil-linkedin-alt', label: 'LinkedIn' },
+  { href: 'https://www.linkedin.com/in/nagoloum', icon: 'uil-linkedin-alt', label: 'LinkedIn' },
   { href: 'https://wa.me/33625839007',                   icon: 'uil-whatsapp',   label: 'WhatsApp' },
   { href: 'https://github.com/Nagoloum',                 icon: 'uil-github-alt', label: 'GitHub'   },
 ];

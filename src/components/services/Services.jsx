@@ -10,7 +10,7 @@ const servicesData = [
     color: '#7B61FF',
     title: 'Développement Web Full Stack',
     desc: 'Applications web complètes, de l\'interface utilisateur à l\'API, déploiement inclus.',
-    modalDesc: 'Plus de 4 ans d\'expérience sur des projets variés : e-commerce, SaaS, dashboards. Je prends en charge l\'intégralité du cycle de développement.',
+    modalDesc: 'Une trentaine de projets personnels et académiques : e-commerce, SaaS, dashboards. Je prends en charge l\'intégralité du cycle de développement.',
     items: [
       { icon: 'uil-react',    text: 'Interfaces modernes et réactives avec React, Next.js, TypeScript.' },
       { icon: 'uil-server',   text: 'APIs robustes et sécurisées avec Node.js, ExpressJS, NestJS.' },

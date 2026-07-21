@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CV_tech from '../../assets/Mon_CV_Dev.pdf';
 
-const techPills = ['React', 'Next.js', 'TypeScript', 'Node.js', 'Python', 'MongoDB'];
+const techPills = ['React', 'Next.js', 'TypeScript', 'Node.js / NestJS', 'Python', 'PostgreSQL'];
 
 const Data = () => (
   <div className="home__data">
@@ -18,11 +19,12 @@ const Data = () => (
         <path d="M46.2744 22.2801C45.0744 19.9551 41.3244 20.1051 37.4994 24.3051C34.7994 27.2301 34.2744 28.2051 31.5744 28.1301V25.0551C31.5744 25.0551 25.7994 20.7801 14.3244 22.7301C14.3244 22.7301 7.79945 23.6301 7.79945 27.0801C7.79945 27.0801 6.67445 35.4051 8.99945 40.6551C12.4494 48.4551 30.1494 50.4801 35.6994 37.2051C36.8244 34.5801 39.0744 32.6301 41.0994 30.1551C43.4244 27.1551 47.5494 24.7551 46.2744 22.2801Z" fill="#FFDD67"/>
       </svg>
     </h1><br />
-    <h3 className="home__subtitle">Développeur Full Stack JS · Data · IA</h3>
+    <h3 className="home__subtitle">Développeur Full-Stack — React, Next.js, Node.js · Data & IA</h3>
     <p className="home__description">
-      Je conçois des applications web et solutions digitales modernes.
-      Disponible en alternance dès septembre 2026 — passionné par l'IA,
-      le code propre et les interfaces qui impressionnent.
+      Étudiant en Bachelor Développement / Data à INGETIS, je conçois des
+      applications web modernes, des API et des solutions intégrant la Data et
+      l'intelligence artificielle. Je recherche une alternance en développement
+      Full-Stack à partir de septembre 2026.
     </p>
     <div className="home__tech">
       {techPills.map(t => <span key={t} className="home__tech-pill">{t}</span>)}
@@ -35,6 +37,9 @@ const Data = () => (
       <Link to="/portfolio" className="button button--ghost button--flex">
         Voir mon travail <i className="uil uil-arrow-right button__icon" />
       </Link>
+      <a href={CV_tech} download="CV_Daniel_Nagoloum_Dev.pdf" className="button button--ghost button--flex">
+        Mon CV <i className="uil uil-import button__icon" />
+      </a>
     </div>
   </div>
 );

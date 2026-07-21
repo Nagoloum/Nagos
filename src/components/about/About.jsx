@@ -4,9 +4,9 @@ import ParticleSphere from '../particles/ParticleSphere';
 import CV_tech from '../../assets/Mon_CV_Dev.pdf';
 
 const boxes = [
-  { icon: 'bx bx-code-alt',  title: 'Projets',    sub: '+10 livrés' },
-  { icon: 'bx bx-medal',     title: 'Expérience',  sub: '+4 ans'     },
-  { icon: 'bx bx-headphone', title: 'Support',     sub: '24H / 7J'   },
+  { icon: 'bx bx-code-alt',  title: 'Projets',    sub: '30+ sur GitHub'   },
+  { icon: 'bx bx-medal',     title: 'Expérience', sub: 'Stage + freelance' },
+  { icon: 'bx bx-calendar',  title: 'Alternance', sub: 'Dès sept. 2026'   },
 ];
 
 const About = () => (
@@ -33,15 +33,17 @@ const About = () => (
         </div>
 
         <p className="about__description">
-          Développeur <strong>Full-Stack JS / Data / IA</strong>, je transforme vos idées en solutions
-          web modernes et performantes. Disponible en alternance dès <strong>septembre 2026</strong>,
-          je maîtrise l'ensemble de la stack — React, Next.js, Node.js, Python — et j'utilise
-          quotidiennement les assistants IA (Claude, Gemini, GROK) pour optimiser mon code.
+          Étudiant en <strong>Bachelor Développement / Data à INGETIS</strong> (Paris), je développe
+          des applications web de bout en bout — React, Next.js, Node.js / NestJS, PostgreSQL — avec
+          un fort attrait pour la <strong>Data et l'IA</strong> (robots de trading Python, scoring,
+          intégration de modèles). Après un stage de développeur front-end chez <strong>DATALIA</strong>
+          (plateforme immobilière KILICASA), je recherche une <strong>alternance Full-Stack dès
+          septembre 2026</strong>, avec pour objectif un Mastère Développement Full-Stack à INGETIS.
         </p>
 
         <div className="about__availability">
           <i className="uil uil-calendar-alt" />
-          <span>Alternance · Dès septembre 2026 · 1 an et plus</span>
+          <span>Alternance · Dès septembre 2026 · 3 sem. entreprise / 1 sem. formation</span>
         </div>
 
         <a href={CV_tech} download="CV_Daniel_Nagoloum_Dev.pdf" className="button button--flex">

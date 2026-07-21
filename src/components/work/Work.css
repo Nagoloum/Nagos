@@ -164,6 +164,24 @@
   color: var(--accent);
 }
 
+.work__status-tag {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.1rem 0.55rem;
+  font-size: var(--tiny-font-size);
+  font-weight: var(--font-medium);
+  color: var(--text-color);
+  background: rgba(var(--accent-rgb), 0.08);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-full);
+}
+
+.work__body-actions {
+  display: flex;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
 /* Quick link icon button */
 .work__link-btn {
   width: 34px; height: 34px;

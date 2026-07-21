@@ -48,6 +48,7 @@ const ProjectModal = ({ item, onClose }) => {
           <div className="modal-info__top">
             <div>
               <span className="work__category-tag">{item.category}</span>
+              {item.status && <span className="work__status-tag">{item.status}</span>}
               <h3 className="modal-info__title">{item.title}</h3>
             </div>
           </div>
@@ -63,7 +64,7 @@ const ProjectModal = ({ item, onClose }) => {
           )}
 
           <div className="modal-info__actions">
-            {item.link ? (
+            {item.link && (
               <a
                 href={item.link}
                 target="_blank"
@@ -72,7 +73,18 @@ const ProjectModal = ({ item, onClose }) => {
               >
                 <i className="uil uil-external-link-alt" /> Voir le site
               </a>
-            ) : (
+            )}
+            {item.github && (
+              <a
+                href={item.github}
+                target="_blank"
+                rel="noreferrer"
+                className="button button--ghost button--flex"
+              >
+                <i className="uil uil-github-alt" /> Code source
+              </a>
+            )}
+            {!item.link && !item.github && (
               <Link to="/contact" onClick={onClose} className="button button--ghost button--flex">
                 <i className="uil uil-message" /> Me contacter
               </Link>
@@ -126,20 +138,37 @@ const Workitems = ({ item }) => {
             <div>
               <h3 className="work__title">{item.title}</h3>
               <span className="work__category-tag">{item.category}</span>
+              {item.status && <span className="work__status-tag">{item.status}</span>}
             </div>
-            
-            {item.link && (
-              <a
-                href={item.link}
-                target="_blank"
-                rel="noreferrer"
-                className="work__link-btn"
-                title="Voir le site"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <i className="uil uil-external-link-alt" />
-              </a>
-            )}
+
+            <div className="work__body-actions">
+              {item.github && (
+                <a
+                  href={item.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="work__link-btn"
+                  title="Code source GitHub"
+                  aria-label={`Code source de ${item.title} sur GitHub`}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <i className="uil uil-github-alt" />
+                </a>
+              )}
+              {item.link && (
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="work__link-btn"
+                  title="Voir le site"
+                  aria-label={`Voir ${item.title} en ligne`}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <i className="uil uil-external-link-alt" />
+                </a>
+              )}
+            </div>
           </div>
 
           {item.desc && <p className="work__desc">{item.desc}</p>}

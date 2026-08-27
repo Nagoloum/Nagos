@@ -37,9 +37,7 @@ const Data = () => (
       <Link to="/portfolio" className="button button--ghost button--flex">
         Voir mon travail <i className="uil uil-arrow-right button__icon" />
       </Link>
-      <a href={CV_tech} download="CV_Daniel_Nagoloum_Dev.pdf" className="button button--ghost button--flex">
-        Mon CV <i className="uil uil-import button__icon" />
-      </a>
+
     </div>
   </div>
 );

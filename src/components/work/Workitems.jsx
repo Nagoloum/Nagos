@@ -31,7 +31,7 @@ const ProjectModal = ({ item, onClose }) => {
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content modal-detail" onClick={(e) => e.stopPropagation()}>
         {/* Bouton de fermeture */}
-        <button className="modal-close" onClick={onClose} aria-label="Fermer">
+        <button type="button" className="modal-close" onClick={onClose} aria-label="Fermer" autoFocus>
           <i className="uil uil-times" />
         </button>
 
@@ -85,7 +85,7 @@ const ProjectModal = ({ item, onClose }) => {
               </a>
             )}
             {!item.link && !item.github && (
-              <Link to="/contact" onClick={onClose} className="button button--ghost button--flex">
+              <Link to="/#contact" onClick={onClose} className="button button--ghost button--flex">
                 <i className="uil uil-message" /> Me contacter
               </Link>
             )}

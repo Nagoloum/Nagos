@@ -202,9 +202,15 @@ const ParticleSphere = () => {
 
     /* ── Boucle d'animation ── */
     let rafId = null;
-    const mat4u = new Matrix4(); // réutilisé
+    const mat4u    = new Matrix4(); // réutilisés à chaque frame (zéro allocation)
+    const invGroup = new Matrix4();
+    const tmpVec   = new Vector3();
+    const camRight = new Vector3();
+    const camUp    = new Vector3();
+    let inView = true;
 
     const animate = () => {
+      if (!inView) { rafId = null; return; }
       rafId = requestAnimationFrame(animate);
 
       const now = performance.now();
@@ -250,18 +256,23 @@ const ParticleSphere = () => {
 
       /* ── Répulsion curseur (identique Framer) ── */
       if (CONFIG.cursor.enabled) {
+        /* Constantes de la frame, calculées une fois (et non par particule) */
+        const friction    = Math.pow(CURSOR_PHYSICS.FRICTION, dF);
+        const returnForce = CURSOR_PHYSICS.RETURN_FORCE * CONFIG.speed * dF;
+        if (mouseCanvas) {
+          camRight.setFromMatrixColumn(camera.matrixWorld, 0).normalize();
+          camUp.setFromMatrixColumn(camera.matrixWorld, 1).normalize();
+          invGroup.copy(group.matrixWorld).invert();
+        }
+
         for (let i = 0; i < basePositions.length; i++) {
           const disp = displacements[i];
 
           if (mouseCanvas) {
-            /* Position courante en world space */
-            const localPos = new Vector3().copy(basePositions[i]).add(disp);
-            const worldPos = localPos.clone().applyMatrix4(group.matrixWorld);
-
-            /* Projection 2D sur le canvas agrandi */
-            const proj   = worldPos.clone().project(camera);
-            const sx     = (proj.x *  0.5 + 0.5) * cW;
-            const sy     = (proj.y * -0.5 + 0.5) * cH;
+            /* Position courante world space → projection 2D sur le canvas agrandi */
+            tmpVec.copy(basePositions[i]).add(disp).applyMatrix4(group.matrixWorld).project(camera);
+            const sx     = (tmpVec.x *  0.5 + 0.5) * cW;
+            const sy     = (tmpVec.y * -0.5 + 0.5) * cH;
 
             const mdx = mouseCanvas.x - sx;
             const mdy = mouseCanvas.y - sy;
@@ -272,53 +283,44 @@ const ParticleSphere = () => {
               const force = (cursorRadius - dist) / cursorRadius;
               const angle = Math.atan2(mdy, mdx);
 
-              /* Vecteurs right/up de la caméra */
-              const camRight = new Vector3().setFromMatrixColumn(camera.matrixWorld, 0).normalize();
-              const camUp    = new Vector3().setFromMatrixColumn(camera.matrixWorld, 1).normalize();
-
               const rep2D = force * cursorStrength * CONFIG.speed * dF;
               const repX  = -Math.cos(angle) * rep2D * 0.01;
               const repY  =  Math.sin(angle) * rep2D * 0.01;
 
-              const worldRep = new Vector3()
+              tmpVec.set(0, 0, 0)
                 .addScaledVector(camRight, repX)
-                .addScaledVector(camUp,    repY);
-
-              const invGroup = new Matrix4().copy(group.matrixWorld).invert();
-              const localRep = worldRep.clone().applyMatrix4(invGroup);
-              disp.add(localRep);
+                .addScaledVector(camUp,    repY)
+                .applyMatrix4(invGroup);
+              disp.add(tmpVec);
             }
           }
 
           /* Friction + rappel (toujours actif) */
-          const friction    = Math.pow(CURSOR_PHYSICS.FRICTION, dF);
-          const returnForce = CURSOR_PHYSICS.RETURN_FORCE * CONFIG.speed * dF;
           disp.multiplyScalar(friction * (1 - returnForce));
         }
 
         /* Scatter velocities */
+        const scatterFriction = Math.pow(0.95, dF);
         for (let i = 0; i < scatterVelocities.length; i++) {
           const sv   = scatterVelocities[i];
           const disp = displacements[i];
           disp.addScaledVector(sv, dF * 0.1);
-          const scatterFriction = Math.pow(0.95, dF);
-          const scatterReturn   = CURSOR_PHYSICS.RETURN_FORCE * CONFIG.speed * dF;
-          sv.multiplyScalar(scatterFriction * (1 - scatterReturn));
+          sv.multiplyScalar(scatterFriction * (1 - returnForce));
         }
 
         /* Mise à jour des positions */
         if (CONFIG.particleShape === 'sphere') {
           for (let i = 0; i < basePositions.length; i++) {
-            const final = new Vector3().copy(basePositions[i]).add(displacements[i]);
-            mat4u.setPosition(final.x, final.y, final.z);
+            tmpVec.copy(basePositions[i]).add(displacements[i]);
+            mat4u.setPosition(tmpVec.x, tmpVec.y, tmpVec.z);
             particles.setMatrixAt(i, mat4u);
           }
           particles.instanceMatrix.needsUpdate = true;
         } else {
           const pos = particles.geometry.attributes.position;
           for (let i = 0; i < basePositions.length; i++) {
-            const final = new Vector3().copy(basePositions[i]).add(displacements[i]);
-            pos.setXYZ(i, final.x, final.y, final.z);
+            tmpVec.copy(basePositions[i]).add(displacements[i]);
+            pos.setXYZ(i, tmpVec.x, tmpVec.y, tmpVec.z);
           }
           pos.needsUpdate = true;
         }
@@ -328,6 +330,13 @@ const ParticleSphere = () => {
     };
 
     animate();
+
+    /* ── Pause hors écran (économise CPU/GPU) ── */
+    const io = new IntersectionObserver(([entry]) => {
+      inView = entry.isIntersecting;
+      if (inView && !rafId) { lastFrameTime = performance.now(); animate(); }
+    });
+    io.observe(container);
 
     /* ── Drag ── */
     const onMouseDown = (e) => {
@@ -382,7 +391,6 @@ const ParticleSphere = () => {
 
     /* ── Touch ── */
     const onTouchMove = (e) => {
-      e.preventDefault();
       const t    = e.touches[0];
       const rect = container.getBoundingClientRect();
       const lx   = t.clientX - rect.left;
@@ -443,8 +451,7 @@ const ParticleSphere = () => {
       canvas.addEventListener('mousemove',  onMouseMove);
       canvas.addEventListener('mouseleave', onMouseLeave);
       canvas.addEventListener('click',      onClick);
-      canvas.addEventListener('touchmove',  onTouchMove,  { passive: false });
-      canvas.addEventListener('touchstart', (e) => { e.preventDefault(); }, { passive: false });
+      canvas.addEventListener('touchmove',  onTouchMove,  { passive: true });
       canvas.addEventListener('touchend',   onTouchEnd);
       canvas.addEventListener('touchcancel',onTouchEnd);
     }
@@ -473,6 +480,7 @@ const ParticleSphere = () => {
     /* ── Cleanup ── */
     return () => {
       if (rafId) cancelAnimationFrame(rafId);
+      io.disconnect();
       ro.disconnect();
       window.removeEventListener('resize', onResize);
       if (CONFIG.drag)   canvas.removeEventListener('mousedown',  onMouseDown);

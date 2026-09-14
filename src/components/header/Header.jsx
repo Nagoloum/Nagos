@@ -7,10 +7,9 @@ const navLinks = [
   { to: '/',         hash: '#about',        icon: 'uil-user',           label: 'À propos'    },
   { to: '/',         hash: '#skills',       icon: 'uil-brackets-curly', label: 'Compétences' },
   { to: '/',         hash: '#services',     icon: 'uil-briefcase-alt',  label: 'Services'    },
-  { to: '/',         hash: '#testimonials', icon: 'uil-chat',           label: 'Avis'        },
+  { to: '/',         hash: '#contact',      icon: 'uil-message',        label: 'Contact'     },
   { to: '/portfolio',hash: '',              icon: 'uil-scenery',        label: 'Portfolio'   },
   { to: '/blog',     hash: '',              icon: 'uil-newspaper',      label: 'Blog'        },
-  { to: '/contact',  hash: '',              icon: 'uil-message',        label: 'Contact'     },
 ];
 
 const Header = () => {
@@ -51,7 +50,6 @@ const Header = () => {
   const isActive = (link) => {
     if (link.to === '/portfolio') return location.pathname === '/portfolio';
     if (link.to === '/blog')      return location.pathname === '/blog';
-    if (link.to === '/contact')   return location.pathname === '/contact';
     return location.pathname === '/' && activeHash === link.hash;
   };
 
@@ -117,7 +115,7 @@ const Header = () => {
                   );
                 }
 
-                // Dedicated route (Blog, Contact)
+                // Dedicated route (Portfolio, Blog)
                 return (
                   <li key={link.label} className="nav__item">
                     <Link

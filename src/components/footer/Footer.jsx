@@ -11,11 +11,11 @@ const socials = [
 ];
 
 const navItems = [
-  { to: '/#about',        label: 'À propos'   },
-  { to: '/portfolio',     label: 'Portfolio'  },
-  { to: '/blog',          label: 'Blog'       },
-  { to: '/#testimonials', label: 'Témoignages'},
-  { to: '/contact',       label: 'Contact'    },
+  { to: '/#about',        label: 'À propos'    },
+  { to: '/#skills',       label: 'Compétences' },
+  { to: '/#contact',      label: 'Contact'     },
+  { to: '/portfolio',     label: 'Portfolio'   },
+  { to: '/blog',          label: 'Blog'        },
 ];
 
 const Footer = () => (

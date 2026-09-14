@@ -1,0 +1,70 @@
+/* ─── 404 ────────────────────────────────────────────────── */
+.notfound {
+  min-height: calc(100vh - 14rem);
+  display: flex;
+  align-items: center;
+}
+.notfound__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.notfound__code {
+  font-family: var(--heading-font);
+  font-weight: var(--font-extra-bold);
+  font-size: clamp(6rem, 24vw, 12rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--accent);
+  margin-bottom: 1.25rem;
+  user-select: none;
+  animation: fadeSlideUp .7s ease both;
+}
+.notfound__title {
+  font-size: var(--h1-font-size);
+  font-weight: var(--font-extra-bold);
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+.notfound__text {
+  max-width: 460px;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+.notfound__path {
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 0.9em;
+  padding: 0.1rem 0.45rem;
+  border-radius: var(--radius-sm);
+  background: rgba(var(--accent-rgb), 0.1);
+  color: var(--title-color);
+  word-break: break-all;
+}
+.notfound__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+.notfound__links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.notfound__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: var(--small-font-size);
+  font-weight: var(--font-medium);
+  color: var(--text-color);
+  transition: color var(--t-fast);
+}
+.notfound__link:hover { color: var(--accent); }
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

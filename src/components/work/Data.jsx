@@ -1,15 +1,15 @@
-import Wiyorent from '../../assets/wiyorent.jpg';
-import Hair from '../../assets/braids.jpg';
-import Krossty from '../../assets/krossty.jpg';
-import Qrcode from '../../assets/qrcode.png';
-import CMC from '../../assets/cmc.jpg';
-import Fundatrade from '../../assets/fundatrade.png';
-import RememberMe from '../../assets/rememberme.png';
-import quotes from '../../assets/quotes.png';
-import beeDashboard from '../../assets/dasboard_bee.png';
-import portfolio from '../../assets/portfolio.png';
-import shop from '../../assets/shop.png';
-import shadowescape from '../../assets/shadowescape.png';
+import Wiyorent from '../../assets/wiyorent.webp';
+import Hair from '../../assets/braids.webp';
+import Krossty from '../../assets/krossty.webp';
+import Qrcode from '../../assets/qrcode.webp';
+import CMC from '../../assets/cmc.webp';
+import Fundatrade from '../../assets/fundatrade.webp';
+import RememberMe from '../../assets/rememberme.webp';
+import quotes from '../../assets/quotes.webp';
+import beeDashboard from '../../assets/dasboard_bee.webp';
+import portfolio from '../../assets/portfolio.webp';
+import shop from '../../assets/shop.webp';
+import shadowescape from '../../assets/shadowescape.webp';
 
 /*
   Données projets — vérifiées sur les dépôts GitHub (juillet 2026).
@@ -233,8 +233,8 @@ export const projectsData = [
     status: 'En production',
     link: 'https://nagoloum.vercel.app',
     github: 'https://github.com/Nagoloum/Nagos',
-    desc: 'Ce portfolio : sphère de particules 3D, animations au défilement, thème clair/sombre persistant, blog et formulaire de contact.',
-    tech: ['React 19', 'Vite', 'GSAP', 'Three.js (R3F)', 'Swiper', 'EmailJS'],
+    desc: 'Ce portfolio : sphère de particules 3D, animations au défilement, thème clair/sombre persistant, blog, page 404 et formulaire de contact.',
+    tech: ['React 19', 'Vite', 'React Router', 'Three.js', 'GSAP', 'EmailJS'],
   },
   {
     id: 21,

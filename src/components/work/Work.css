@@ -8,6 +8,7 @@
 }
 
 .work__item {
+  font-family: var(--body-font);
   padding: 0.5rem 1.5rem;
   font-size: var(--small-font-size);
   font-weight: var(--font-medium);

@@ -1,10 +1,11 @@
-.skills__container { grid-template-columns:repeat(3,1fr); column-gap:2rem; row-gap:2rem; }
-.skills__content { background:var(--container-color); border:1px solid var(--card-border); padding:2.25rem 2rem; border-radius:var(--radius-lg); transition:transform var(--t-spring),box-shadow var(--t-med),border-color var(--t-fast); }
+.skills__container { grid-template-columns:repeat(4,1fr); gap:1.5rem; }
+.skills__content { background:var(--container-color); border:1px solid var(--card-border); padding:1.75rem 1.5rem; border-radius:var(--radius-lg); transition:transform var(--t-spring),box-shadow var(--t-med),border-color var(--t-fast); }
 .skills__content:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); border-color:rgba(var(--accent-rgb),.28); }
-.skills__title { font-family:var(--heading-font); font-size:var(--h3-font-size); font-weight:var(--font-bold); color:var(--title-color); margin-bottom:2rem; display:flex; align-items:center; gap:.5rem; }
+.skills__title { font-family:var(--heading-font); font-size:var(--h3-font-size); font-weight:var(--font-bold); color:var(--title-color); margin-bottom:1.25rem; display:flex; align-items:center; gap:.5rem; }
 .skills__title-icon { font-size:1.3rem; color:var(--accent); }
 .skills__tags { display:flex; flex-wrap:wrap; gap:.5rem; }
 .skills__tag { font-size:var(--tiny-font-size); font-weight:var(--font-medium); color:var(--title-color); background:rgba(var(--accent-rgb),.08); border:1px solid var(--card-border); padding:.35rem .75rem; border-radius:var(--radius-full); transition:border-color var(--t-fast),background var(--t-fast); }
 .skills__tag:hover { border-color:rgba(var(--accent-rgb),.35); background:rgba(var(--accent-rgb),.14); }
+@media screen and (max-width:1100px) { .skills__container { grid-template-columns:repeat(3,1fr); } }
 @media screen and (max-width:992px) { .skills__container { grid-template-columns:repeat(2,1fr); } }
-@media screen and (max-width:576px) { .skills__container{grid-template-columns:1fr} .skills__content{padding:1.75rem 1.5rem} }
+@media screen and (max-width:576px) { .skills__container{grid-template-columns:1fr} .skills__content{padding:1.5rem 1.25rem} }

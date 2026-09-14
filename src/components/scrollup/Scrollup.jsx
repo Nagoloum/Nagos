@@ -9,7 +9,12 @@ const Scrollup = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
   return (
-    <a href="#home" className={`scrollup${visible ? ' show-scroll' : ''}`} aria-label="Remonter">
+    <a
+      href="#home"
+      onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+      className={`scrollup${visible ? ' show-scroll' : ''}`}
+      aria-label="Remonter"
+    >
       <i className="uil uil-arrow-up" />
     </a>
   );

@@ -10,12 +10,12 @@ const servicesData = [
     color: '#7B61FF',
     title: 'Développement Web Full Stack',
     desc: 'Applications web complètes, de l\'interface utilisateur à l\'API, déploiement inclus.',
-    modalDesc: 'Une trentaine de projets personnels et académiques : e-commerce, SaaS, dashboards. Je prends en charge l\'intégralité du cycle de développement.',
+    modalDesc: 'Une trentaine de projets personnels et académiques — marketplaces, SaaS, dashboards — et un stage front-end chez DATALIA. Je prends en charge tout le cycle : interface, API, données et déploiement.',
     items: [
       { icon: 'uil-react',    text: 'Interfaces modernes et réactives avec React, Next.js, TypeScript.' },
-      { icon: 'uil-server',   text: 'APIs robustes et sécurisées avec Node.js, ExpressJS, NestJS.' },
-      { icon: 'uil-database', text: 'Bases de données SQL et NoSQL : PostgreSQL, MongoDB, Supabase.' },
-      { icon: 'uil-rocket',   text: 'Déploiement CI/CD, Vercel, optimisation des performances.' },
+      { icon: 'uil-server',   text: 'API REST robustes et documentées (Swagger) avec NestJS, Express, Fastify.' },
+      { icon: 'uil-database', text: 'Bases de données SQL et NoSQL : PostgreSQL, MySQL, MongoDB, Redis — Prisma, Drizzle.' },
+      { icon: 'uil-rocket',   text: 'Docker, Vercel, Render — code SOLID, Clean Architecture et revues de code.' },
     ],
   },
   {
@@ -36,14 +36,14 @@ const servicesData = [
     id: 3,
     icon: 'uil-chart-line',
     color: '#10B981',
-    title: 'Automatisation & Data',
-    desc: 'Robots de trading, dashboards data, scripts d\'automatisation et analyses algorithmiques.',
-    modalDesc: 'Je développe des solutions sur-mesure pour automatiser vos processus et visualiser vos données de manière intelligente.',
+    title: 'Data & IA',
+    desc: 'Intégration de modèles d\'IA, scoring algorithmique, dashboards data et automatisation en Python.',
+    modalDesc: 'J\'intègre la Data et l\'IA dans des applications concrètes : de l\'appel d\'API de modèles au scoring et à la visualisation.',
     items: [
-      { icon: 'uil-analytics',      text: 'Robots de trading algorithmique en Python (XAU/USD, indices).' },
-      { icon: 'uil-graph-bar',      text: 'Dashboards de suivi en temps réel avec Streamlit.' },
-      { icon: 'uil-cog',            text: 'Scripts d\'automatisation et pipelines de données.' },
-      { icon: 'uil-game-structure', text: 'Développement de jeux vidéo 2D en C# avec Unity.' },
+      { icon: 'uil-robot',     text: 'Intégration d\'API de modèles d\'IA : Claude, Gemini, GPT.' },
+      { icon: 'uil-analytics', text: 'Scoring algorithmique et stratégies de trading en Python (Fundatrade, NexaGold).' },
+      { icon: 'uil-graph-bar', text: 'Analyse et dashboards de données avec pandas et Streamlit.' },
+      { icon: 'uil-cog',       text: 'Scripts d\'automatisation et pipelines de données.' },
     ],
   },
 ];
@@ -81,6 +81,7 @@ const ServiceModal = ({ service, onClose }) => {
             type="button"
             className="svc-modal__close"
             onClick={onClose}
+            autoFocus
             aria-label="Fermer"
           >
             <i className="uil uil-times" />
@@ -103,7 +104,7 @@ const ServiceModal = ({ service, onClose }) => {
             ))}
           </ul>
 
-          <Link to="/contact" onClick={onClose} className="button button--accent button--flex" style={{ marginTop: '1.5rem' }}>
+          <Link to="/#contact" onClick={onClose} className="button button--accent button--flex" style={{ marginTop: '1.5rem' }}>
             Me contacter <i className="uil uil-message button__icon" />
           </Link>
         </div>

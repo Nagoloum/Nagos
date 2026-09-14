@@ -50,6 +50,10 @@
   flex-direction: column;
   transition: transform var(--t-spring), box-shadow var(--t-med), border-color var(--t-fast);
 }
+.blog__card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
 .blog__card:hover {
   transform: translateY(-8px);
   box-shadow: var(--shadow-lg);

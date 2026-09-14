@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import './About.css';
-import ParticleSphere from '../particles/ParticleSphere';
 import CV_tech from '../../assets/Mon_CV_Dev.pdf';
 
+/* Three.js + GSAP chargés à part pour alléger le bundle initial */
+const ParticleSphere = lazy(() => import('../particles/ParticleSphere'));
+
 const boxes = [
-  { icon: 'bx bx-code-alt',  title: 'Projets',    sub: '30+ sur GitHub'   },
-  { icon: 'bx bx-medal',     title: 'Expérience', sub: 'Stage + freelance' },
-  { icon: 'bx bx-calendar',  title: 'Alternance', sub: 'Dès sept. 2026'   },
+  { icon: 'bx bx-code-alt',  title: 'Projets',    sub: '30+ sur GitHub'     },
+  { icon: 'bx bx-medal',     title: 'Expérience', sub: 'Stage DATALIA'      },
+  { icon: 'bx bx-calendar',  title: 'Alternance', sub: '24 mois · sept. 2026' },
 ];
 
 const About = () => (
@@ -17,7 +19,9 @@ const About = () => (
 
       {/* ── 3D Particle Sphere ── */}
       <div className="about__sphere-wrap reveal-left d2">
-        <ParticleSphere />
+        <Suspense fallback={<div className="particle-sphere" />}>
+          <ParticleSphere />
+        </Suspense>
       </div>
 
       {/* ── Text data ── */}
@@ -33,20 +37,25 @@ const About = () => (
         </div>
 
         <p className="about__description">
-          Étudiant en <strong>Bachelor Développement / Data à INGETIS</strong> (Paris), je développe
-          des applications web de bout en bout — React, Next.js, Node.js / NestJS, PostgreSQL — avec
-          un fort attrait pour la <strong>Data et l'IA</strong> (robots de trading Python, scoring,
-          intégration de modèles). Après un stage de développeur front-end chez <strong>DATALIA</strong>
-          (plateforme immobilière KILICASA), je recherche une <strong>alternance Full-Stack dès
-          septembre 2026</strong>, avec pour objectif un Mastère Développement Full-Stack à INGETIS.
+          Développeur Full-Stack récemment diplômé d'un <strong>Bachelor Développement / Data
+          (INGETIS Paris)</strong>, j'intègre le <strong>Mastère Développement Logiciel</strong> à
+          la rentrée 2026. Je conçois des applications web complètes, de l'interface au back-end
+          en passant par la gestion des données — React, Next.js, NestJS, PostgreSQL — avec un
+          intérêt marqué pour la <strong>Data et l'IA</strong>.
+        </p>
+        <p className="about__description">
+          Après avoir fait mes preuves lors d'un stage front-end chez <strong>DATALIA</strong>{' '}
+          (plateforme immobilière KILICASA) et sur des projets SaaS collaboratifs, je recherche
+          une <strong>alternance de 24 mois dès septembre 2026</strong> pour poursuivre mon
+          évolution technique au sein d'une équipe produit.
         </p>
 
         <div className="about__availability">
           <i className="uil uil-calendar-alt" />
-          <span>Alternance · Dès septembre 2026 · 3 sem. entreprise / 1 sem. formation</span>
+          <span>Dès septembre 2026 · 3 sem. entreprise / 1 sem. formation · Île-de-France</span>
         </div>
 
-        <a href={CV_tech} download="CV_Daniel_Nagoloum_Dev.pdf" className="button button--flex">
+        <a href={CV_tech} download="CV_Daniel_Nagoloum_Talla_Fullstack.pdf" className="button button--flex">
           Télécharger mon CV <i className="uil uil-import button__icon" />
         </a>
       </div>

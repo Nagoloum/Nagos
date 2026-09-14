@@ -325,8 +325,7 @@ body.dark-theme .contact__form-input {
   color: var(--title-color);
 }
 body.dark-theme .contact__form-input::placeholder { color: #555; }
-body.dark-theme .contact__form-tag,
-body.dark-theme .testimonial__form-tag { background: var(--container-color); }
+body.dark-theme .contact__form-tag { background: var(--container-color); }
 
 /* ─── SELECTION & SCROLLBAR ─────────────────────────────── */
 ::selection { background:var(--accent); color:#fff; }

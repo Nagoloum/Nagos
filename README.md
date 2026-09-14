@@ -1,7 +1,8 @@
-# Portfolio — Daniel Nagoloum
+# Portfolio — Daniel Nagoloum Talla
 
-Portfolio personnel de **Daniel Nagoloum**, développeur Full Stack JS · Data · IA.  
-Disponible en alternance dès **septembre 2026**.
+Portfolio personnel de **Daniel Nagoloum Talla**, développeur Full-Stack · Data · IA.
+Diplômé d'un Bachelor Développement / Data (INGETIS Paris), en Mastère Développement Logiciel —
+disponible en **alternance de 24 mois dès septembre 2026** (3 semaines entreprise / 1 semaine formation).
 
 ---
 
@@ -9,79 +10,45 @@ Disponible en alternance dès **septembre 2026**.
 
 | Couche | Technologie |
 |---|---|
-| Framework | React 19 + Vite 7 (+ react-router-dom, GSAP, Three.js/R3F) |
-| Styles | CSS Variables (design tokens) + modules CSS par composant |
-| Icons | Unicons Line (self-hosted) |
-| Carousel | Swiper.js |
-| Email | EmailJS |
-| Fonts | Syne (headings) · DM Sans (body) — Google Fonts |
+| Framework | React 19 + Vite 7 + react-router-dom 7 |
+| 3D / animation | Three.js (sphère de particules) + GSAP — chargés à la demande |
+| Styles | CSS Variables (design tokens) + un fichier CSS par composant |
+| Icons | Unicons Line + Boxicons (CDN) |
+| Email | EmailJS (`@emailjs/browser`) |
+| Fonts | Syne (titres) · DM Sans (texte) — Google Fonts |
+| Hébergement | Vercel (`vercel.json` : réécriture SPA) |
 
 ---
 
 ## 📁 Structure du projet
 
 ```
+public/
+├── og-image.png             # Image de partage 1200×630 (Open Graph / Twitter)
+├── robots.txt · sitemap.xml
 src/
-├── assets/                  # Images & PDF (CV)
+├── assets/                  # Images WebP + CV (Mon_CV_Dev.pdf)
 ├── components/
-│   ├── about/               # Section "À propos"
-│   │   ├── About.jsx
-│   │   └── About.css
-│   ├── blog/                # Section Blog avec modal
-│   │   ├── Blog.jsx
-│   │   └── Blog.css
-│   ├── contact/             # Formulaire de contact (EmailJS)
-│   │   ├── Contact.jsx
-│   │   └── Contact.css
-│   ├── cursor/              # Curseur personnalisé
-│   │   ├── Cursor.jsx
-│   │   └── Cursor.css
-│   ├── footer/              # Footer
-│   │   ├── Footer.jsx
-│   │   └── Footer.css
-│   ├── header/              # Navigation fixe (desktop) / bottom sheet (mobile)
-│   │   ├── Header.jsx
-│   │   └── Header.css
-│   ├── home/                # Section Hero
-│   │   ├── Home.jsx
-│   │   ├── Home.css
-│   │   ├── Data.jsx         # Contenu texte + pills tech
-│   │   ├── Social.jsx       # Icônes sociales + ThemeToggle
-│   │   ├── ScrollDown.jsx   # Indicateur de défilement
-│   │   ├── ThemeToggle.jsx  # Bouton light/dark
-│   │   └── ThemeToggle.css
-│   ├── qualifications/      # Timeline éducation / expérience
-│   │   ├── Qualifications.jsx
-│   │   └── Qualifications.css
+│   ├── about/               # « À propos » + bouton de téléchargement du CV
+│   ├── blog/                # Articles avec filtres et modal
+│   ├── contact/             # Formulaire EmailJS + moyens de contact
+│   ├── cursor/              # Curseur personnalisé (desktop)
+│   ├── footer/
+│   ├── header/              # Nav fixe (desktop) / bottom sheet (mobile)
+│   ├── home/                # Hero, réseaux sociaux, bascule de thème
+│   ├── particles/           # Sphère de particules Three.js
+│   ├── qualifications/      # Timeline formation / expérience / certifications
 │   ├── scrollup/            # Bouton retour en haut
-│   │   ├── Scrollup.jsx
-│   │   └── Scrollup.css
-│   ├── services/            # Cards services avec modal détail
-│   │   ├── Services.jsx
-│   │   └── Services.css
-│   ├── skills/              # Barres de compétences
-│   │   ├── Skills.jsx
-│   │   ├── Skills.css
-│   │   ├── Frontend.jsx
-│   │   ├── Backend.jsx
-│   │   └── Design.jsx
-│   ├── testimonials/        # Carrousel témoignages + formulaire
-│   │   ├── Testimonial.jsx
-│   │   ├── Testimonial.css
-│   │   ├── Data.jsx
-│   │   └── testimonials.json
-│   └── work/                # Portfolio projets avec filtres et modal
-│       ├── Work.jsx
-│       ├── Work.css
-│       ├── Works.jsx        # Filtres + grille
-│       ├── Workitems.jsx    # Card individuelle + modal
-│       └── Data.jsx         # Données projets
+│   ├── services/            # Domaines d'expertise avec modal détail
+│   ├── skills/              # Compétences classées par catégorie (tags)
+│   └── work/                # Projets : filtres, cartes et modal
 ├── hooks/
-│   └── useScrollReveal.js   # IntersectionObserver pour animations au scroll
-├── App.jsx                  # Composant racine
-├── App.css                  # Design tokens CSS, styles globaux, aurora bg
-├── line.css                 # Police Unicons (icônes)
-└── main.jsx                 # Point d'entrée React
+│   ├── usePageMeta.js       # Titre / description / canonical / OG par page
+│   └── useScrollReveal.js   # Animations d'apparition au scroll
+├── pages/                   # HomePage, PortfolioPage, BlogPage, NotFoundPage (404)
+├── App.jsx                  # Layout + routes (pages secondaires en lazy loading)
+├── App.css                  # Design tokens, styles globaux, fond aurora
+└── main.jsx
 ```
 
 ---
@@ -89,197 +56,114 @@ src/
 ## ⚙️ Installation & démarrage
 
 ```bash
-# 1. Cloner le repo
 git clone https://github.com/Nagoloum/Nagos.git
 cd Nagos
-
-# 2. Installer les dépendances
 npm install
-
-# 3. Démarrer en développement
-npm run dev
-
-# 4. Build de production
-npm run build
-
-# 5. Prévisualiser le build
-npm run preview
+npm run dev       # développement
+npm run lint      # ESLint
+npm run build     # build de production
+npm run preview   # prévisualiser le build
 ```
 
 ---
 
-## 🎨 Système de design (CSS Variables)
+## 🧭 Routes
 
-Tous les tokens sont définis dans `src/App.css` sous `:root` :
+| Route | Page |
+|---|---|
+| `/` | Accueil : hero, à propos, compétences, services, qualifications, contact (`#contact`) |
+| `/portfolio` | Projets |
+| `/blog` | Articles |
+| `/contact` | Redirection vers `/#contact` (anciens liens) |
+| `*` | Page 404 (`noindex`) |
 
-```css
-/* Couleur accent principale */
---accent:      #7B61FF;
---accent-dark: #5E46E0;
---accent-rgb:  123, 97, 255;   /* pour rgba() */
+Ordre de la navigation : Accueil · À propos · Compétences · Services · Contact · Portfolio · Blog.
 
-/* Couleurs thème clair */
---title-color:     #0F0E17;
---text-color:      #4a4a5a;
---body-color:      #F7F7FB;
---container-color: #FFFFFF;
-
-/* Typographie */
---heading-font: "Syne", sans-serif;
---body-font:    "DM Sans", sans-serif;
-
-/* Rayons */
---radius-sm:   0.5rem;
---radius-md:   1rem;
---radius-lg:   1.5rem;
---radius-xl:   2rem;
---radius-full: 99px;
-
-/* Z-index hiérarchie */
---z-backdrop: 50;
---z-tooltip:  60;
---z-fixed:    100;   /* Header */
---z-navmenu:  110;   /* Menu mobile (au-dessus du header) */
---z-modal:    9000;  /* Modals (via React Portal) */
---z-cursor:   9999;  /* Curseur custom */
-```
-
-**Thème sombre** : ajout de `body.dark-theme` qui redéfinit toutes les variables.
+Sur Vercel, `vercel.json` renvoie toutes les URL vers `index.html` : sans lui, un rechargement
+de `/blog` ou `/portfolio` renvoie une 404 serveur.
 
 ---
 
-## 🌙 Thème clair / sombre
+## 🎨 Système de design
 
-Le basculement se fait via `ThemeToggle.jsx` :
-- État persisté dans `localStorage` (clé : `theme`)
-- Animation "wave" circulaire depuis le point de clic (CSS `clip-path` via `--wave-x` / `--wave-y`)
-- Pas de flash au chargement grâce à l'initialisation lazy du state
+Tous les tokens sont définis dans `src/App.css` sous `:root` (accent `#7B61FF`, couleurs, typographie,
+rayons, ombres, z-index). Le **thème sombre** redéfinit les variables sous `body.dark-theme`.
 
-```jsx
-const [dark, setDark] = useState(() => localStorage.getItem('theme') === 'dark');
-```
+- Choix persisté dans `localStorage` (clé `theme`), appliqué **avant le rendu** par un script inline
+  dans `index.html` (pas de flash, et thème correct sur toutes les pages).
+- Animation « wave » circulaire depuis le point de clic (`ThemeToggle.jsx`).
 
 ---
 
-## 🪟 Architecture des Modals (fix z-index)
+## 🪟 Modals
 
-**Problème initial :** `.main` avait `position: relative; z-index: 1` dans App.css, créant un **stacking context** isolé. Les modals à l'intérieur (z-index: 9000) étaient piégés dans ce contexte et ne pouvaient pas dépasser le header (z-index: 100) situé dans le stacking context racine.
-
-**Solution :** Les trois modals utilisent désormais `ReactDOM.createPortal` pour se rendre directement dans `document.body`, à l'extérieur de tout stacking context intermédiaire.
-
-```jsx
-import { createPortal } from 'react-dom';
-
-// Dans le composant modal :
-return createPortal(
-  <div className="modal-overlay" onClick={onClose}>
-    { /* contenu */ }
-  </div>,
-  document.body   // ← rendu hors de <main>, dans le root stacking context
-);
-```
-
-Modals concernées :
-- `BlogModal` dans `Blog.jsx`
-- `ServiceModal` dans `Services.jsx`
-- `ProjectModal` dans `Workitems.jsx`
-
-Chaque modal :
-1. Bloque le scroll du body (`document.body.style.overflow = 'hidden'`) et le restaure au démontage
-2. Écoute la touche `Escape` pour se fermer
-3. Se ferme au clic sur l'overlay (mais pas au clic sur son contenu interne)
+`BlogModal`, `ServiceModal` et `ProjectModal` sont rendues via `createPortal(…, document.body)` pour
+échapper au stacking context de `<main>`. Chacune bloque le scroll, se ferme avec `Escape` ou au clic
+sur l'overlay, et place le focus sur le bouton de fermeture à l'ouverture.
 
 ---
 
 ## 📜 Scroll Reveal
 
-Géré par le hook `useScrollReveal.js` via `IntersectionObserver` :
+`useScrollReveal.js` (IntersectionObserver) ajoute `.revealed` une seule fois par élément :
 
-| Classe CSS | Effet d'entrée |
+| Classe | Effet |
 |---|---|
 | `.reveal` | Fondu + glissement vers le haut |
-| `.reveal-left` | Glissement depuis la gauche |
-| `.reveal-right` | Glissement depuis la droite |
+| `.reveal-left` / `.reveal-right` | Glissement latéral |
 | `.reveal-scale` | Zoom in |
 
-Les délais de transition se contrôlent avec les classes `.d1` à `.d6` (de 0.1s à 0.6s).
+Délais : `.d1` à `.d6` (0,1 s à 0,6 s).
 
 ---
 
 ## ✉️ Formulaire de contact
 
-Utilise **EmailJS** (SDK `@emailjs/browser`) :
+EmailJS, avec état d'envoi (bouton désactivé) et toast de confirmation. Les identifiants EmailJS sont
+publics par conception ; ils peuvent être surchargés par des variables d'environnement Vite :
 
-```jsx
-emailjs.sendForm(
-  'service_gjhs94d',    // Service ID
-  'template_i8queid',   // Template ID
-  form.current,
-  { publicKey: 'ID02cnIwxSCL9HOqx' }
-)
 ```
-
-> ⚠️ Ne pas exposer les clés EmailJS dans un repo public. Déplacer vers des variables d'environnement Vite :
-> ```
-> VITE_EMAILJS_SERVICE_ID=service_gjhs94d
-> VITE_EMAILJS_TEMPLATE_ID=template_i8queid
-> VITE_EMAILJS_PUBLIC_KEY=ID02cnIwxSCL9HOqx
-> ```
-
----
-
-## 📱 Responsive
-
-| Breakpoint | Comportement |
-|---|---|
-| `> 992px` | Desktop — navigation horizontale en haut |
-| `768px – 992px` | Tablet — grilles 2 colonnes |
-| `< 768px` | Mobile — header en bas (bottom tab bar), layout 1 colonne |
-| `< 480px` | Petits téléphones — ajustements typographiques |
-| `< 350px` | Très petits écrans — padding réduit |
-
----
-
-## 📦 Dépendances principales
-
-```json
-{
-  "react": "^19",
-  "react-dom": "^19",
-  "react-router-dom": "^7",
-  "@emailjs/browser": "^4",
-  "gsap": "^3",
-  "three": "^0.183",
-  "@react-three/fiber": "^9",
-  "swiper": "^11"
-}
+VITE_EMAILJS_SERVICE_ID=...
+VITE_EMAILJS_TEMPLATE_ID=...
+VITE_EMAILJS_PUBLIC_KEY=...
 ```
 
 ---
 
-## 📄 CV (génération)
+## 🔍 SEO
 
-Le CV téléchargeable du site est `src/assets/Mon_CV_Dev.pdf` (nom public à **ne pas renommer** :
-il est importé par `About.jsx` et `home/Data.jsx`). Sa source modifiable est le script
-[`cv/generate_cv.py`](cv/generate_cv.py) (ReportLab, police Calibri, PDF multi-pages compatible ATS,
-métadonnée Auteur incluse) :
+- Métadonnées de base, Open Graph, Twitter Card (`summary_large_image`) et JSON-LD `Person` dans `index.html`.
+- `usePageMeta` met à jour titre, description, canonical et balises OG à chaque changement de page.
+- Pour régénérer `public/og-image.png`, faire une capture 1200×630 d'une page HTML dédiée
+  (ex. Edge/Chrome headless : `--headless=new --window-size=1200,630 --screenshot=…`).
 
-```bash
-pip install reportlab
-python cv/generate_cv.py   # régénère src/assets/Mon_CV_Dev.pdf
-```
+---
 
-Tout le contenu (profil, expériences, projets, compétences, formation) est éditable en tête du script.
+## ⚡ Performance
+
+- Pages secondaires et sphère 3D (Three.js + GSAP) chargées en lazy loading : bundle initial ≈ 250 kB.
+- Images en WebP redimensionnées (≈ 5 Mo → 0,6 Mo).
+- La sphère ne réalloue aucun objet par frame et se met en pause hors écran.
+
+---
+
+## 📄 CV
+
+Le CV téléchargeable est `src/assets/Mon_CV_Dev.pdf` (importé par `About.jsx`, proposé au
+téléchargement sous le nom `CV_Daniel_Nagoloum_Talla_Fullstack.pdf`). Pour le mettre à jour,
+remplacer ce fichier par le nouveau PDF en gardant le même nom.
+
+> ⚠️ `cv/generate_cv.py` génère l'**ancienne** version du CV : l'exécuter écraserait le CV actuel.
 
 ---
 
 ## 🔗 Liens
 
-- **Portfolio live :** _https://nagoloum.vercel.app_
-- **LinkedIn :** [Daniel Nagoloum Talla](https://www.linkedin.com/in/nagoloum)
+- **Portfolio :** https://nagoloum.vercel.app
+- **LinkedIn :** [linkedin.com/in/nagoloum](https://www.linkedin.com/in/nagoloum)
 - **GitHub :** [github.com/Nagoloum](https://github.com/Nagoloum)
-- **Contact :** nagoloumtalladanielparfait@gmail.com
+- **Contact :** nagoloumtalladanielparfait@gmail.com · 06 25 83 90 07
 
 ---
 
-© 2026 Daniel Nagoloum · Tous droits réservés
+© 2026 Daniel Nagoloum Talla · Tous droits réservés

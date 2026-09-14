@@ -1,24 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { projectsData, projectsNav } from './Data';
 import Workitems from './Workitems';
 
 const Works = () => {
-  const [item, setItem]       = useState({ name: 'Tous' });
-  const [projects, setProjects] = useState([]);
-  const [active, setActive]   = useState(0);
+  const [active, setActive] = useState('Tous');
 
-  useEffect(() => {
-    setProjects(item.name === 'Tous' ? projectsData : projectsData.filter(p => p.category === item.name));
-  }, [item]);
+  const projects = useMemo(
+    () => (active === 'Tous' ? projectsData : projectsData.filter(p => p.category === active)),
+    [active]
+  );
 
   return (
     <div>
-      <div className="work__filters">
-        {projectsNav.map((navItem, index) => (
-          <span key={index}
-            onClick={e => { setItem({ name: e.target.textContent }); setActive(index); }}
-            className={`${active === index ? 'active-work' : ''} work__item`}
-          >{navItem.name}</span>
+      <div className="work__filters" role="group" aria-label="Filtrer les projets">
+        {projectsNav.map(({ name }) => (
+          <button
+            key={name}
+            type="button"
+            aria-pressed={active === name}
+            onClick={() => setActive(name)}
+            className={`${active === name ? 'active-work' : ''} work__item`}
+          >{name}</button>
         ))}
       </div>
       <div className="work__container container grid">

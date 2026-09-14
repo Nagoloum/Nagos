@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import './Qualifications.css';
 
 const education = [
-  { title: 'Mastère Développement Full-Stack (projet de poursuite d\'études)',
-    sub: 'INGETIS — en alternance',            dates: 'Rentrée 2026',  side: 'left'  },
-  { title: 'Bachelor Développement / Data', sub: 'INGETIS, Paris',     dates: '2025 – 2026', side: 'right' },
+  { title: 'Mastère Développement Logiciel',
+    sub: 'INGETIS — alternance 24 mois',       dates: 'Rentrée 2026',  side: 'left'  },
+  { title: 'Bachelor Développement / Data', sub: 'INGETIS, Paris — diplômé', dates: '2025 – 2026', side: 'right' },
   { title: 'BTS (Bac+2)',         sub: 'GTES',                        dates: '2024 – 2025', side: 'left'  },
   { title: 'Baccalauréat D',      sub: 'Lycée Bilingue Bafoussam',    dates: '2021 – 2022', side: 'right' },
   { title: 'Probatoire D',        sub: 'Lycée Bilingue Bafoussam',    dates: '2020 – 2021', side: 'left'  },
@@ -12,11 +12,10 @@ const education = [
 const experience = [
   { title: 'Stagiaire Développeur Front-End',
     sub: 'DATALIA — plateforme immobilière KILICASA',
-    dates: 'Avril 2026 — stage de 3 mois', side: 'left' },
-  { title: 'Développeur Full Stack JS', sub: 'Projets perso & freelance', dates: '2021 – Auj.', side: 'right' },
-  { title: 'Design Graphique & Motion', sub: 'BRITECH',                  dates: '2022 – 2025', side: 'left'  },
-  { title: 'Trading algorithmique',     sub: 'Python / Streamlit',        dates: '2023 – Auj.', side: 'right' },
-  { title: 'Game Dev (Unity/C#)',       sub: 'Shadow Escape',             dates: '2023 – 2024', side: 'left'  },
+    dates: 'Avril – juin 2026 (3 mois)', side: 'left' },
+  { title: 'Projets Full-Stack',
+    sub: 'Allibuy · Zolya · Cyna (SaaS en équipe)', dates: '', side: 'right' },
+  { title: 'Design graphique & motion', sub: 'BRITECH',                  dates: '2022 – 2025', side: 'left'  },
 ];
 const certifications = [
   { title: 'Claude Code', sub: 'Anthropic', dates: '', side: 'left' },

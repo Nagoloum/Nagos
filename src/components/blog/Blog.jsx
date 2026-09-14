@@ -19,7 +19,7 @@ const posts = [
       '**Mes missions :** développer et intégrer des interfaces web responsives, créer et améliorer des composants réutilisables, corriger des anomalies d\'affichage et intégrer des données via API.',
       '**Le travail en équipe :** branches Git, revues de code et retours de l\'équipe technique. On code différemment quand quelqu\'un d\'autre lit chaque ligne — plus simple, plus lisible, plus cohérent avec l\'existant.',
       '**Ce que le stage m\'a appris :** livrer des interfaces soignées dans un cadre professionnel, tenir compte des retours utilisateurs, et découper mon travail en petites étapes vérifiables.',
-      '**La suite :** je cherche une alternance full-stack dès septembre 2026 pour continuer à apprendre en équipe, en préparant un Mastère Développement Full-Stack à INGETIS.',
+      '**La suite :** diplômé de mon Bachelor, j\'intègre le Mastère Développement Logiciel à INGETIS et je cherche une alternance full-stack de 24 mois dès septembre 2026 pour continuer à apprendre en équipe.',
     ],
   },
   {
@@ -133,7 +133,16 @@ const posts = [
 const CATEGORIES = ['Tous', 'Projet', 'Technique', 'Algorithme', 'Parcours', 'Astuce'];
 
 const BlogCard = ({ post, onClick }) => (
-  <article className="blog__card reveal-scale" onClick={() => onClick(post)}>
+  <article
+    className="blog__card reveal-scale"
+    role="button"
+    tabIndex={0}
+    aria-label={`Lire l'article : ${post.title}`}
+    onClick={() => onClick(post)}
+    onKeyDown={(e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onClick(post); }
+    }}
+  >
     <div className="blog__card-header" style={{ '--post-color': post.color }}>
       <span className="blog__card-category">{post.category}</span>
       <i className={`uil ${post.icon} blog__card-icon`} />
@@ -148,7 +157,7 @@ const BlogCard = ({ post, onClick }) => (
       <div className="blog__card-tags">
         {post.tags.map(tag => <span key={tag} className="blog__tag">{tag}</span>)}
       </div>
-      <button className="blog__read-btn">Lire l'article <i className="uil uil-arrow-right" /></button>
+      <span className="blog__read-btn" aria-hidden="true">Lire l'article <i className="uil uil-arrow-right" /></span>
     </div>
   </article>
 );
@@ -175,6 +184,7 @@ const BlogModal = ({ post, onClose }) => {
           type="button"
           className="blog__modal-close"
           onClick={onClose}
+          autoFocus
           aria-label="Fermer"
         >
           <i className="uil uil-times" />
@@ -247,7 +257,7 @@ const Blog = () => {
 
       <div className="blog__cta reveal d3">
         <p className="blog__cta-text">Tu as une question, un projet ou tu veux échanger sur la tech ?</p>
-        <Link to="/contact" className="button button--accent button--flex">
+        <Link to="/#contact" className="button button--accent button--flex">
           Me contacter <i className="uil uil-message button__icon" />
         </Link>
       </div>

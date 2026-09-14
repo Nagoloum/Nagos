@@ -1,5 +1,4 @@
 import React from 'react';
-import ThemeToggle from './ThemeToggle';
 
 const socialLinks = [
   { href: 'https://www.linkedin.com/in/nagoloum', icon: 'uil-linkedin-alt', label: 'LinkedIn' },
@@ -16,7 +15,6 @@ const Social = () => (
         <i className={`uil ${icon}`} />
       </a>
     ))}
-    <ThemeToggle />
   </div>
 );
 export default Social;

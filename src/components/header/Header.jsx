@@ -25,9 +25,16 @@ const Header = () => {
       setScrolled(window.scrollY >= 80);
       if (location.pathname !== '/') return;
       const sectionIds = navLinks.filter(l => l.to === '/' && l.hash).map(l => l.hash.slice(1));
+      /* En bas de page, la dernière section (Contact) ne peut pas atteindre le haut : on la force */
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      if (atBottom && window.scrollY > 0) {
+        setActiveHash(`#${sectionIds[sectionIds.length - 1]}`);
+        return;
+      }
       for (let i = sectionIds.length - 1; i >= 0; i--) {
         const el = document.getElementById(sectionIds[i]);
-        if (el && window.scrollY >= el.offsetTop - 130) {
+        /* Section active = dernière dont le haut a passé 40 % de la hauteur d'écran */
+        if (el && el.getBoundingClientRect().top <= window.innerHeight * 0.4) {
           setActiveHash(`#${sectionIds[i]}`);
           break;
         }

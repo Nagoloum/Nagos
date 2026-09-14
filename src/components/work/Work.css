@@ -23,7 +23,6 @@
   background: rgba(var(--accent-rgb), 0.1);
   color: var(--accent);
   border-color: rgba(var(--accent-rgb), 0.3);
-  transform: translateY(-2px);
 }
 .active-work {
   background: var(--accent) !important;
@@ -49,7 +48,6 @@
   transition: transform var(--t-spring), box-shadow var(--t-med), border-color var(--t-fast);
 }
 .work__card:hover {
-  transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
   border-color: rgba(var(--accent-rgb), 0.25);
 }
@@ -87,7 +85,6 @@
   display: block;
   transition: transform var(--t-slow);
 }
-.work__card:hover .work__img { transform: scale(1.05); }
 
 /* Overlay */
 .work__overlay {
@@ -117,11 +114,9 @@
   border: none;
   cursor: pointer;
   font-family: var(--body-font);
-  transform: translateY(10px);
-  transition: transform var(--t-spring), background var(--t-fast);
+  transition: background var(--t-fast), color var(--t-fast);
   text-decoration: none;
 }
-.work__card:hover .work__overlay-btn { transform: translateY(0); }
 .work__overlay-btn:hover { background: #fff; color: var(--accent); }
 
 .work__overlay-btn--secondary {
@@ -198,7 +193,6 @@
 .work__link-btn:hover {
   background: var(--accent);
   color: #fff;
-  transform: translateY(-2px);
   border-color: var(--accent);
 }
 
@@ -251,7 +245,7 @@
   padding-top: 0.5rem;
   transition: gap var(--t-fast);
 }
-.work__details-btn:hover { gap: 0.6rem; }
+.work__details-btn:hover { color: var(--accent-dark); }
 
 /* ─── MODAL ──────────────────────────────────────────────── */
 .modal-overlay {
@@ -288,8 +282,9 @@
   max-width: 560px;
   overflow-y: auto;
   max-height: 90vh;
-  scrollbar-width: thin;
+  scrollbar-width: none;
 }
+.modal-detail::-webkit-scrollbar { display: none; }
 
 .modal-close {
   position: absolute;
@@ -306,7 +301,7 @@
   transition: transform var(--t-spring), background var(--t-fast);
   isolation: isolate;
 }
-.modal-close:hover { transform: rotate(90deg); background: #ff4d4d; }
+.modal-close:hover { background: #ff4d4d; }
 
 .modal-image {
   width: 100%;

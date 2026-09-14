@@ -11,10 +11,14 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform var(--t-spring), box-shadow var(--t-med), border-color var(--t-fast);
+  cursor: pointer;
+  transition: box-shadow var(--t-med), border-color var(--t-fast);
+}
+.services__card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 .services__card:hover {
-  transform: translateY(-8px);
   box-shadow: var(--shadow-lg);
   border-color: rgba(var(--accent-rgb), 0.25);
 }
@@ -23,9 +27,7 @@
   height: 4px;
   width: 100%;
   flex-shrink: 0;
-  transition: height var(--t-med);
 }
-.services__card:hover .services__card-bar { height: 6px; }
 
 .services__card-body {
   padding: 2.25rem 2rem 2rem;
@@ -44,9 +46,7 @@
   background: color-mix(in srgb, var(--svc-color) 12%, transparent);
   font-size: 1.75rem;
   color: var(--svc-color);
-  transition: transform var(--t-spring);
 }
-.services__card:hover .services__card-icon { transform: scale(1.12) rotate(-5deg); }
 
 .services__card-title {
   font-family: var(--heading-font);
@@ -76,11 +76,10 @@
   color: var(--accent);
   cursor: pointer;
   margin-top: auto;
-  transition: gap var(--t-fast);
+  transition: color var(--t-fast);
 }
-.services__card-btn:hover { gap: 0.6rem; }
-.services__card-btn i { font-size: 1rem; transition: transform var(--t-spring); }
-.services__card-btn:hover i { transform: translateX(4px); }
+.services__card:hover .services__card-btn { color: var(--accent-dark); }
+.services__card-btn i { font-size: 1rem; }
 
 /* ─── MODAL OVERLAY ──────────────────────────────────────── */
 .svc-modal-overlay {
@@ -110,9 +109,9 @@
   position: relative;
   animation: modalSlideIn 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
   box-shadow: 0 32px 80px rgba(0,0,0,0.3);
-  scrollbar-width: thin;
-  scrollbar-color: var(--accent) transparent;
+  scrollbar-width: none;
 }
+.svc-modal::-webkit-scrollbar { display: none; }
 @keyframes modalSlideIn {
   from { opacity:0; transform: scale(0.88) translateY(24px); }
   to   { opacity:1; transform: scale(1)    translateY(0);    }
@@ -168,7 +167,6 @@
 }
 .svc-modal__close:hover {
   background: rgba(0,0,0,0.3);
-  transform: rotate(90deg);
 }
 
 /* Body */

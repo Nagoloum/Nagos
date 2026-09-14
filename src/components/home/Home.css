@@ -38,7 +38,6 @@
   color: #fff;
   background: var(--accent);
   border-color: var(--accent);
-  transform: translateY(-3px) scale(1.1);
   box-shadow: var(--shadow-accent);
 }
 

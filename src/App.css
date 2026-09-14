@@ -17,6 +17,11 @@
   --card-border:     rgba(0,0,0,0.07);
   --nav-bg:          rgba(247,247,251,0.92);
 
+  /* Glass (navbar flottante) */
+  --glass-bg:        rgba(255,255,255,0.55);
+  --glass-bg-strong: rgba(255,255,255,0.75);
+  --glass-border:    rgba(15,14,23,0.08);
+
   /* Buttons light */
   --btn-bg:           #0F0E17;
   --btn-fg:           #F7F7FB;
@@ -96,6 +101,10 @@ body.dark-theme {
   --card-border:     rgba(255,255,255,0.07);
   --nav-bg:          rgba(9,9,15,0.94);
 
+  --glass-bg:        rgba(17,17,24,0.5);
+  --glass-bg-strong: rgba(17,17,24,0.75);
+  --glass-border:    rgba(255,255,255,0.08);
+
   --btn-bg:           #EEEEF5;
   --btn-fg:           #09090F;
   --btn-hover-bg:     #7B61FF;
@@ -172,7 +181,7 @@ body.dark-theme .bg-aurora__dots {
 
 /* ─── BASE ───────────────────────────────────────────────── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; overflow-x: hidden; }
+html { scroll-behavior: smooth; overflow-x: hidden; scroll-padding-top: 5.5rem; }
 
 body {
   font-family: var(--body-font);
@@ -255,12 +264,9 @@ img { max-width: 100%; height: auto; }
   background-color: var(--btn-hover-bg);
   color:            var(--btn-hover-fg);
   border-color:     var(--btn-hover-bg);
-  transform: translateY(-3px);
   box-shadow: var(--shadow-accent);
 }
 .button--flex { display: inline-flex; align-items: center; }
-.button__icon { transition: transform var(--t-fast); }
-.button:hover .button__icon { transform: translateX(4px); }
 
 .button--accent {
   background-color: var(--btn-accent-bg);
@@ -317,8 +323,6 @@ body.animating::after { width:3500px; height:3500px; }
 
 /* ─── DARK THEME FIXES ───────────────────────────────────── */
 body.dark-theme .active-link { color: var(--accent) !important; }
-body.dark-theme .nav__menu { background: transparent; }
-body.dark-theme .nav__menuf { background: #111118; }
 body.dark-theme .contact__form-input {
   border-color: rgba(255,255,255,0.1);
   background: rgba(255,255,255,0.03);
@@ -340,8 +344,12 @@ body.dark-theme .contact__form-tag { background: var(--container-color); }
   .section   { padding:0rem 0 4rem; }
   .section__title { margin-bottom:2.75rem; } 
 }
+@media screen and (max-width:900px) {
+  /* Navbar flottante en bas : dégager le bas de page */
+  html { scroll-padding-top: 1rem; }
+  body { margin:0 0 calc(var(--header-height) + 2rem) 0; }
+}
 @media screen and (max-width:768px) {
-  body { margin:0 0 var(--header-height) 0; }
   .section { padding:0rem 0 4rem; }
   .section__title { margin-bottom:2.25rem; padding-inline: 1.5rem; }
 }

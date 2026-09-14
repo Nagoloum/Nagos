@@ -123,28 +123,38 @@ const Services = () => {
       <h2 className="section__title reveal">Mes Services</h2>
 
       <div className="services__container container grid">
-        {servicesData.map(({ id, icon, color, title, desc }, i) => (
-          <div key={id} className={`services__card reveal d${i + 1}`}>
-            {/* Top color bar */}
-            <div className="services__card-bar" style={{ background: color }} />
+        {servicesData.map((service, i) => {
+          const { id, icon, color, title, desc } = service;
+          const open = () => setActiveService(service);
+          return (
+            <div
+              key={id}
+              className={`services__card reveal d${i + 1}`}
+              role="button"
+              tabIndex={0}
+              aria-label={`Voir le détail : ${title}`}
+              onClick={open}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+              }}
+            >
+              {/* Top color bar */}
+              <div className="services__card-bar" style={{ background: color }} />
 
-            <div className="services__card-body">
-              <span className="services__card-icon" style={{ '--svc-color': color }}>
-                <i className={`uil ${icon}`} />
-              </span>
-              <h3 className="services__card-title">{title}</h3>
-              <p className="services__card-desc">{desc}</p>
+              <div className="services__card-body">
+                <span className="services__card-icon" style={{ '--svc-color': color }}>
+                  <i className={`uil ${icon}`} />
+                </span>
+                <h3 className="services__card-title">{title}</h3>
+                <p className="services__card-desc">{desc}</p>
 
-              <button
-                type="button"
-                className="services__card-btn"
-                onClick={() => setActiveService(servicesData.find(s => s.id === id))}
-              >
-                Voir plus <i className="uil uil-arrow-right" />
-              </button>
+                <span className="services__card-btn" aria-hidden="true">
+                  Voir plus <i className="uil uil-arrow-right" />
+                </span>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       <ServiceModal

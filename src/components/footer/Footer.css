@@ -69,7 +69,6 @@
   background: var(--accent);
   color: #fff;
   border-color: var(--accent);
-  transform: translateY(-4px);
   box-shadow: var(--shadow-accent);
 }
 .footer__copy {

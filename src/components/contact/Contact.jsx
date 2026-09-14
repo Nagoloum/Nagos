@@ -78,23 +78,26 @@ const Contact = () => {
             {contactCards.map(({ icon, title, data, href, label }) => {
               const external = href.startsWith('http');
               return (
-                <div key={title} className="contact__card">
-                  <div className="contact__card-icon-wrap">
+                <a
+                  key={title}
+                  href={href}
+                  {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}
+                  className="contact__card"
+                  aria-label={`${label} : ${data}`}
+                >
+                  <span className="contact__card-icon-wrap">
                     <i className={`uil ${icon} contact__card-icon`} />
-                  </div>
-                  <div className="contact__card-body">
-                    <h3 className="contact__card-title">{title}</h3>
-                    <span className="contact__card-data">{data}</span>
-                    <a
-                      href={href}
-                      {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}
-                      className="contact__button"
-                      aria-label={label}
-                    >
-                      Contacter <i className="uil uil-arrow-right contact__button-icon" />
-                    </a>
-                  </div>
-                </div>
+                  </span>
+                  <span className="contact__card-title">{title}</span>
+                  <span className="contact__card-data">
+                    {data.includes('@')
+                      ? <>{data.split('@')[0]}<wbr />@{data.split('@')[1]}</>
+                      : data}
+                  </span>
+                  <span className="contact__button" aria-hidden="true">
+                    Contacter <i className="uil uil-arrow-right contact__button-icon" />
+                  </span>
+                </a>
               );
             })}
           </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Header.css';
+import ThemeToggle from '../home/ThemeToggle';
 
 const navLinks = [
   { to: '/',         hash: '#home',         icon: 'uil-estate',         label: 'Accueil'     },
@@ -138,14 +139,18 @@ const Header = () => {
             </ul>
           </div>
 
-          <button
-            type="button"
-            className="nav__toggle"
-            onClick={openMenu}
-            aria-label="Ouvrir le menu"
-          >
-            <i className="uil uil-apps" />
-          </button>
+          {/* Desktop : thème après « Blog » · Mobile : thème à côté du bouton menu */}
+          <div className="nav__actions">
+            <ThemeToggle className="nav__theme" />
+            <button
+              type="button"
+              className="nav__toggle"
+              onClick={openMenu}
+              aria-label="Ouvrir le menu"
+            >
+              <i className="uil uil-apps" />
+            </button>
+          </div>
 
         </nav>
       </header>

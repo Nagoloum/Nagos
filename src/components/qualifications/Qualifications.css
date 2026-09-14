@@ -17,5 +17,11 @@
 .qualification__text-left  .qualification__calendar { justify-content:flex-end; }
 .qualification__rounder { display:flex; align-items:center; justify-content:center; width:14px; height:14px; background:var(--accent); border-radius:50%; margin:4px auto 0; flex-shrink:0; box-shadow:0 0 0 4px rgba(var(--accent-rgb),.2); position:relative; z-index:1; }
 .qualification__line { display:block; width:1px; height:100%; background:var(--card-border); margin:0 auto; transform:translateY(-2px); }
-@media screen and (max-width:768px) { .qualification__sections{grid-template-columns:1fr} }
-@media screen and (max-width:576px) { .qualification__button{padding:.6rem 1.1rem;font-size:var(--smaller-font-size)} .qualification__data{column-gap:.75rem} }
+@media screen and (max-width:768px) {
+  .qualification__sections{grid-template-columns:1fr}
+  /* Mobile : onglets en icônes seules */
+  .qualification__label{display:none}
+  .qualification__button{padding:.7rem 1.4rem}
+  .qualification__icon{font-size:1.35rem}
+}
+@media screen and (max-width:576px) { .qualification__data{column-gap:.75rem} }

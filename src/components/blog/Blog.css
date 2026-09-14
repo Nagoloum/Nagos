@@ -285,6 +285,9 @@
 @media screen and (max-width: 576px) {
   .blog__grid { grid-template-columns: 1fr; }
   .blog__modal-body { padding: 1.5rem; }
+  /* Feuille pleine largeur depuis le bas, comme les popups Services */
+  .blog__modal-overlay { align-items: flex-end; padding: 0; }
+  .blog__modal { border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
 }
 @media screen and (max-width: 350px) {
   .blog__grid { grid-template-columns: 1fr; }

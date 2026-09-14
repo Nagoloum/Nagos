@@ -55,15 +55,24 @@ const Qualifications = () => {
       <h2 className="section__title reveal">Mes Qualifications</h2>
       <div className="qualification__container container">
         <div className="qualification__tabs reveal d1">
-          <button className={`qualification__button${tab===1?' qualification__active':''}`} onClick={()=>setTab(1)}>
-            <i className="uil uil-graduation-cap qualification__icon" /> Éducation
-          </button>
-          <button className={`qualification__button${tab===2?' qualification__active':''}`} onClick={()=>setTab(2)}>
-            <i className="uil uil-briefcase-alt qualification__icon" /> Expérience
-          </button>
-          <button className={`qualification__button${tab===3?' qualification__active':''}`} onClick={()=>setTab(3)}>
-            <i className="uil uil-award qualification__icon" /> Certifications
-          </button>
+          {[
+            { id: 1, icon: 'uil-graduation-cap', label: 'Éducation' },
+            { id: 2, icon: 'uil-briefcase-alt',  label: 'Expérience' },
+            { id: 3, icon: 'uil-award',          label: 'Certifications' },
+          ].map(({ id, icon, label }) => (
+            <button
+              key={id}
+              type="button"
+              className={`qualification__button${tab===id?' qualification__active':''}`}
+              onClick={()=>setTab(id)}
+              aria-label={label}
+              aria-pressed={tab===id}
+              title={label}
+            >
+              <i className={`uil ${icon} qualification__icon`} />
+              <span className="qualification__label">{label}</span>
+            </button>
+          ))}
         </div>
         <div className="qualification__sections">
           <div className={`qualification__content${tab===1?' qualification__content-active':''}`}>

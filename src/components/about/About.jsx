@@ -40,19 +40,13 @@ const About = () => (
           Développeur Full-Stack récemment diplômé d'un <strong>Bachelor Développement / Data
           (INGETIS Paris)</strong>, j'intègre le <strong>Mastère Développement Logiciel</strong> à
           la rentrée 2026. Je conçois des applications web complètes, de l'interface au back-end
-          en passant par la gestion des données — React, Next.js, NestJS, PostgreSQL — avec un
+          en passant par la gestion des données, React, Next.js, NestJS, PostgreSQL avec un
           intérêt marqué pour la <strong>Data et l'IA</strong>.
-        </p>
-        <p className="about__description">
-          Après avoir fait mes preuves lors d'un stage front-end chez <strong>DATALIA</strong>{' '}
-          (plateforme immobilière KILICASA) et sur des projets SaaS collaboratifs, je recherche
-          une <strong>alternance de 24 mois dès septembre 2026</strong> pour poursuivre mon
-          évolution technique au sein d'une équipe produit.
         </p>
 
         <div className="about__availability">
           <i className="uil uil-calendar-alt" />
-          <span>Dès septembre 2026 · 3 sem. entreprise / 1 sem. formation · Île-de-France</span>
+          <span>Dès sept. 2026 · 3 sem. entreprise / 1 sem. formation · Île-de-France</span>
         </div>
 
         <a href={CV_tech} download="CV_Daniel_Nagoloum_Talla_Fullstack.pdf" className="button button--flex">

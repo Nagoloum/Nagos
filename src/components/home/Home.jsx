@@ -13,10 +13,6 @@ const Home = () => (
         {/* ── Image + badge ── */}
         <div className="home__img-wrap">
           <div className="home__img" role="img" aria-label="Photo de Daniel Nagoloum" />
-          <div className="home__img-badge">
-            <strong>24</strong>
-            <span>mois d'alternance</span>
-          </div>
         </div>
 
         <Data />

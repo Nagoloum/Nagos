@@ -43,61 +43,121 @@ const contactCards = [
   },
 ];
 
+const LIMITS = { name: 80, email: 254, message: 2000 };
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const EMPTY = { name: "", email: "", message: "" };
+
+const validate = ({ name, email, message }) => {
+  const errors = {};
+  const n = name.trim();
+  const e = email.trim();
+  const m = message.trim();
+
+  if (!n) errors.name = "Indiquez votre nom.";
+  else if (n.length < 2) errors.name = "Le nom doit contenir au moins 2 caractères.";
+
+  if (!e) errors.email = "Indiquez votre adresse email.";
+  else if (!EMAIL_RE.test(e)) errors.email = "Adresse email invalide (ex. nom@domaine.fr).";
+
+  if (!m) errors.message = "Écrivez votre message.";
+  else if (m.length < 10) errors.message = "Votre message doit contenir au moins 10 caractères.";
+
+  return errors;
+};
+
+/* États du bouton d'envoi : contenu + message annoncé sous le bouton */
+const SUBMIT = {
+  idle:    { icon: "uil-message",              text: "Envoyer le message", note: "" },
+  sending: { icon: "uil-spinner-alt",          text: "Envoi en cours…",   note: "" },
+  success: { icon: "uil-check-circle",         text: "Message envoyé",    note: "Merci ! Je vous réponds rapidement." },
+  error:   { icon: "uil-exclamation-triangle", text: "Échec de l'envoi",  note: "L'envoi a échoué. Réessayez dans un instant ou écrivez-moi par email." },
+};
+const RESET_DELAY = 3500;
+
 const formatDate = (d) =>
-  d.toLocaleDateString("fr-FR", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-  }) +
+  d.toLocaleDateString("fr-FR", { day: "2-digit", month: "2-digit", year: "numeric" }) +
   " à " +
   d.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
 
-const Contact = () => {
-  const form = useRef();
-  const [sending, setSending] = useState(false);
-  const [status, setStatus] = useState({ message: "", type: "" });
+const Field = ({ id, label, error, children }) => (
+  <div className={`contact__field${error ? " contact__field--invalid" : ""}`}>
+    <label htmlFor={id} className="contact__label">{label}</label>
+    {children}
+    {/* Espace réservé : l'apparition d'une erreur ne décale pas le formulaire */}
+    <p id={`${id}-error`} className="contact__error">{error}</p>
+  </div>
+);
 
-  /* Masque le toast 4 s après son affichage */
+const Contact = () => {
+  const formRef = useRef(null);
+  const [values, setValues] = useState(EMPTY);
+  const [errors, setErrors] = useState({});
+  const [status, setStatus] = useState("idle");
+
+  /* Retour à l'état normal après une confirmation ou une erreur */
   useEffect(() => {
-    if (!status.message) return;
-    const t = setTimeout(() => setStatus({ message: "", type: "" }), 4000);
+    if (status !== "success" && status !== "error") return;
+    const t = setTimeout(() => setStatus("idle"), RESET_DELAY);
     return () => clearTimeout(t);
   }, [status]);
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    const next = { ...values, [name]: value };
+    setValues(next);
+    /* Les erreurs n'apparaissent qu'au clic sur « Envoyer » ;
+       une erreur affichée disparaît dès que le champ est corrigé */
+    if (errors[name] && !validate(next)[name]) {
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
+  };
+
   const sendEmail = async (e) => {
     e.preventDefault();
-    if (sending) return;
-    const formEl = e.currentTarget;
-    const formData = new FormData(formEl);
+    if (status === "sending") return;
 
-    setSending(true);
+    const found = validate(values);
+    setErrors(found);
+    const firstInvalid = ["name", "email", "message"].find((k) => found[k]);
+    if (firstInvalid) {
+      formRef.current?.querySelector(`[name="${firstInvalid}"]`)?.focus();
+      return;
+    }
+
+    setStatus("sending");
     try {
       await emailjs.send(
         EMAILJS.serviceId,
         EMAILJS.templateId,
         {
-          name: formData.get("name"),
-          email: formData.get("email"),
-          message: formData.get("message"),
+          name: values.name.trim(),
+          email: values.email.trim(),
+          message: values.message.trim(),
           date: formatDate(new Date()),
         },
         EMAILJS.publicKey,
       );
-      setStatus({
-        message: "Message envoyé ✅ Je vous réponds rapidement.",
-        type: "success",
-      });
-      formEl.reset();
+      setValues(EMPTY);
+      setErrors({});
+      setStatus("success");
     } catch (error) {
-      console.error("Erreur lors de l'envoi :", error);
-      setStatus({
-        message: "Échec de l'envoi ❌. Réessayez ou écrivez-moi par email.",
-        type: "error",
-      });
-    } finally {
-      setSending(false);
+      /* Aucun détail technique affiché ; trace uniquement en développement */
+      if (import.meta.env.DEV) console.error("EmailJS :", error);
+      setStatus("error");
     }
   };
+
+  const inputProps = (name) => ({
+    id: `contact-${name}`,
+    name,
+    value: values[name],
+    onChange: handleChange,
+    maxLength: LIMITS[name],
+    "aria-invalid": Boolean(errors[name]),
+    "aria-describedby": `contact-${name}-error`,
+  });
+
+  const submit = SUBMIT[status];
 
   return (
     <section className="contact section" id="contact">
@@ -105,8 +165,7 @@ const Contact = () => {
       <h2 className="section__title reveal">Entrer en contact</h2>
 
       <div className="contact__container container grid">
-
-        <div className="reveal-left d2">
+        <div className="contact__col reveal-left d2">
           <div className="contact__info">
             {contactCards.map(({ icon, title, data, display, href, label, action = "Contacter" }) => {
               const external = href.startsWith("http");
@@ -133,76 +192,61 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="reveal-right d2">
-          <h3 className="contact__title">Envoyez-moi un message</h3>
-          <form ref={form} onSubmit={sendEmail} className="contact__form">
-            <div className="contact__form-div">
-              <label htmlFor="contact-name" className="contact__form-tag">
-                Nom
-              </label>
+        <div className="contact__col reveal-right d2">
+          <form ref={formRef} onSubmit={sendEmail} className="contact__form" noValidate>
+            <Field id="contact-name" label="Nom" error={errors.name}>
               <input
-                id="contact-name"
+                {...inputProps("name")}
                 type="text"
-                name="name"
                 autoComplete="name"
-                className="contact__form-input"
-                placeholder="Votre nom complet…"
-                required
+                className="contact__input"
+                placeholder="Votre nom complet"
               />
-            </div>
+            </Field>
 
-            <div className="contact__form-div">
-              <label htmlFor="contact-email" className="contact__form-tag">
-                Email
-              </label>
+            <Field id="contact-email" label="Email" error={errors.email}>
               <input
-                id="contact-email"
+                {...inputProps("email")}
                 type="email"
-                name="email"
+                inputMode="email"
                 autoComplete="email"
-                className="contact__form-input"
-                placeholder="votre@email.com"
-                required
+                spellCheck={false}
+                className="contact__input"
+                placeholder="nom@domaine.fr"
               />
+            </Field>
+
+            <div className="contact__field-grow">
+              <Field id="contact-message" label="Message" error={errors.message}>
+                <textarea
+                  {...inputProps("message")}
+                  className="contact__input contact__textarea"
+                  placeholder="Présentez votre entreprise, le poste ou votre projet"
+                />
+              </Field>
             </div>
 
-            <div className="contact__form-div contact__form-area">
-              <label htmlFor="contact-message" className="contact__form-tag">
-                Message
-              </label>
-              <textarea
-                id="contact-message"
-                name="message"
-                className="contact__form-input"
-                placeholder="Présentez votre entreprise, le poste ou votre projet…"
-                required
-              />
+            <div className="contact__actions">
+              <button
+                type="submit"
+                className="button button--flex contact__submit"
+                data-state={status}
+                disabled={status !== "idle"}
+                aria-busy={status === "sending"}
+              >
+                {/* key : remonte le contenu à chaque état pour rejouer l'animation d'entrée */}
+                <span key={status} className="contact__submit-content">
+                  <i className={`uil ${submit.icon} contact__submit-icon`} aria-hidden="true" />
+                  {submit.text}
+                </span>
+              </button>
+              <p className="contact__note" data-state={status} role="status" aria-live="polite">
+                {submit.note}
+              </p>
             </div>
-
-            <button
-              type="submit"
-              className="button button--flex"
-              disabled={sending}
-              aria-busy={sending}
-            >
-              {sending ? "Envoi en cours…" : "Envoyer le message"}
-              <i
-                className={`uil ${sending ? "uil-spinner-alt" : "uil-message"} button__icon`}
-              />
-            </button>
           </form>
         </div>
       </div>
-
-      {status.message && (
-        <div
-          className={`toast ${status.type}`}
-          role="status"
-          aria-live="polite"
-        >
-          {status.message}
-        </div>
-      )}
     </section>
   );
 };

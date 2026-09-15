@@ -205,14 +205,14 @@ button { cursor: none; border: none; outline: none; }
 img { max-width: 100%; height: auto; }
 
 /* ─── LAYOUT ────────────────────────────────────────────── */
-.section { padding: 4rem 0 3rem; }
+.section { padding: 1rem 0 3rem; }
 .container { max-width: 1160px; margin-inline: auto; padding-inline: 2rem; }
 .grid { display: grid; gap: 1.5rem; }
 
 /* Standalone pages (Portfolio, Blog, 404): clear the fixed header */
 .page { padding-top: calc(var(--header-height) + 3rem); min-height: 100vh; }
 @media screen and (max-width: 768px) {
-  .page { padding-top: calc(var(--header-height) + 1.5rem); }
+  .page { padding-top: calc(var(--header-height) + 0rem); }
 }
 
 /* ─── SECTION TITLES ────────────────────────────────────── */
@@ -338,9 +338,7 @@ body.dark-theme .active-link { color: var(--accent) !important; }
   .section__title { margin-bottom:2.75rem; } 
 }
 @media screen and (max-width:900px) {
-  /* Navbar flottante en bas : dégager le bas de page */
   html { scroll-padding-top: 1rem; }
-  body { margin:0 0 calc(var(--header-height) + 2rem) 0; }
 }
 @media screen and (max-width:768px) {
   .section { padding:0rem 0 4rem; }

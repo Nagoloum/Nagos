@@ -71,6 +71,12 @@
   border-color: var(--accent);
   box-shadow: var(--shadow-accent);
 }
+/* Navbar flottante en bas (≤ 900px) : le fond du footer descend sous la barre,
+   le contenu garde sa place et reste visible au-dessus d'elle */
+@media screen and (max-width: 900px) {
+  .footer { padding-bottom: calc(2.5rem + var(--header-height) + 2rem); }
+}
+
 .footer__copy {
   font-size: var(--smaller-font-size);
   color: var(--text-color);

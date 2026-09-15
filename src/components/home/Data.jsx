@@ -4,14 +4,13 @@ import { Link } from 'react-router-dom';
 
 const Data = () => (
   <div className="home__data">
-    <span className="home__greeting">
+    <span className="home__greeting" style={{ marginTop: '40px' }}>
       <i className="uil uil-smile" /> Bonjour, je suis
     </span>
     <h1 className="home__title">
       <span className="home__name-accent">Daniel</span> Nagoloum
-
-    </h1><br />
-    <h3 className="home__subtitle">Développeur Full-Stack · Data · IA</h3>
+    </h1>
+    <h3 className="home__subtitle" style={{ marginTop: '15px' }}>Développeur Full-Stack · Data · IA</h3>
     <p className="home__description">
       Diplômé d'un Bachelor Développement / Data (INGETIS Paris), j'intègre le
       Mastère Développement Logiciel. Je conçois des applications web complètes,

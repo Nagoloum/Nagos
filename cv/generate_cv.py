@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Générateur du CV du portfolio — source modifiable.
+"""Générateur du CV du portfolio - source modifiable.
 
 Régénère `src/assets/Mon_CV_Dev.pdf` (nom public conservé, référencé par les
 boutons « Télécharger mon CV » du site). CV complet multi-pages, compatible ATS :
@@ -24,7 +24,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 OUT_PATH = os.path.join(HERE, "..", "src", "assets", "Mon_CV_Dev.pdf")
 
 FULL_NAME = "Daniel Parfait NAGOLOUM TALLA"
-TITLE = "Développeur Full-Stack & Data/IA — Recherche d'alternance 2026"
+TITLE = "Développeur Full-Stack & Data/IA - Recherche d'alternance 2026"
 NAVY = HexColor("#0D2B55")
 BLUE = HexColor("#1A6BC8")
 GRAY = HexColor("#404040")
@@ -52,7 +52,7 @@ BOTTOM = 1.3 * CM
 # ---------------------------------------------------------------- contenu
 
 PROFILE = ("Étudiant en Bachelor Développement / Data à INGETIS (Paris), je développe des applications web "
-           "de bout en bout — React / Next.js, Node.js / NestJS, PostgreSQL — avec des compétences "
+           "de bout en bout (React / Next.js, Node.js / NestJS, PostgreSQL) avec des compétences "
            "complémentaires en Data et intelligence artificielle (Python, pandas, scikit-learn / LightGBM). "
            "Après un stage de développeur front-end chez DATALIA (plateforme immobilière KILICASA), je "
            "recherche une alternance en développement Full-Stack à partir de septembre 2026, au rythme de "
@@ -60,71 +60,71 @@ PROFILE = ("Étudiant en Bachelor Développement / Data à INGETIS (Paris), je d
            "d'études en Mastère Développement Full-Stack à INGETIS (rentrée 2026).")
 
 EXPERIENCES = [
-    {"role": "Stagiaire Développeur Front-End — DATALIA",
-     "dates": "Avril 2026 — stage de 3 mois",
+    {"role": "Stagiaire Développeur Front-End - DATALIA",
+     "dates": "Avril 2026 - stage de 3 mois",
      "bullets": [
          "Développement et intégration d'interfaces web responsives pour la plateforme immobilière "
          "KILICASA : composants réutilisables, amélioration de l'expérience utilisateur.",
          "Intégration d'API, correction d'anomalies d'affichage, collaboration avec l'équipe technique via Git.",
      ]},
-    {"role": "Développeur web — Freelance & projets personnels",
+    {"role": "Développeur web - Freelance & projets personnels",
      "dates": "depuis 2021",
      "bullets": [
          "Sites vitrines React conçus et déployés pour de petites entreprises : Krossty (e-commerce, domaine "
          "personnalisé), Irene Hair Braids (prise de rendez-vous), Wiyorent (location), Creamy Milk Candies.",
      ]},
-    {"role": "Design graphique & motion — BRITECH",
+    {"role": "Design graphique & motion - BRITECH",
      "dates": "2022 – 2025",
      "bullets": [
-         "Création de visuels et d'animations — sensibilité UI/UX mise au service de mes développements.",
+         "Création de visuels et d'animations, une sensibilité UI/UX mise au service de mes développements.",
      ]},
 ]
 
 MAJOR = [
-    {"name": "Allibuy — Marketplace e-commerce internationale multi-vendeurs",
+    {"name": "Allibuy - Marketplace e-commerce internationale multi-vendeurs",
      "kind": "projet personnel, en développement (dépôt privé)",
      "tech": "Next.js 15 · React 19 · NestJS · Prisma · PostgreSQL · Redis / BullMQ · Meilisearch · Expo · Docker",
      "link": None,
      "desc": "Monorepo web, mobile et API : multi-devises, quatre rôles, paiements mobile money, recherche "
              "Meilisearch, temps réel Socket.io, sécurité PostgreSQL avancée (RLS, triggers)."},
-    {"name": "Zolya — Marketplace C2C avec logistique intégrée",
+    {"name": "Zolya - Marketplace C2C avec logistique intégrée",
      "kind": "projet personnel, en développement (dépôt privé)",
      "tech": "Flutter · NestJS · PostgreSQL / Prisma · Redis / BullMQ · Swagger · Docker",
      "link": None,
      "desc": "API sécurisée (OTP haché, Argon2id, refresh tokens rotatifs, RBAC), commandes avec escrow et "
              "registre financier en double entrée, application mobile Flutter (Clean Architecture + BLoC), "
              "tests unitaires et documentation."},
-    {"name": "NexaGold — Trading algorithmique de l'or piloté par IA",
+    {"name": "NexaGold - Trading algorithmique de l'or piloté par IA",
      "kind": "projet personnel, en développement (dépôt privé)",
      "tech": "Python (FastAPI) · pandas · scikit-learn · LightGBM · NestJS · Next.js · PostgreSQL · Redis",
      "link": None,
      "desc": "Moteur de décision Python (données → stratégie → risque → exécution) connecté à un broker par "
              "API, modèles gradient boosting, backtesting sur historique profond, kill switch de sécurité."},
-    {"name": "Cyna — Plateforme SaaS de cybersécurité",
+    {"name": "Cyna - Plateforme SaaS de cybersécurité",
      "kind": "projet académique, en équipe",
      "tech": "React 19 · Redux Toolkit · Stripe · i18next · NestJS · MongoDB · Swagger",
      "link": "github.com/Nagoloum/Frontend_cyna",
      "desc": "Front et API déployés : catalogue, panier et paiement Stripe, tableaux de bord, authentification "
-             "JWT, rate limiting, documentation Swagger — travail en équipe avec Git."},
-    {"name": "Fundatrade — Analyse fondamentale & technique BTC / Or",
+             "JWT, rate limiting, documentation Swagger, travail en équipe avec Git."},
+    {"name": "Fundatrade - Analyse fondamentale & technique BTC / Or",
      "kind": "projet personnel, déployé",
      "tech": "Next.js 15 · React 19 · TypeScript · WebSocket (Kraken) · Recharts",
      "link": "github.com/Nagoloum/Fundatrade",
      "desc": "Prix en temps réel, 8 indicateurs techniques calculés côté serveur, 6 stratégies croisées via un "
              "scoring et suivi de la performance des prédictions générées."},
-    {"name": "Thebarber — Réservation en ligne pour salon de coiffure",
+    {"name": "Thebarber - Réservation en ligne pour salon de coiffure",
      "kind": "projet personnel, déployé",
      "tech": "Next.js · TypeScript · Prisma · PostgreSQL · NextAuth · Zod",
      "link": "github.com/Nagoloum/Thebarber",
      "desc": "Site vitrine avec réservation en ligne et back-office : logique métier séparée, validation des "
              "formulaires, socle RGPD / CNIL."},
-    {"name": "XAUFxBot & SYNFxBot — Robots de trading automatisé",
+    {"name": "XAUFxBot & SYNFxBot - Robots de trading automatisé",
      "kind": "projets personnels, fonctionnels",
      "tech": "Python · pandas / NumPy · MetaTrader 5 · MongoDB · Streamlit · Telegram API",
      "link": "github.com/Nagoloum/XAUFxBot",
      "desc": "Stratégies automatisées sur l'or (XAU/USD) et les indices synthétiques : collecte temps réel, "
              "analyse de volatilité, gestion du risque, alertes Telegram, tableau de bord Streamlit."},
-    {"name": "Findit — Agrégateur d'offres d'alternance (Île-de-France)",
+    {"name": "Findit - Agrégateur d'offres d'alternance (Île-de-France)",
      "kind": "projet personnel, en cours de développement (dépôt privé)",
      "tech": "Next.js · NestJS + Fastify · PostgreSQL · BullMQ · Docker · monorepo pnpm",
      "link": None,
@@ -133,18 +133,18 @@ MAJOR = [
 ]
 
 OTHER = [
-    ("NagosUI — Librairie de composants front-end", "Next.js 16, React 19, Tailwind v4, Turborepo — en développement", "github.com/Nagoloum/NagosUI"),
-    ("Mon Portfolio (nagoloum.vercel.app)", "React 19, Vite, GSAP, Three.js (R3F), EmailJS — en production", "github.com/Nagoloum/Nagos"),
-    ("RememberMe — Application de planification", "React, Express, MongoDB, JWT — déployée", "github.com/Nagoloum/Backend_RememberMe"),
-    ("Task App — Clone Wunderlist / Google Tasks", "Angular 18, NestJS, TypeScript — terminé", "github.com/Nagoloum/libheros-task-app"),
-    ("QR Studio Ad — Générateur de QR codes", "React, react-qr-code, i18next — déployé", "github.com/Nagoloum/QrStudioAd"),
-    ("Urbanet — Site vitrine animé", "React, TypeScript, Framer Motion — déployé", "github.com/Nagoloum/Urbanet"),
-    ("Sites vitrines clients", "Krossty, Irene Hair Braids, Wiyorent, Creamy Milk Candies — React, déployés", "github.com/Nagoloum"),
-    ("SellCatalog — Application mobile + API Python", "Flutter, Python (Flask) — prototype fonctionnel", "github.com/Nagoloum/SellCatalog"),
-    ("Basic Shop App — Application Android", "Kotlin — en développement", "github.com/Nagoloum/Basic-shop-app"),
-    ("Shadow Escape — Jeu d'infiltration", "Unity, C#, ShaderLab — prototype", "github.com/Nagoloum/Shadow_Escape"),
-    ("Shop App — Mini e-commerce", "Java Spring Boot, Vue.js — projet académique", "github.com/Nagoloum/Springboot_project"),
-    ("Gestion Tickets Bus & Feedback", "PHP, MySQL, SCSS — projets académiques", "github.com/Nagoloum/Gestion_tickets_bus"),
+    ("NagosUI - Librairie de composants front-end", "Next.js 16, React 19, Tailwind v4, Turborepo - en développement", "github.com/Nagoloum/NagosUI"),
+    ("Mon Portfolio (nagoloum.vercel.app)", "React 19, Vite, GSAP, Three.js (R3F), EmailJS - en production", "github.com/Nagoloum/Nagos"),
+    ("RememberMe - Application de planification", "React, Express, MongoDB, JWT - déployée", "github.com/Nagoloum/Backend_RememberMe"),
+    ("Task App - Clone Wunderlist / Google Tasks", "Angular 18, NestJS, TypeScript - terminé", "github.com/Nagoloum/libheros-task-app"),
+    ("QR Studio Ad - Générateur de QR codes", "React, react-qr-code, i18next - déployé", "github.com/Nagoloum/QrStudioAd"),
+    ("Urbanet - Site vitrine animé", "React, TypeScript, Framer Motion - déployé", "github.com/Nagoloum/Urbanet"),
+    ("Sites vitrines clients", "Krossty, Irene Hair Braids, Wiyorent, Creamy Milk Candies - React, déployés", "github.com/Nagoloum"),
+    ("SellCatalog - Application mobile + API Python", "Flutter, Python (Flask) - prototype fonctionnel", "github.com/Nagoloum/SellCatalog"),
+    ("Basic Shop App - Application Android", "Kotlin - en développement", "github.com/Nagoloum/Basic-shop-app"),
+    ("Shadow Escape - Jeu d'infiltration", "Unity, C#, ShaderLab - prototype", "github.com/Nagoloum/Shadow_Escape"),
+    ("Shop App - Mini e-commerce", "Java Spring Boot, Vue.js - projet académique", "github.com/Nagoloum/Springboot_project"),
+    ("Gestion Tickets Bus & Feedback", "PHP, MySQL, SCSS - projets académiques", "github.com/Nagoloum/Gestion_tickets_bus"),
 ]
 
 SKILLS = [
@@ -167,11 +167,11 @@ SKILLS = [
 ]
 
 FORMATION = [
-    ("Bachelor Développement / Data — INGETIS, Paris", "2025 – 2026, en cours."),
-    ("Projet de poursuite d'études : Mastère Développement Full-Stack — INGETIS",
-     "rentrée 2026 — alternance 24 mois, rythme 3 semaines en entreprise / 1 semaine de formation."),
-    ("BTS — GTES", "2024 – 2025."),
-    ("Baccalauréat D — Lycée Bilingue de Bafoussam", "2021 – 2022."),
+    ("Bachelor Développement / Data - INGETIS, Paris", "2025 – 2026, en cours."),
+    ("Projet de poursuite d'études : Mastère Développement Full-Stack - INGETIS",
+     "rentrée 2026 - alternance 24 mois, rythme 3 semaines en entreprise / 1 semaine de formation."),
+    ("BTS - GTES", "2024 – 2025."),
+    ("Baccalauréat D - Lycée Bilingue de Bafoussam", "2021 – 2022."),
 ]
 
 # ---------------------------------------------------------------- rendu
@@ -181,8 +181,8 @@ class CV:
         self.buf = BytesIO()
         self.c = pdfcanvas.Canvas(self.buf, pagesize=A4)
         self.c.setAuthor(FULL_NAME)
-        self.c.setTitle(f"CV — {TITLE} — {FULL_NAME}")
-        self.c.setSubject("Candidature en alternance — septembre 2026")
+        self.c.setTitle(f"CV - {TITLE} - {FULL_NAME}")
+        self.c.setSubject("Candidature en alternance - septembre 2026")
         self.c.setCreator(FULL_NAME)
         self.y = TOP
         self.page = 1
@@ -267,7 +267,7 @@ class CV:
         c.setFillColor(BLUE)
         c.drawString(LEFT, self.y, TITLE)
         self.y -= 13
-        self.rich(self.toks("Paris — Île-de-France · 06 25 83 90 07 ·", FR, 9, GRAY)
+        self.rich(self.toks("Paris - Île-de-France · 06 25 83 90 07 ·", FR, 9, GRAY)
                   + self.toks("nagoloumtalladanielparfait@gmail.com", FR, 9, BLUE,
                               "mailto:nagoloumtalladanielparfait@gmail.com"), after=1)
         self.rich(self.toks("linkedin.com/in/nagoloum", FR, 9, BLUE, "https://www.linkedin.com/in/nagoloum")
@@ -294,7 +294,7 @@ class CV:
             self.need(40)
             self.y -= 3
             self.rich(self.toks(pr["name"], FB, 10.5, NAVY)
-                      + self.toks("— " + pr["kind"], FI, 9.5, GRAY), after=1)
+                      + self.toks("- " + pr["kind"], FI, 9.5, GRAY), after=1)
             tk = self.toks(pr["tech"], FI, 9, GRAY)
             if pr["link"]:
                 tk += self.toks("·", FR, 9, GRAY) + self.toks(pr["link"], FR, 9, BLUE, pr["link"])
@@ -318,10 +318,10 @@ class CV:
         self.head("Formation")
         for main, detail in FORMATION:
             self.need(14)
-            self.rich(self.toks(main, FB, 10, BLACK) + self.toks("— " + detail, FR, 10, BLACK), after=1.5)
+            self.rich(self.toks(main, FB, 10, BLACK) + self.toks("- " + detail, FR, 10, BLACK), after=1.5)
 
         self.head("Certifications")
-        self.rich(self.toks("Anthropic — Claude Code", FR, 10, BLACK), after=1)
+        self.rich(self.toks("Anthropic - Claude Code", FR, 10, BLACK), after=1)
 
         self.head("Langues")
         self.rich(self.toks("Français : langue maternelle · Anglais : intermédiaire (B2)", FR, 10, BLACK), after=1)

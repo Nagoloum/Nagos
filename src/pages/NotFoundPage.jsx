@@ -12,7 +12,7 @@ const NotFoundPage = () => {
   const { pathname } = useLocation();
 
   usePageMeta({
-    title: 'Page introuvable (404) — Daniel Nagoloum Talla',
+    title: 'Page introuvable (404) - Daniel Nagoloum Talla',
     description: "Cette page n'existe pas ou a été déplacée.",
     path: pathname,
     noindex: true,

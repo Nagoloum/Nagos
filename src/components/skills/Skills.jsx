@@ -17,7 +17,7 @@ const categories = [
   { icon: 'uil-sitemap', title: 'Méthodes & principes',
     items: ['SOLID', 'Clean Code', 'Clean Architecture', 'Transactions ACID', 'Agile / Scrum', 'Revues de code (Git)', 'Jira / Notion'] },
   { icon: 'uil-globe', title: 'Langues',
-    items: ['Français — langue maternelle', 'Anglais — intermédiaire (B1)'] },
+    items: ['Français : langue maternelle', 'Anglais : intermédiaire (B1)'] },
 ];
 
 const Skills = () => (

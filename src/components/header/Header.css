@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════════════════════
-   HEADER — barre flottante « glass »
+   HEADER - barre flottante « glass »
    Desktop : en haut · Mobile (≤ 900px) : en bas + menu en feuille
    Le flou est porté par ::before : un backdrop-filter posé sur
    .header deviendrait le bloc conteneur du menu mobile (fixed).

@@ -1,7 +1,7 @@
-# Portfolio — Daniel Nagoloum Talla
+# Portfolio - Daniel Nagoloum Talla
 
 Portfolio personnel de **Daniel Nagoloum Talla**, développeur Full-Stack · Data · IA.
-Diplômé d'un Bachelor Développement / Data (INGETIS Paris), en Mastère Développement Logiciel —
+Diplômé d'un Bachelor Développement / Data (INGETIS Paris), en Mastère Développement Logiciel,
 disponible en **alternance de 24 mois dès septembre 2026** (3 semaines entreprise / 1 semaine formation).
 
 ---
@@ -11,11 +11,11 @@ disponible en **alternance de 24 mois dès septembre 2026** (3 semaines entrepri
 | Couche | Technologie |
 |---|---|
 | Framework | React 19 + Vite 7 + react-router-dom 7 |
-| 3D / animation | Three.js (sphère de particules) + GSAP — chargés à la demande |
+| 3D / animation | Three.js (sphère de particules) + GSAP, chargés à la demande |
 | Styles | CSS Variables (design tokens) + un fichier CSS par composant |
 | Icons | Unicons Line + Boxicons (CDN) |
 | Email | EmailJS (`@emailjs/browser`) |
-| Fonts | Syne (titres) · DM Sans (texte) — Google Fonts |
+| Fonts | Syne (titres) · DM Sans (texte) via Google Fonts |
 | Hébergement | Vercel (`vercel.json` : réécriture SPA) |
 
 ---

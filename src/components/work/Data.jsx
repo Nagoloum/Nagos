@@ -12,7 +12,7 @@ import shop from '../../assets/shop.webp';
 import shadowescape from '../../assets/shadowescape.webp';
 
 /*
-  Données projets — vérifiées sur les dépôts GitHub (juillet 2026).
+  Données projets, vérifiées sur les dépôts GitHub (juillet 2026).
   `featured` place le projet en tête de grille.
   `github: null` = dépôt privé (aucun lien public possible).
 */
@@ -167,7 +167,7 @@ export const projectsData = [
     status: 'Déployé',
     link: 'https://Wiyorent.vercel.app/',
     github: 'https://github.com/Nagoloum/wiyorent',
-    desc: 'Plateforme vitrine de location et réservation en ligne — recherche avancée, fiches propriétés et système de réservation.',
+    desc: 'Plateforme vitrine de location et réservation en ligne : recherche avancée, fiches propriétés et système de réservation.',
     tech: ['React', 'i18next', 'API WhatsApp', 'Vercel'],
   },
   {
@@ -178,7 +178,7 @@ export const projectsData = [
     status: 'Déployé',
     link: 'https://irene-hair-braids.vercel.app/',
     github: 'https://github.com/Nagoloum/irene-hair-braids',
-    desc: 'Site de prise de rendez-vous pour un salon de coiffure — design moderne, formulaire de contact.',
+    desc: 'Site de prise de rendez-vous pour un salon de coiffure : design moderne, formulaire de contact.',
     tech: ['React', 'i18next', 'Vercel'],
   },
   {
@@ -189,7 +189,7 @@ export const projectsData = [
     status: 'Déployé',
     link: 'https://krossty-chips.com/',
     github: 'https://github.com/Nagoloum/Krossty',
-    desc: 'Site de vente de chips — vitrine produits, panier et contact via WhatsApp, domaine personnalisé.',
+    desc: 'Site de vente de chips : vitrine produits, panier et contact via WhatsApp, domaine personnalisé.',
     tech: ['React', 'API WhatsApp', 'Vercel'],
   },
   {
@@ -200,7 +200,7 @@ export const projectsData = [
     status: 'Déployé',
     link: 'https://creamy-milk-candies.vercel.app/',
     github: 'https://github.com/Nagoloum/Creamy-milk-candies',
-    desc: 'Site de vente de bonbons premium — galerie produits et contact via WhatsApp.',
+    desc: 'Site de vente de bonbons premium : galerie produits et contact via WhatsApp.',
     tech: ['React', 'i18next', 'EmailJS', 'Vercel'],
   },
   {
@@ -211,7 +211,7 @@ export const projectsData = [
     status: 'Déployé',
     link: 'https://qrstudio-lovat.vercel.app/',
     github: 'https://github.com/Nagoloum/QrStudioAd',
-    desc: "Générateur de codes QR personnalisés — création et export au format image, interface multilingue.",
+    desc: "Générateur de codes QR personnalisés : création et export au format image, interface multilingue.",
     tech: ['React', 'react-qr-code', 'i18next', 'Vercel'],
   },
   {
@@ -222,7 +222,7 @@ export const projectsData = [
     status: 'Déployé',
     link: 'https://urbanet-two.vercel.app',
     github: 'https://github.com/Nagoloum/Urbanet',
-    desc: 'Site vitrine animé — navigation fluide et animations Framer Motion.',
+    desc: 'Site vitrine animé : navigation fluide et animations Framer Motion.',
     tech: ['React', 'TypeScript', 'Framer Motion', 'Vercel'],
   },
   {
@@ -255,7 +255,7 @@ export const projectsData = [
     status: 'En développement',
     link: null,
     github: 'https://github.com/Nagoloum/Basic-shop-app',
-    desc: "Application boutique Android en Kotlin — projet d'apprentissage du développement mobile natif.",
+    desc: "Application boutique Android en Kotlin, projet d'apprentissage du développement mobile natif.",
     tech: ['Kotlin', 'Android'],
   },
   {
@@ -288,7 +288,7 @@ export const projectsData = [
     status: 'Déployé',
     link: 'https://projet-citations-dusky.vercel.app/',
     github: 'https://github.com/Nagoloum/projet-citations',
-    desc: 'Générateur de citations aléatoires — exercice JavaScript vanilla.',
+    desc: 'Générateur de citations aléatoires, exercice JavaScript vanilla.',
     tech: ['HTML5', 'CSS3', 'JavaScript'],
   },
   {

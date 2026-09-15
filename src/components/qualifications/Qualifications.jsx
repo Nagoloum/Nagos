@@ -3,15 +3,15 @@ import './Qualifications.css';
 
 const education = [
   { title: 'Mastère Développement Logiciel',
-    sub: 'INGETIS — alternance 24 mois',       dates: 'Rentrée 2026',  side: 'left'  },
-  { title: 'Bachelor Développement / Data', sub: 'INGETIS, Paris — diplômé', dates: '2025 – 2026', side: 'right' },
+    sub: 'INGETIS - alternance 24 mois',       dates: 'Rentrée 2026',  side: 'left'  },
+  { title: 'Bachelor Développement / Data', sub: 'INGETIS, Paris (diplômé)', dates: '2025 – 2026', side: 'right' },
   { title: 'BTS (Bac+2)',         sub: 'GTES',                        dates: '2024 – 2025', side: 'left'  },
   { title: 'Baccalauréat D',      sub: 'Lycée Bilingue Bafoussam',    dates: '2021 – 2022', side: 'right' },
   { title: 'Probatoire D',        sub: 'Lycée Bilingue Bafoussam',    dates: '2020 – 2021', side: 'left'  },
 ];
 const experience = [
   { title: 'Stagiaire Développeur Front-End',
-    sub: 'DATALIA — plateforme immobilière KILICASA',
+    sub: 'DATALIA - plateforme immobilière KILICASA',
     dates: 'Avril – juin 2026 (3 mois)', side: 'left' },
   { title: 'Projets Full-Stack',
     sub: 'Allibuy · Zolya · Cyna (SaaS en équipe)', dates: '', side: 'right' },

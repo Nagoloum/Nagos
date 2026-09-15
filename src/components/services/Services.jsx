@@ -10,12 +10,12 @@ const servicesData = [
     color: '#7B61FF',
     title: 'Développement Web Full Stack',
     desc: 'Applications web complètes, de l\'interface utilisateur à l\'API, déploiement inclus.',
-    modalDesc: 'Une trentaine de projets personnels et académiques — marketplaces, SaaS, dashboards — et un stage front-end chez DATALIA. Je prends en charge tout le cycle : interface, API, données et déploiement.',
+    modalDesc: 'Une trentaine de projets personnels et académiques (marketplaces, SaaS, dashboards) et un stage front-end chez DATALIA. Je prends en charge tout le cycle : interface, API, données et déploiement.',
     items: [
       { icon: 'uil-react',    text: 'Interfaces modernes et réactives avec React, Next.js, TypeScript.' },
       { icon: 'uil-server',   text: 'API REST robustes et documentées (Swagger) avec NestJS, Express, Fastify.' },
-      { icon: 'uil-database', text: 'Bases de données SQL et NoSQL : PostgreSQL, MySQL, MongoDB, Redis — Prisma, Drizzle.' },
-      { icon: 'uil-rocket',   text: 'Docker, Vercel, Render — code SOLID, Clean Architecture et revues de code.' },
+      { icon: 'uil-database', text: 'Bases de données SQL et NoSQL : PostgreSQL, MySQL, MongoDB, Redis, avec Prisma et Drizzle.' },
+      { icon: 'uil-rocket',   text: 'Déploiement avec Docker, Vercel et Render ; code SOLID, Clean Architecture et revues de code.' },
     ],
   },
   {

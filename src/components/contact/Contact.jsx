@@ -14,13 +14,14 @@ const contactCards = [
     icon: "uil-envelope",
     title: "Email",
     data: "nagoloumtalladanielparfait@gmail.com",
+    display: "nagoloum***@gmail.com",
     href: "mailto:nagoloumtalladanielparfait@gmail.com",
     label: "Écrire un email",
   },
   {
     icon: "uil-phone",
     title: "Téléphone",
-    data: "06 25 83 90 07",
+    data: "+33 6 25 83 90 07",
     href: "tel:+33625839007",
     label: "Appeler",
   },
@@ -30,6 +31,7 @@ const contactCards = [
     data: "linkedin.com/in/nagoloum",
     href: "https://www.linkedin.com/in/nagoloum",
     label: "Voir le profil LinkedIn",
+    action: "Visiter",
   },
   {
     icon: "uil-github-alt",
@@ -37,6 +39,7 @@ const contactCards = [
     data: "github.com/Nagoloum",
     href: "https://github.com/Nagoloum",
     label: "Voir le profil GitHub",
+    action: "Visiter",
   },
 ];
 
@@ -105,7 +108,7 @@ const Contact = () => {
 
         <div className="reveal-left d2">
           <div className="contact__info">
-            {contactCards.map(({ icon, title, data, href, label }) => {
+            {contactCards.map(({ icon, title, data, display, href, label, action = "Contacter" }) => {
               const external = href.startsWith("http");
               return (
                 <a
@@ -119,18 +122,9 @@ const Contact = () => {
                     <i className={`uil ${icon} contact__card-icon`} />
                   </span>
                   <span className="contact__card-title">{title}</span>
-                  <span className="contact__card-data">
-                    {data.includes("@") ? (
-                      <>
-                        {data.split("@")[0]}
-                        <wbr />@{data.split("@")[1]}
-                      </>
-                    ) : (
-                      data
-                    )}
-                  </span>
+                  <span className="contact__card-data">{display || data}</span>
                   <span className="contact__button" aria-hidden="true">
-                    Contacter{" "}
+                    {action}{" "}
                     <i className="uil uil-arrow-right contact__button-icon" />
                   </span>
                 </a>

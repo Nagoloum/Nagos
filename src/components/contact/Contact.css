@@ -11,7 +11,7 @@
 .contact__card-icon { font-size:1.4rem; color:var(--accent); transition:color var(--t-fast); }
 .contact__card:hover .contact__card-icon { color:#fff; }
 .contact__card-title { font-family:var(--heading-font); font-size:var(--normal-font-size); font-weight:var(--font-bold); color:var(--title-color); }
-.contact__card-data { display:block; max-width:100%; font-size:var(--smaller-font-size); color:var(--text-color); overflow-wrap:anywhere; line-height:1.4; }
+.contact__card-data { display:block; max-width:100%; font-size:var(--smaller-font-size); color:var(--text-color); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; line-height:1.4; }
 .contact__button { display:inline-flex; align-items:center; gap:.25rem; margin-top:.35rem; font-size:var(--smaller-font-size); font-weight:var(--font-semi-bold); color:var(--accent); transition:color var(--t-fast); }
 .contact__card:hover .contact__button { color:var(--accent-dark); }
 .contact__form { width:100%; }
